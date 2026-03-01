@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" class="h-full bg-zinc-950 text-zinc-100">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research & Execution Suite</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+</head>
+<body class="h-full font-mono">
+  <div class="max-w-7xl mx-auto p-4 space-y-4">
+    <div class="border border-red-500 bg-red-950/50 p-3 rounded">
+      <p class="text-red-200 font-bold">⚠ COMPLIANCE WARNING: Prediction markets are risky. No strategy here guarantees profit. You can lose money.</p>
+    </div>
+
+    <h1 class="text-2xl font-bold">Polymarket + Kalshi Research & Execution Suite</h1>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="overview"></div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <section class="border border-zinc-700 rounded p-3">
+        <h2 class="font-bold mb-2">Strategy Toggles</h2>
+        <div id="toggles"></div>
+      </section>
+
+      <section class="border border-zinc-700 rounded p-3">
+        <h2 class="font-bold mb-2">Live Mode Confirmation Phrase</h2>
+        <p class="text-sm text-zinc-400">Required phrase:</p>
+        <code class="text-amber-300">{{ confirm_phrase }}</code>
+      </section>
+    </div>
+
+    <section class="border border-zinc-700 rounded p-3">
+      <h2 class="font-bold mb-2">Order Blotter</h2>
+      <div id="orders" class="text-xs overflow-auto max-h-64"></div>
+    </section>
+
+    <section class="border border-zinc-700 rounded p-3">
+      <h2 class="font-bold mb-2">Fill Stream</h2>
+      <div id="fills" class="text-xs overflow-auto max-h-64"></div>
+    </section>
+
+    <section class="border border-zinc-700 rounded p-3">
+      <h2 class="font-bold mb-2">Guardrail Status</h2>
+      <pre id="guardrails" class="text-xs"></pre>
+    </section>
+
+    <section class="border border-zinc-700 rounded p-3">
+      <div class="flex justify-between"><h2 class="font-bold mb-2">Journal Viewer</h2><a href="/api/journal.csv" class="text-blue-300 underline">Export CSV</a></div>
+      <pre id="journal" class="text-xs whitespace-pre-wrap max-h-64 overflow-auto"></pre>
+    </section>
+  </div>
+
+<script>
+function card(k, v) {
+  return `<div class="border border-zinc-700 rounded p-3"><div class="text-zinc-400 text-xs">${k}</div><div class="text-lg">${v}</div></div>`
+}
+
+async function refreshFallback() {
+  const res = await fetch('/api/snapshot');
+  render(await res.json());
+  const replay = await fetch('/api/replay');
+  const replayData = await replay.json();
+  document.getElementById('journal').textContent = JSON.stringify(replayData.events.slice(-20), null, 2);
+}
+
+async function toggleStrategy(name, enabled) {
+  const body = new FormData();
+  body.append('strategy', name);
+  body.append('enabled', enabled ? 'true':'false');
+  await fetch('/api/toggle', {method:'POST', body});
+}
+
+function render(data) {
+  document.getElementById('overview').innerHTML = [
+    card('Mode', data.mode),
+    card('Balance', data.balance.toFixed(2)),
+    card('Unrealized PnL', data.unrealized_pnl.toFixed(2)),
+    card('Realized PnL', data.realized_pnl.toFixed(2)),
+    card('Latency (ms)', data.latency_ms),
+    card('Feed Health', data.feed_health)
+  ].join('');
+
+  document.getElementById('toggles').innerHTML = Object.entries(data.toggles).map(([k,v]) =>
+    `<label class="flex gap-2 my-1"><input type="checkbox" ${v?'checked':''} onchange="toggleStrategy('${k}', this.checked)"> ${k}</label>`).join('');
+
+  document.getElementById('orders').textContent = JSON.stringify(data.orders, null, 2);
+  document.getElementById('fills').textContent = JSON.stringify(data.fills, null, 2);
+  document.getElementById('guardrails').textContent = JSON.stringify(data.guardrails, null, 2);
+}
+
+try {
+  const ws = new WebSocket(`ws://${location.host}/ws`);
+  ws.onmessage = (msg) => render(JSON.parse(msg.data).snapshot);
+  ws.onopen = () => console.log('ws connected');
+  ws.onerror = () => setInterval(refreshFallback, 2000);
+} catch (_) {
+  setInterval(refreshFallback, 2000);
+}
+setInterval(refreshFallback, 5000);
+refreshFallback();
+</script>
+</body>
+</html>
