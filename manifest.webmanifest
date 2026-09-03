@@ -1,0 +1,13 @@
+{
+  "id":"./",
+  "name":"Lisbon Wander Navigator",
+  "short_name":"Lisbon Wander",
+  "description":"Offline-first Lisbon walking navigator with GPS waypoint guidance.",
+  "start_url":"./index.html",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#07131c",
+  "theme_color":"#07131c",
+  "orientation":"portrait-primary",
+  "categories":["travel","navigation","fitness"]
+}
