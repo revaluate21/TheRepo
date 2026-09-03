@@ -8,6 +8,7 @@
     document.head.appendChild(script);
   });
   try{
+    await load('./nightlife.js');
     await load('./app-core.js');
     await load('./app-ui.js');
   }catch(error){
