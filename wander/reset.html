@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ff5c7a"><title>Reset Wander</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 90% 0,#c8f4ff,transparent 40%),#fffdf7;color:#161b35;font:700 16px system-ui}.box{width:min(520px,calc(100% - 28px));background:#fff;border-radius:28px;padding:25px;box-shadow:0 20px 60px rgba(22,27,53,.16);text-align:center}.logo{width:64px;height:64px;border-radius:22px;margin:auto;display:grid;place-items:center;background:linear-gradient(135deg,#ff5c7a,#ff38a7,#7657ff);color:#fff;font-size:34px;font-weight:1000}h1{font-size:1.8rem;margin:15px 0 7px}p{color:#68708b;line-height:1.45}.bar{height:10px;border-radius:999px;background:#edf0f7;overflow:hidden;margin:20px 0}.bar i{display:block;height:100%;width:20%;background:linear-gradient(90deg,#68d8ff,#7657ff,#ff38a7);animation:go 1.8s ease-in-out infinite}@keyframes go{0%{transform:translateX(-100%)}100%{transform:translateX(500%)}}a{display:block;border-radius:17px;padding:14px;background:#161b35;color:#fff;text-decoration:none;margin-top:16px}</style></head>
+<body><main class="box"><div class="logo">W</div><h1>Giving Wander a clean start</h1><p id="status">Removing the older app workers and caches that can cause the endless “installing” state.</p><div class="bar"><i></i></div><a id="manual" href="./?clean=2.1">Open Wander manually</a></main>
+<script>
+(async()=>{
+  const status=document.getElementById('status');
+  try{
+    if('serviceWorker' in navigator){const regs=await navigator.serviceWorker.getRegistrations();await Promise.all(regs.filter(r=>r.scope.includes('/TheRepo/')).map(r=>r.unregister()));}
+    if('caches' in window){const keys=await caches.keys();await Promise.all(keys.filter(k=>/wander|lisbon-quest/i.test(k)).map(k=>caches.delete(k)));}
+    for(let i=localStorage.length-1;i>=0;i--){const key=localStorage.key(i);if(key&&/^lq-|^wander-install/i.test(key))localStorage.removeItem(key);}
+    status.textContent='Clean reset complete. Opening the repaired app…';
+  }catch(error){status.textContent='Opening Wander with a fresh URL. You can still use the manual button below.';}
+  const url=new URL('./',location.href);url.searchParams.set('clean','2.1');url.searchParams.set('_',Date.now());
+  setTimeout(()=>location.replace(url.href),900);
+})();
+</script></body></html>
