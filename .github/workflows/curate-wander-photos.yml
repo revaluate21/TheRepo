@@ -1,0 +1,53 @@
+name: Curate Wander landmark photographs
+
+on:
+  push:
+    branches: [gh-pages]
+    paths:
+      - '.github/workflows/curate-wander-photos.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wander-curated-photos
+  cancel-in-progress: false
+
+jobs:
+  curate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - name: Replace seven weak crops with landmark-defining photographs
+        run: |
+          python tools/replace_selected_wander_photos.py --asset bica.jpg
+          python tools/replace_selected_wander_photos.py --asset parque.jpg
+          python tools/replace_selected_wander_photos.py --asset praca.jpg
+          python tools/replace_selected_wander_photos.py --asset rossio.jpg
+          python tools/replace_selected_wander_photos.py --asset santa-luzia.jpg
+          python tools/replace_selected_wander_photos.py --asset se.jpg
+          python tools/replace_selected_wander_photos.py --asset senhora.jpg
+      - name: Revalidate complete photo library and rebuild contact sheet
+        run: python tools/build_wander_photos.py --finalise
+      - name: Commit curated photograph set
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/photos wander/photo-credits.json wander/photo-credits.html wander/photo-status.json
+          git commit -m 'Curate Wander photos for clear landmark recognition'
+          git pull --rebase origin gh-pages
+          git push origin HEAD:gh-pages
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wander-curated-photo-contact-sheet
+          path: /tmp/wander-real-photo-contact-sheet.jpg
+          retention-days: 7
