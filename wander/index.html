@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ff5c7a">
+  <meta name="description" content="Photo-first Portugal walking routes with Google Maps voice navigation.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css?v=2.0.0">
+  <title>Wander Portugal</title>
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <button class="brand" id="homeBtn" aria-label="Home"><span>W</span><b>WANDER</b></button>
+    <div class="header-actions">
+      <button id="weatherButton" class="weather-button" aria-label="Weather"><span id="weatherIcon">🌤️</span><b id="weatherTemp">—°</b></button>
+      <button id="installButton" class="icon-button" aria-label="Install Wander">＋</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="homeView" class="view">
+      <div class="hero-copy">
+        <p id="contextLine" class="eyebrow">PORTUGAL · RIGHT NOW</p>
+        <h1>Go somewhere<br><em>beautiful.</em></h1>
+        <p id="weatherLine" class="weather-line">Showing instant time-based picks while weather loads.</p>
+      </div>
+
+      <section class="section now-section">
+        <div class="section-title"><div><h2>Best right now</h2><p>Six real options. Tap one and go.</p></div><button id="locateButton" class="link-button">use my location ◎</button></div>
+        <div id="nowGrid" class="now-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-title"><div><h2>Pick a feeling</h2><p>No restaurants. Just places and atmosphere.</p></div></div>
+        <div id="moodRow" class="mood-row">
+          <button class="mood active" data-mood="all">✨ All</button>
+          <button class="mood" data-mood="mindblown">🤯 Mindblown</button>
+          <button class="mood" data-mood="peaceful">🌿 Peaceful</button>
+          <button class="mood" data-mood="cool">🌊 Breeze</button>
+          <button class="mood" data-mood="night">🌙 Night</button>
+          <button class="mood" data-mood="long">🦵 Long</button>
+          <button class="mood" data-mood="trip">🚆 Day trip</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title"><div><h2>Your next five days</h2><p id="planStatus">A varied Portugal plan, adjusted for weather.</p></div><button id="refreshButton" class="link-button">refresh ↻</button></div>
+        <div id="fiveDayGrid" class="five-day-grid"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-title"><div><h2>Every walking world</h2><p id="routeCount"></p></div></div>
+        <div id="allGrid" class="all-grid"></div>
+      </section>
+
+      <section class="trust-card">
+        <b>Built to stay out of your way.</b>
+        <span>Photos are local. Google Maps handles every street turn. Wander never trusts a phone compass.</span>
+      </section>
+    </section>
+
+    <section id="routeView" class="view hidden">
+      <div class="route-header">
+        <button id="backButton" class="round-button" aria-label="Back">←</button>
+        <div><p id="routeCity" class="eyebrow"></p><h2 id="routeTitle"></h2></div>
+        <button id="routeInfoButton" class="round-button" aria-label="Route information">i</button>
+      </div>
+
+      <article class="stop-card">
+        <div class="stop-photo-wrap">
+          <img id="stopPhoto" class="stable-photo" alt="Current landmark">
+          <div id="stopFallback" class="photo-fallback">📍</div>
+          <div class="stop-overlay"></div>
+          <div class="stop-top"><span id="stopProgress" class="pill">1 / 8</span><span id="gpsPill" class="pill">GPS optional</span></div>
+          <div class="stop-caption"><p>NEXT</p><h1 id="stopName"></h1><span id="stopClue"></span></div>
+        </div>
+        <div class="direction-panel">
+          <div class="distance-copy"><strong id="distanceText">Ready</strong><span id="distanceSub">Google Maps will speak every turn</span></div>
+          <button id="goButton" class="go-voice"><span class="go-arrow">➤</span><span><b>GO WITH GOOGLE MAPS</b><small>start walking navigation · then put the phone down</small></span></button>
+          <div class="stop-controls"><button id="previousButton">←</button><button id="arrivedButton">I'M HERE ✓</button><button id="nextButton">→</button></div>
+        </div>
+      </article>
+
+      <section class="route-quick">
+        <button id="nearestButton"><span>◎</span><b>JOIN NEAREST</b></button>
+        <button id="saveRouteButton"><span>↓</span><b>SAVE PHOTOS</b></button>
+        <button id="overviewButton"><span>☰</span><b>ALL STOPS</b></button>
+      </section>
+
+      <section id="routeOverview" class="section route-overview hidden">
+        <div class="section-title"><div><h2>Route</h2><p id="routeMeta"></p></div></div>
+        <div id="stopList" class="stop-list"></div>
+      </section>
+
+      <section class="section transport-section">
+        <div class="section-title"><div><h2>Get there / get home</h2><p id="transportText"></p></div></div>
+        <div class="transport-grid">
+          <button id="startButton"><span>🚆</span><b>TO START</b><small>live public transport</small></button>
+          <button id="homeButton"><span>🏠</span><b>HOME</b><small>to 2660-213</small></button>
+          <a id="bookButton" class="hidden" target="_blank" rel="noopener"><span>🎟️</span><b>CHECK / BOOK</b><small>official website</small></a>
+        </div>
+      </section>
+    </section>
+  </main>
+</div>
+
+<div id="sheet" class="sheet-backdrop hidden" role="dialog" aria-modal="true">
+  <div class="sheet">
+    <button id="closeSheet" class="sheet-close" aria-label="Close">×</button>
+    <div id="sheetContent"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="./data.js?v=2.0.0"></script>
+<script src="./app.js?v=2.0.0"></script>
+</body>
+</html>
