@@ -1,8 +1,9 @@
-const VERSION='wander-v2.0.2';
+const VERSION='wander-v2.1.0';
 const SHELL=`${VERSION}-shell`;
 const PHOTOS=`${VERSION}-photos`;
 const CORE=[
-  './','./index.html','./styles.css?v=2.0.1','./data.js?v=2.0.1','./stability.js?v=2.0.1','./app.js?v=2.0.1',
+  './','./index.html','./reset.html','./styles.css?v=2.1.0','./now-grid.css?v=2.1.0',
+  './data.js?v=2.1.0','./stability.js?v=2.1.0','./app.js?v=2.1.0',
   './manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png'
 ];
 
