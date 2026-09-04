@@ -3,7 +3,7 @@
   "name":"Lisbon Quest Map",
   "short_name":"Lisbon Quest",
   "description":"Playful Lisbon walking quest with live GPS, real landmark photos, nightlife choices and detailed late transport.",
-  "start_url":"./?app=v10",
+  "start_url":"./?app=v11",
   "scope":"./",
   "display":"standalone",
   "categories":["travel","navigation","fitness"],
