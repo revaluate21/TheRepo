@@ -26,17 +26,25 @@
   }
 
   function upgrade(root=document){
-    root.querySelectorAll?.('#nowGrid img').forEach((img,index)=>makeReliable(img,index<2));
-    root.querySelectorAll?.('#stopPhoto, .day-card img, .world-card img, .stop-thumb img').forEach(img=>makeReliable(img,false));
+    const images=[];
+    if(root instanceof HTMLImageElement)images.push(root);
+    root.querySelectorAll?.('img').forEach(img=>images.push(img));
+    images.forEach(img=>{
+      const nowGrid=img.closest?.('#nowGrid');
+      let high=false;
+      if(nowGrid){
+        const list=[...nowGrid.querySelectorAll('img')];
+        high=list.indexOf(img)<2;
+      }
+      makeReliable(img,high);
+    });
   }
 
   upgrade();
   const observer=new MutationObserver(records=>{
     for(const record of records){
       for(const node of record.addedNodes){
-        if(node.nodeType!==1)continue;
-        if(node.matches?.('img'))makeReliable(node,node.closest?.('#nowGrid')!==null);
-        upgrade(node);
+        if(node.nodeType===1)upgrade(node);
       }
     }
   });
