@@ -1,0 +1,71 @@
+      intro:'Arcade detour for the community-listed four-arrow Dancing Stage cabinet.',day:'A useful indoor break after it opens.',night:'Potentially open late; verify the cabinet before making it the whole mission.',query:'Tropical Time Avenida Almirante Reis 93A Lisboa',hours:{type:'community',text:'Verify current opening and cabinet availability.',source:'https://zenius-i-vanisher.com/v5.2/arcade.php?id=8795&section=summary'}}
+  },
+  routes: [
+    {id:'day-replay',world:'day',name:'☀️ Daylight replay · full city',duration:'5–7 hours',description:'See the route properly in colour, add interiors, then finish by the river.',stops:['parque','estufa','marques','saopedro','carmo','rossio','torel','intendente','monte','senhora','graca','castelo','santaluzia','aljube','se','bicos','praca','ribeira','santacatarina','bica','pink','cais']},
+    {id:'heat-smart',world:'day',name:'🌿 Heat-smart day · shade + interiors',duration:'3–5 hours',description:'Reduce exposed hills and use Estufa, Carmo and Aljube as cooler stops.',stops:['parque','estufa','marques','saopedro','carmo','rossio','aljube','se','bicos','praca','ribeira','cais']},
+    {id:'day-compact',world:'day',name:'🏛️ Day compact · best centre',duration:'3–4 hours',description:'A focused daylight route from Rossio through ruins, Alfama and the Tagus.',stops:['rossio','carmo','saopedro','intendente','senhora','graca','castelo','santaluzia','aljube','se','bicos','praca','ribeira','cais']},
+    {id:'night-bright',world:'night',name:'🌙 Night · busy and bright',duration:'2–3 hours',description:'A more populated central spine: Avenida, Rossio, Baixa, river and Cais.',stops:['marques','saopedro','carmo','rossio','praca','ribeira','santacatarina','bica','pink','cais']},
+    {id:'night-hills',world:'night',name:'🌌 Night · hills and atmosphere',duration:'3–4 hours',description:'The cinematic eastern viewpoints; quieter and more demanding after midnight.',stops:['rossio','intendente','monte','senhora','graca','santaluzia','se','bicos','praca','ribeira','cais']},
+    {id:'arcade-city',world:'night',name:'🕹️ Arcade + old city',duration:'3–4 hours',description:'Four-arrow arcade first, then viewpoints and a river finish.',stops:['rossio','intendente','tropical','monte','senhora','graca','santaluzia','se','praca','ribeira','pink','cais']},
+    {id:'twenty-k',world:'day',name:'🏃 20k+ challenge · no food stops',duration:'5–7 hours',description:'The longest sensible one-way sequence, with shade and attractions rather than random loops.',stops:['parque','estufa','marques','saopedro','carmo','rossio','torel','intendente','tropical','monte','senhora','graca','castelo','santaluzia','aljube','se','bicos','praca','ribeira','santacatarina','bica','pink','cais']}
+  ],
+  sidequests: ['estufa','torel','tropical','castelo','aljube','bicos','santacatarina','ministerium','lux'],
+  references: [
+    {label:'Google Maps URLs — walking turn-by-turn links',url:'https://developers.google.com/maps/documentation/urls/get-started'},
+    {label:'Estufa Fria visitor information',url:'https://estufafria.lisboa.pt/visitar'},
+    {label:'Carmo Museum hours',url:'https://museuarqueologicodocarmo.pt/convento_carmo.html'},
+    {label:'Castelo de São Jorge schedules',url:'https://castelodesaojorge.pt/en/plan-your-visit/schedules/'},
+    {label:'Museu do Aljube',url:'https://www.museudoaljube.pt/'},
+    {label:'Lisbon Metro schedules',url:'https://www.metrolisboa.pt/en/travel/timetables-and-frequency%20/'}
+  ]
+};
+
+'use strict';
+
+const $ = (selector, root=document) => root.querySelector(selector);
+const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
+const canStore = (() => { try { localStorage.setItem('__lq_test','1'); localStorage.removeItem('__lq_test'); return true; } catch { return false; } })();
+const readStore = (key, fallback) => { if (!canStore) return fallback; try { const v=localStorage.getItem(key); return v===null?fallback:JSON.parse(v); } catch { return fallback; } };
+const saveStore = (key, value) => { if (canStore) localStorage.setItem(key, JSON.stringify(value)); };
+
+const now = new Date();
+const initialWorld = readStore('lq2-world', now.getHours() >= 7 && now.getHours() < 20 ? 'day' : 'night');
+const defaultRoute = initialWorld === 'day' ? 'day-replay' : 'night-bright';
+
+const state = {
+  world: initialWorld,
+  routeId: readStore('lq2-route', defaultRoute),
+  current: readStore('lq2-current', 0),
+  visited: new Set(readStore('lq2-visited', [])),
+  detour: readStore('lq2-detour', null),
+  gps: null,
+  previousGps: null,
+  watchId: null,
+  follow: true,
+  showSide: true,
+  filter: 'all',
+  trackedM: readStore('lq2-tracked', 0),
+  home: readStore('lq2-home', LQ.home),
+  pendingTarget: readStore('lq2-pending', null),
+  arrivalNotified: null,
+  selected: null,
+  deferredInstall: null,
+  battery: null
+};
+
+if (!LQ.routes.some(r => r.id === state.routeId)) state.routeId = defaultRoute;
+
+let map;
+let tileLayer;
+let routeLine;
+let routeHalo;
+let directLine;
+let userMarker;
+let accuracyCircle;
+let homeMarker;
+let routeMarkers = [];
+let sideMarkers = [];
+
+const routeById = id => LQ.routes.find(r => r.id === id) || LQ.routes[0];
+const activeRoute = () => routeById(state.routeId);
+const routePois = () => activeRoute().stops.map(id => LQ.pois[id]).filter(Boolean);
