@@ -1,0 +1,67 @@
+function renderAll({fit=false,mapToo=true}={}){
+  renderWorld(); renderRouteSelect(); renderRouteSummary(); renderMission(); renderTimeline(); renderNearby(); renderHome(); renderStats();
+  if(mapToo){ replaceTiles(); renderMap(fit); }
+  persist();
+}
+
+function openDetails(poi,index,type){
+  state.selected={poi,index,type}; const c=category(poi), status=statusFor(poi), d=state.gps?distanceM(state.gps,poi):distanceM(originForNearby(),poi);
+  $('#detailName').textContent=poi.name; $('#detailCategory').textContent=`${c.icon} ${c.label}`; $('#detailDistance').textContent=formatDistance(d); $('#detailStatus').textContent=status.label; $('#detailDwell').textContent=`~${poi.dwell||10} min`;
+  $('#detailIntro').textContent=poi.intro; $('#detailDay').textContent=poi.day; $('#detailNight').textContent=poi.night;
+  $('#detailHours').innerHTML=`<strong>${status.label}.</strong> ${status.detail || ''}${poi.hours?.price?` · ${poi.hours.price}`:''}${poi.hours?.source?` <a href="${poi.hours.source}" target="_blank" rel="noopener">Verify current details</a>.`:''}`;
+  setPhoto($('#detailPhoto'),$('#detailFallback'),poi,1300);
+  $('#detailNavigateBtn').href=mapsNavigate(poi); $('#detailPhotosBtn').href=mapsPhotos(poi);
+  $('#makeTargetBtn').textContent=type==='route'?'Make next quest':'Add as side quest';
+  $('#detailCredit').innerHTML=poi.photo?`Photo: <a href="${poi.photo.source}" target="_blank" rel="noopener">${poi.photo.author}</a> · ${poi.photo.license}.`:'No hosted landmark photo is attached to this card.';
+  $('#detailBackdrop').classList.add('open');
+  if(map)map.flyTo([poi.lat,poi.lon],Math.max(16,map.getZoom()),{duration:.7});
+}
+function closeDetails(){ $('#detailBackdrop').classList.remove('open'); }
+function makeSelectedTarget(){
+  const s=state.selected;if(!s)return;
+  if(s.type==='route'&&s.index>=0){ state.current=s.index; state.detour=null; toast(`Next quest: ${s.poi.short||s.poi.name}`); }
+  else { state.detour=s.poi.id; toast(`Side quest armed: ${s.poi.short||s.poi.name}`); }
+  closeDetails(); renderAll({mapToo:false}); refreshMarkerStates();
+}
+function advance(mark=true){
+  const poi=currentPoi(); if(!poi)return; if(mark)state.visited.add(poi.id);
+  if(state.detour){ state.detour=null; toast(mark?`Side quest discovered. Resuming ${currentPoi().short}.`:'Side quest skipped.'); }
+  else if(state.current<routePois().length-1){ state.current++; toast(mark?`Discovered ${poi.short}. Next: ${currentPoi().short}.`:`Skipped to ${currentPoi().short}.`); }
+  else { toast('Quest complete — river, transit or home.'); }
+  state.pendingTarget=null; renderAll({mapToo:false}); refreshMarkerStates(); navigator.vibrate?.(mark?[80,50,120]:40);
+}
+
+function trackPosition(pos){
+  const g={lat:pos.coords.latitude,lon:pos.coords.longitude,accuracy:pos.coords.accuracy,timestamp:pos.timestamp};
+  if(state.previousGps){
+    const d=distanceM(state.previousGps,g), dt=(g.timestamp-state.previousGps.timestamp)/1000;
+    if(g.accuracy<100&&state.previousGps.accuracy<100&&d>=2&&d<=Math.max(70,dt*12))state.trackedM+=d;
+  }
+  state.previousGps=g; state.gps=g;
+  if(map){
+    if(!userMarker){ userMarker=L.marker([g.lat,g.lon],{icon:userIcon(),zIndexOffset:3000}).addTo(map); accuracyCircle=L.circle([g.lat,g.lon],{radius:g.accuracy,color:'#277bff',weight:1,fillColor:'#277bff',fillOpacity:.1}).addTo(map); }
+    else { userMarker.setLatLng([g.lat,g.lon]); accuracyCircle.setLatLng([g.lat,g.lon]).setRadius(g.accuracy); }
+    if(state.follow)map.panTo([g.lat,g.lon],{animate:true,duration:.5}); updateDirectLine();
+  }
+  const poi=currentPoi(), d=distanceM(g,poi), threshold=Math.max(55,Math.min(100,g.accuracy*.8+35));
+  if(d<threshold&&state.arrivalNotified!==poi.id){ state.arrivalNotified=poi.id; navigator.vibrate?.([100,60,100]); toast(`You appear to be at ${poi.short}. Tap “I’m here” to clear it.`,4200); }
+  if(state.pendingTarget===poi.id&&d<threshold){ state.pendingTarget=null; persist(); }
+  renderMission(); renderTimeline(); renderNearby(); renderStats(); persist();
+}
+function gpsError(error){
+  const msg={1:'Location permission denied. Open Chrome site settings → Location → Allow.',2:'Location unavailable. Step outdoors and retry.',3:'GPS timed out. Retry outside with a clearer sky view.'}[error.code]||error.message;
+  toast(msg,4500); $('#locateBtn').classList.remove('active');
+}
+function toggleGps(){
+  if(state.watchId!==null){ navigator.geolocation.clearWatch(state.watchId); state.watchId=null; $('#locateBtn').classList.remove('active'); toast('GPS paused.'); return; }
+  if(!navigator.geolocation){toast('This browser does not expose GPS.');return;}
+  state.watchId=navigator.geolocation.watchPosition(trackPosition,gpsError,{enableHighAccuracy:true,maximumAge:3000,timeout:20000});
+  $('#locateBtn').classList.add('active'); toast('Requesting location…');
+}
+function joinFromHere(){
+  if(!state.gps){toast('Enable GPS first.');return;}
+  const pts=routePois().map((p,i)=>({p,i,d:distanceM(state.gps,p)})).sort((a,b)=>a.d-b.d); const nearest=pts[0];
+  state.current=nearest.i; state.detour=null; routePois().slice(0,nearest.i).forEach(p=>state.visited.add(p.id));
+  toast(`Joined at ${nearest.p.short} — earlier stops marked passed.`); renderAll({mapToo:false}); refreshMarkerStates(); if(map)map.flyTo([nearest.p.lat,nearest.p.lon],16);
+}
+function setWorld(world){
