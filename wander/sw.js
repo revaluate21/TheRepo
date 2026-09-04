@@ -1,4 +1,4 @@
-const VERSION='wander-v2.1.0';
+const VERSION='wander-v2.2.0';
 const SHELL=`${VERSION}-shell`;
 const PHOTOS=`${VERSION}-photos`;
 const CORE=[
@@ -31,7 +31,7 @@ self.addEventListener('fetch',event=>{
   if(request.mode==='navigate'){
     event.respondWith((async()=>{
       try{
-        const response=await fetch(request);
+        const response=await fetch(request,{cache:'no-store'});
         if(response.ok){const cache=await caches.open(SHELL);cache.put('./index.html',response.clone());}
         return response;
       }catch(_){
@@ -47,7 +47,8 @@ self.addEventListener('fetch',event=>{
       const hit=await cache.match(request);
       if(hit)return hit;
       try{
-        const response=await fetch(request);
+        const freshRequest=new Request(request,{cache:'reload'});
+        const response=await fetch(freshRequest);
         if(response.ok)cache.put(request,response.clone());
         return response;
       }catch(_){return Response.error();}
@@ -59,7 +60,7 @@ self.addEventListener('fetch',event=>{
     event.respondWith((async()=>{
       const cache=await caches.open(SHELL);
       try{
-        const response=await fetch(request);
+        const response=await fetch(request,{cache:'no-cache'});
         if(response.ok)cache.put(request,response.clone());
         return response;
       }catch(_){
