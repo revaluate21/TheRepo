@@ -10,14 +10,15 @@ def main() -> None:
     parser.add_argument("--asset", required=True)
     args = parser.parse_args()
 
-    matches = [item for item in builder.ITEMS if item[0] == args.asset]
-    if len(matches) != 1:
+    indexes = [index for index, item in enumerate(builder.ITEMS) if item[0] == args.asset]
+    if len(indexes) != 1:
         choices = ", ".join(item[0] for item in builder.ITEMS)
         raise SystemExit(f"Unknown asset {args.asset!r}. Choices: {choices}")
 
-    builder.ITEMS = matches
+    # Keep the complete ITEMS list so process_batch preserves every existing
+    # credit/status entry, but reduce this invocation to exactly one download.
     builder.BATCH_SIZE = 1
-    builder.process_batch(0)
+    builder.process_batch(indexes[0])
 
 
 if __name__ == "__main__":
