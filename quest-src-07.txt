@@ -1,0 +1,77 @@
+function sideIcon(poi){ const c=category(poi); return L.divIcon({className:'',html:`<span class="side-marker" style="background:${c.color}">${c.icon}</span>`,iconSize:[40,40],iconAnchor:[20,20]}); }
+function userIcon(){ return L.divIcon({className:'',html:'<div class="user-dot"></div>',iconSize:[30,30],iconAnchor:[15,15]}); }
+
+function tileUrl(){ return state.world==='night' ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png' : 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'; }
+function initMap(){
+  if(!window.L){ $('#mapStatus').textContent='Map library unavailable. Use the Google Maps navigation buttons.'; return; }
+  map=L.map('map',{zoomControl:false,attributionControl:true,minZoom:11,maxZoom:19,rotate:false}).setView([38.716,-9.14],14);
+  tileLayer=L.tileLayer(tileUrl(),{subdomains:'abcd',maxZoom:20,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(map);
+  map.createPane('questHalo'); map.getPane('questHalo').style.zIndex=405;
+  map.createPane('questLine'); map.getPane('questLine').style.zIndex=406;
+  map.on('dragstart',()=>{state.follow=false; $('#followBtn').classList.remove('active');});
+  map.on('moveend',renderNearby);
+  renderMap(true);
+}
+function replaceTiles(){ if(!map)return; map.removeLayer(tileLayer); tileLayer=L.tileLayer(tileUrl(),{subdomains:'abcd',maxZoom:20,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(map); tileLayer.bringToBack(); }
+function clearLayers(){
+  [routeLine,routeHalo,directLine,homeMarker].forEach(layer=>{if(layer&&map?.hasLayer(layer))map.removeLayer(layer);});
+  routeMarkers.forEach(m=>map.removeLayer(m)); sideMarkers.forEach(m=>map.removeLayer(m)); routeMarkers=[]; sideMarkers=[];
+}
+function renderMap(fit=false){
+  if(!map)return; clearLayers();
+  const pts=routePois(); const latlngs=pts.map(p=>[p.lat,p.lon]);
+  routeHalo=L.polyline(latlngs,{pane:'questHalo',color:'#17213b',weight:10,opacity:.52,lineCap:'round',lineJoin:'round'}).addTo(map);
+  routeLine=L.polyline(latlngs,{pane:'questLine',color:state.world==='night'?'#ff3fb5':'#6c63ff',weight:5,opacity:.98,dashArray:'12 8',lineCap:'round',lineJoin:'round'}).addTo(map);
+  pts.forEach((poi,i)=>{
+    const isCurrent=!state.detour && i===state.current;
+    const marker=L.marker([poi.lat,poi.lon],{icon:markerIcon(poi,i,isCurrent),zIndexOffset:isCurrent?1000:0}).addTo(map);
+    marker.on('click',()=>openDetails(poi,i,'route')); routeMarkers.push(marker);
+  });
+  if(state.showSide){
+    LQ.sidequests.map(id=>LQ.pois[id]).filter(Boolean).forEach(poi=>{
+      if(pts.some(p=>p.id===poi.id))return;
+      if(state.world==='day'&&poi.category==='nightlife')return;
+      const marker=L.marker([poi.lat,poi.lon],{icon:sideIcon(poi),zIndexOffset:200}).addTo(map);
+      marker.on('click',()=>openDetails(poi,-1,'side')); sideMarkers.push(marker);
+    });
+  }
+  if(state.home){ homeMarker=L.marker([state.home.lat,state.home.lon],{icon:L.divIcon({className:'',html:'<span class="side-marker" style="background:#17213b">🏠</span>',iconSize:[40,40],iconAnchor:[20,20]})}); }
+  updateDirectLine();
+  if(fit && latlngs.length) map.fitBounds(L.latLngBounds(latlngs).pad(.12),{animate:false});
+}
+function fitRoute(){ if(map&&routePois().length) map.fitBounds(L.latLngBounds(routePois().map(p=>[p.lat,p.lon])).pad(.12),{animate:true}); }
+function updateDirectLine(){
+  // Deliberately draw no straight-line bearing to the target. In a dense city it
+  // looks like navigation even when the correct pedestrian street goes elsewhere.
+  if(!map)return;
+  if(directLine&&map.hasLayer(directLine))map.removeLayer(directLine);
+  directLine=null;
+}
+function refreshMarkerStates(){
+  if(!map)return; const pts=routePois(); routeMarkers.forEach((m,i)=>m.setIcon(markerIcon(pts[i],i,!state.detour&&i===state.current))); updateDirectLine();
+}
+
+function renderRouteSelect(){
+  const select=$('#routeSelect');
+  select.innerHTML='';
+  LQ.routes.forEach(route=>{
+    const option=document.createElement('option'); option.value=route.id; option.textContent=route.name; option.selected=route.id===state.routeId; select.appendChild(option);
+  });
+}
+function renderWorld(){
+  $('#app').dataset.world=state.world;
+  $('#dayModeBtn').classList.toggle('active',state.world==='day');
+  $('#nightModeBtn').classList.toggle('active',state.world==='night');
+  document.querySelector('meta[name="theme-color"]').setAttribute('content',state.world==='day'?'#ff665f':'#11162a');
+}
+function renderRouteSummary(){
+  const route=activeRoute(), meters=routeDistance(), stepsLow=Math.round(meters*1.3/100)*100, stepsHigh=Math.round(meters*1.5/100)*100;
+  $('#routeSummary').innerHTML=`<strong>${route.duration}</strong> · roughly <strong>${(meters/1000).toFixed(1)} km</strong> / <strong>${stepsLow.toLocaleString()}–${stepsHigh.toLocaleString()} steps</strong>. ${route.description} <em>The line on this map is quest order, not street-by-street routing.</em>`;
+  const first=routePois()[0]; $('#transitStartBtn').href=mapsTransit(`${first.lat},${first.lon}`);
+}
+function renderMission(){
+  const ptsNow=routePois();
+  state.current=Math.max(0,Math.min(state.current,Math.max(0,ptsNow.length-1)));
+  const poi=currentPoi(); if(!poi)return;
+  const c=category(poi), status=statusFor(poi), pts=ptsNow;
+  $('#missionCount').textContent=state.detour?'Side quest':`${state.current+1} / ${pts.length}`;
