@@ -1,0 +1,91 @@
+const currentPoi = () => state.detour ? LQ.pois[state.detour] : routePois()[Math.max(0, Math.min(state.current, routePois().length - 1))];
+const category = poi => LQ.categories[poi.category] || {label:'Place', icon:'📍', color:'#6c63ff', filter:'all'};
+
+function persist(){
+  saveStore('lq2-world', state.world);
+  saveStore('lq2-route', state.routeId);
+  saveStore('lq2-current', state.current);
+  saveStore('lq2-visited', [...state.visited]);
+  saveStore('lq2-detour', state.detour);
+  saveStore('lq2-tracked', state.trackedM);
+  saveStore('lq2-home', state.home);
+  saveStore('lq2-pending', state.pendingTarget);
+}
+
+const rad = n => n * Math.PI / 180;
+function distanceM(a,b){
+  const R=6371000, p1=rad(a.lat), p2=rad(b.lat), dp=rad(b.lat-a.lat), dl=rad(b.lon-a.lon);
+  const h=Math.sin(dp/2)**2 + Math.cos(p1)*Math.cos(p2)*Math.sin(dl/2)**2;
+  return 2*R*Math.atan2(Math.sqrt(h),Math.sqrt(1-h));
+}
+function formatDistance(m){
+  if (!Number.isFinite(m)) return 'GPS off';
+  return m < 1000 ? `${Math.round(m)} m` : `${(m/1000).toFixed(m<10000?2:1)} km`;
+}
+function formatMinutes(min){
+  const h=Math.floor(min/60), m=Math.round(min%60);
+  if (h<=0) return `${Math.max(1,m)} min`;
+  return `${h}h ${m?`${m}m`:''}`.trim();
+}
+function timeToMinutes(value){ const [h,m]=value.split(':').map(Number); return h*60+m; }
+function formatClock(min){ min=((Math.round(min)%1440)+1440)%1440; return `${String(Math.floor(min/60)).padStart(2,'0')}:${String(min%60).padStart(2,'0')}`; }
+function photoUrl(photo,width=1000){ return photo ? `https://commons.wikimedia.org/wiki/Special:Redirect/file/${encodeURIComponent(photo.file)}?width=${width}` : ''; }
+function mapsNavigate(poi){ return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${poi.lat},${poi.lon}`)}&travelmode=walking&dir_action=navigate&utm_source=lisbon_quest&utm_campaign=walking_navigation`; }
+function mapsTransit(destination){ return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}&travelmode=transit&utm_source=lisbon_quest&utm_campaign=transit_home`; }
+function mapsWalk(destination){ return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}&travelmode=walking&dir_action=navigate&utm_source=lisbon_quest&utm_campaign=walking_home`; }
+function mapsPhotos(poi){ return poi.photo?.source || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(poi.query || poi.name)}&utm_source=lisbon_quest&utm_campaign=place_details`; }
+
+function toast(message, ms=2600){
+  const el=$('#toast'); el.textContent=message; el.classList.add('show'); clearTimeout(el._timer); el._timer=setTimeout(()=>el.classList.remove('show'),ms);
+}
+
+function routeDistance(){
+  const points=routePois(); let straight=0;
+  for(let i=1;i<points.length;i++) straight += distanceM(points[i-1], points[i]);
+  return straight * 1.28;
+}
+function routeWalkMinutes(){ return routeDistance() / 78; }
+function arrivalClock(index){
+  const pts=routePois(); let elapsed=0;
+  for(let i=0;i<=index && i<pts.length;i++){
+    if(i>0) elapsed += distanceM(pts[i-1],pts[i])*1.28/78;
+    elapsed += pts[i].dwell || 8;
+  }
+  return timeToMinutes($('#startTime').value || '10:00') + elapsed;
+}
+
+function statusFor(poi){
+  const h=poi.hours || {type:'outdoor',text:'Check locally.'};
+  const d=new Date(), day=d.getDay(), month=d.getMonth()+1, mins=d.getHours()*60+d.getMinutes();
+  const summer=month>=3 && month<=10;
+  const result={label:'Check live',tone:'neutral',detail:h.text || h.summer || 'Check official information.'};
+  if(['outdoor','exterior'].includes(h.type)) return {label:'Outdoor',tone:'open',detail:h.text};
+  if(h.type==='transport') return {label:'Live service',tone:'neutral',detail:h.text};
+  if(['event','community','variable'].includes(h.type)) return result;
+  if(h.closedDays?.includes(day)) return {label:'Closed today',tone:'closed',detail:(summer?h.summer:h.winter)||h.text};
+  let start,end;
+  if(h.type==='seasonal'){ start=summer?600:540; end=summer?1140:1020; }
+  if(h.type==='carmo'){ start=600; end=summer?1140:1080; }
+  if(h.type==='castle'){ start=540; end=summer?1260:1080; }
+  if(h.type==='aljube'){ start=600; end=1080; }
+  if(Number.isFinite(start)){
+    if(mins>=start && mins<end) return {label:'Likely open now',tone:'open',detail:(summer?h.summer:h.winter)||h.text};
+    if(mins<start) return {label:`Opens ${formatClock(start)}`,tone:'neutral',detail:(summer?h.summer:h.winter)||h.text};
+    return {label:'Closed now',tone:'closed',detail:(summer?h.summer:h.winter)||h.text};
+  }
+  return result;
+}
+
+function setPhoto(img,fallback,poi,width=1100){
+  fallback.textContent=category(poi).icon;
+  fallback.style.background=`linear-gradient(135deg,${category(poi).color},#ff3fb5)`;
+  if(poi.photo){
+    img.hidden=false; img.alt=poi.name; img.src=photoUrl(poi.photo,width);
+    img.onerror=()=>{img.hidden=true;};
+  }else{ img.hidden=true; img.removeAttribute('src'); }
+}
+
+function markerIcon(poi,index,isCurrent=false){
+  const c=category(poi);
+  return L.divIcon({className:'',html:`<div class="quest-marker-wrap"><span class="quest-num">${index+1}</span><span class="quest-marker ${isCurrent?'current':''}" style="background:${c.color}"><span>${c.icon}</span></span></div>`,iconSize:[44,52],iconAnchor:[22,49]});
+}
