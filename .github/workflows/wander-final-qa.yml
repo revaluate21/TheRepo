@@ -1,0 +1,114 @@
+name: Wander final production QA
+
+on:
+  push:
+    branches: [gh-pages]
+    paths: ['.github/workflows/wander-final-qa.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pixel-live-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Wait for repaired production app
+        run: |
+          for i in {1..40}; do
+            manifest="$(curl -fsSL --max-time 20 "https://revaluate21.github.io/TheRepo/wander/manifest.webmanifest?sha=${GITHUB_SHA}" || true)"
+            photos="$(curl -fsSL --max-time 20 "https://revaluate21.github.io/TheRepo/wander/photo-status.json?sha=${GITHUB_SHA}" || true)"
+            if echo "$manifest" | grep -q 'app-v2.2' && echo "$photos" | grep -q '"real_photo_bundle": true'; then
+              echo 'Repaired app and real-photo bundle are live.'
+              exit 0
+            fi
+            sleep 6
+          done
+          exit 1
+      - run: npm install --no-save puppeteer-core@24
+      - name: Test live Pixel-sized app, installation and offline mode
+        run: |
+          node <<'NODE'
+          const puppeteer=require('puppeteer-core');
+          const cp=require('child_process');
+          const chrome=['google-chrome-stable','google-chrome','chromium','chromium-browser']
+            .map(x=>{try{return cp.execSync(`which ${x}`).toString().trim()}catch{return ''}}).find(Boolean);
+          const BASE='https://revaluate21.github.io/TheRepo/wander/';
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+          (async()=>{
+            if(!chrome)throw new Error('Chrome not found');
+            const browser=await puppeteer.launch({headless:true,executablePath:chrome,args:['--no-sandbox','--disable-dev-shm-usage']});
+            const context=browser.defaultBrowserContext();
+            await context.overridePermissions(BASE,['geolocation']);
+            const page=await browser.newPage();
+            await page.setViewport({width:390,height:844,deviceScaleFactor:2,isMobile:true,hasTouch:true});
+            await page.setGeolocation({latitude:38.7223,longitude:-9.1393,accuracy:12});
+            const errors=[];
+            page.on('pageerror',e=>errors.push(`page: ${e}`));
+            page.on('console',m=>{
+              const text=m.text();
+              if(m.type()==='error'&&!text.includes('429 (Too Many Requests)')&&!text.includes('open-meteo'))errors.push(`console: ${text}`);
+            });
+
+            await page.goto(`${BASE}?finalqa=${Date.now()}`,{waitUntil:'networkidle2',timeout:60000});
+            await page.waitForSelector('#nowGrid .now-card',{timeout:20000});
+            const counts=await page.evaluate(()=>({
+              now:document.querySelectorAll('#nowGrid .now-card').length,
+              visible:[...document.querySelectorAll('#nowGrid .now-card')].filter(x=>{const s=getComputedStyle(x),r=x.getBoundingClientRect();return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0}).length,
+              days:document.querySelectorAll('#fiveDayGrid .day-card').length,
+              routes:document.querySelectorAll('#allGrid .world-card').length
+            }));
+            if(counts.now!==6||counts.visible!==6||counts.days!==5||counts.routes<15)throw new Error(`counts ${JSON.stringify(counts)}`);
+            await page.waitForFunction(()=>[...document.querySelectorAll('#nowGrid img')].every(i=>i.complete&&i.naturalWidth>=600&&getComputedStyle(i).display!=='none'),{timeout:30000});
+            await sleep(4000);
+            const homePhotos=await page.evaluate(()=>[...document.querySelectorAll('#nowGrid img')].map(i=>({w:i.naturalWidth,h:i.naturalHeight,display:getComputedStyle(i).display,src:i.currentSrc})));
+            if(homePhotos.some(i=>!i.w||i.display==='none'))throw new Error(`home photos ${JSON.stringify(homePhotos)}`);
+            const status=await page.evaluate(async()=>{const r=await fetch('./photo-status.json',{cache:'no-store'});return r.json()});
+            if(status.real_photo_bundle!==true||Object.keys(status.photos||{}).length!==28)throw new Error('photo bundle incomplete');
+            await page.screenshot({path:'wander-home.png',fullPage:true});
+
+            await page.click('#nowGrid .now-card');
+            await page.waitForSelector('#routeView:not(.hidden)',{timeout:10000});
+            await page.waitForFunction(()=>{const i=document.querySelector('#stopPhoto');return i&&i.complete&&i.naturalWidth>=600&&getComputedStyle(i).display!=='none'},{timeout:20000});
+            await sleep(4000);
+            const routePhoto=await page.evaluate(()=>{const i=document.querySelector('#stopPhoto');return{name:document.querySelector('#stopName').textContent,w:i.naturalWidth,h:i.naturalHeight,display:getComputedStyle(i).display}});
+            if(!routePhoto.w||routePhoto.display==='none')throw new Error(`route photo ${JSON.stringify(routePhoto)}`);
+            const controls=await page.evaluate(()=>['#goButton','#arrivedButton','#nearestButton','#homeButton'].every(x=>!!document.querySelector(x)));
+            if(!controls)throw new Error('core route control missing');
+            await page.screenshot({path:'wander-route.png',fullPage:true});
+
+            const sw=await page.evaluate(()=>Promise.race([navigator.serviceWorker.ready.then(r=>({active:!!r.active,scope:r.scope})),new Promise((_,rej)=>setTimeout(()=>rej(new Error('SW timeout')),15000))]));
+            if(!sw.active||!sw.scope.endsWith('/TheRepo/wander/'))throw new Error(`bad SW ${JSON.stringify(sw)}`);
+            const cdp=await page.target().createCDPSession();
+            const manifest=await cdp.send('Page.getAppManifest');
+            const install=await cdp.send('Page.getInstallabilityErrors');
+            if(!manifest.data.includes('app-v2.2')||(install.installabilityErrors||[]).length)throw new Error(`install ${manifest.url} ${JSON.stringify(install.installabilityErrors)}`);
+            const icons=await page.evaluate(async()=>Promise.all(['./icons/icon-192.png','./icons/icon-512.png'].map(async u=>{const r=await fetch(u,{cache:'no-store'});const b=await r.blob();return{status:r.status,type:r.headers.get('content-type'),size:b.size}})));
+            if(icons.some(x=>x.status!==200||!x.type?.includes('image/png')||x.size<1000))throw new Error(`icons ${JSON.stringify(icons)}`);
+
+            await page.goto(`${BASE}?offline=${Date.now()}`,{waitUntil:'networkidle2',timeout:60000});
+            await page.waitForFunction(()=>[...document.querySelectorAll('#nowGrid img')].every(i=>i.complete&&i.naturalWidth>0),{timeout:30000});
+            await page.setOfflineMode(true);
+            await page.reload({waitUntil:'domcontentloaded',timeout:30000});
+            await page.waitForSelector('#nowGrid .now-card',{timeout:15000});
+            await page.waitForFunction(()=>[...document.querySelectorAll('#nowGrid img')].every(i=>i.complete&&i.naturalWidth>0&&getComputedStyle(i).display!=='none'),{timeout:20000});
+            const offline=await page.evaluate(()=>({cards:document.querySelectorAll('#nowGrid .now-card').length,photos:[...document.querySelectorAll('#nowGrid img')].map(i=>i.naturalWidth)}));
+            if(offline.cards!==6||offline.photos.some(x=>!x))throw new Error(`offline ${JSON.stringify(offline)}`);
+            if(errors.length)throw new Error(errors.join(' | '));
+            console.log(JSON.stringify({counts,homePhotos,photoCount:Object.keys(status.photos).length,routePhoto,sw,manifest:manifest.url,installErrors:install.installabilityErrors||[],icons,offline},null,2));
+            await browser.close();
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wander-final-production-screenshots
+          path: |
+            wander-home.png
+            wander-route.png
+          if-no-files-found: ignore
+          retention-days: 7
