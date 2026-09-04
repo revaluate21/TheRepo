@@ -1,0 +1,121 @@
+name: Wander live production QA
+
+on:
+  push:
+    branches: [gh-pages]
+    paths:
+      - '.github/workflows/wander-live-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-mobile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Wait for the matching GitHub Pages deployment
+        run: |
+          for attempt in {1..40}; do
+            body="$(curl -fsSL --max-time 20 "https://revaluate21.github.io/TheRepo/wander/manifest.webmanifest?qa=${GITHUB_SHA}" || true)"
+            if echo "$body" | grep -q 'app-v2.2'; then
+              echo 'Fresh Wander deployment is live.'
+              exit 0
+            fi
+            echo "Waiting for Pages deployment ($attempt/40)…"
+            sleep 6
+          done
+          echo 'Timed out waiting for the repaired manifest.' >&2
+          exit 1
+      - name: Install browser test driver
+        run: npm install --no-save puppeteer-core@24
+      - name: Test the actual public app as a Pixel-sized browser
+        run: |
+          node <<'NODE'
+          const puppeteer=require('puppeteer-core');
+          const cp=require('child_process');
+          const executablePath=['google-chrome-stable','google-chrome','chromium','chromium-browser']
+            .map(name=>{try{return cp.execSync(`which ${name}`).toString().trim()}catch{return ''}}).find(Boolean);
+          if(!executablePath)throw new Error('Chrome/Chromium not found');
+          const BASE='https://revaluate21.github.io/TheRepo/wander/';
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+          (async()=>{
+            const browser=await puppeteer.launch({headless:true,executablePath,args:['--no-sandbox','--disable-dev-shm-usage']});
+            const context=browser.defaultBrowserContext();
+            await context.overridePermissions(BASE,['geolocation']);
+            const page=await browser.newPage();
+            await page.setViewport({width:390,height:844,deviceScaleFactor:2,isMobile:true,hasTouch:true});
+            await page.setGeolocation({latitude:38.7223,longitude:-9.1393,accuracy:12});
+            const errors=[];
+            page.on('pageerror',error=>errors.push(`page: ${error}`));
+            page.on('console',message=>{if(message.type()==='error'&&!message.text().includes('open-meteo'))errors.push(`console: ${message.text()}`)});
+            await page.goto(`${BASE}?qa=${Date.now()}`,{waitUntil:'networkidle2',timeout:60000});
+            await page.waitForSelector('#nowGrid .now-card',{timeout:20000});
+            const counts=await page.evaluate(()=>({
+              now:document.querySelectorAll('#nowGrid .now-card').length,
+              days:document.querySelectorAll('#fiveDayGrid .day-card').length,
+              routes:document.querySelectorAll('#allGrid .world-card').length,
+              nowVisible:[...document.querySelectorAll('#nowGrid .now-card')].filter(el=>{const s=getComputedStyle(el),r=el.getBoundingClientRect();return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0}).length
+            }));
+            if(counts.now!==6||counts.nowVisible!==6||counts.days!==5||counts.routes<15)throw new Error(`Unexpected recommendation counts: ${JSON.stringify(counts)}`);
+            await page.waitForFunction(()=>[...document.querySelectorAll('#nowGrid img')].every(img=>img.complete&&img.naturalWidth>=600&&getComputedStyle(img).display!=='none'),{timeout:30000});
+            const firstImages=await page.evaluate(()=>[...document.querySelectorAll('#nowGrid img')].map(img=>({src:img.currentSrc,w:img.naturalWidth,h:img.naturalHeight,display:getComputedStyle(img).display})));
+            await sleep(4000);
+            const stableImages=await page.evaluate(()=>[...document.querySelectorAll('#nowGrid img')].map(img=>({w:img.naturalWidth,h:img.naturalHeight,display:getComputedStyle(img).display})));
+            if(stableImages.some(img=>!img.w||img.display==='none'))throw new Error(`Recommendation image disappeared: ${JSON.stringify(stableImages)}`);
+            await page.screenshot({path:'wander-live-home.png',fullPage:true});
+
+            const status=await page.evaluate(async()=>{const response=await fetch('./photo-status.json',{cache:'no-store'});return response.json()});
+            if(status.real_photo_bundle!==true||Object.keys(status.photos||{}).length!==28)throw new Error(`Photo bundle incomplete: ${JSON.stringify(status)}`);
+
+            await page.click('#nowGrid .now-card');
+            await page.waitForSelector('#routeView:not(.hidden)',{timeout:10000});
+            await page.waitForFunction(()=>{const img=document.querySelector('#stopPhoto');return img&&img.complete&&img.naturalWidth>=600&&getComputedStyle(img).display!=='none'},{timeout:20000});
+            const routePhotoBefore=await page.evaluate(()=>{const img=document.querySelector('#stopPhoto');return{src:img.currentSrc,w:img.naturalWidth,h:img.naturalHeight,display:getComputedStyle(img).display,name:document.querySelector('#stopName').textContent}});
+            await sleep(4000);
+            const routePhotoAfter=await page.evaluate(()=>{const img=document.querySelector('#stopPhoto');return{w:img.naturalWidth,h:img.naturalHeight,display:getComputedStyle(img).display}});
+            if(!routePhotoAfter.w||routePhotoAfter.display==='none')throw new Error(`Route photo disappeared: ${JSON.stringify(routePhotoAfter)}`);
+            const controls=await page.evaluate(()=>({go:!!document.querySelector('#goButton'),arrived:!!document.querySelector('#arrivedButton'),home:!!document.querySelector('#homeButton'),nearest:!!document.querySelector('#nearestButton')}));
+            if(Object.values(controls).some(value=>!value))throw new Error(`Missing core controls: ${JSON.stringify(controls)}`);
+            await page.screenshot({path:'wander-live-route.png',fullPage:true});
+
+            const sw=await page.evaluate(()=>Promise.race([
+              navigator.serviceWorker.ready.then(reg=>({active:!!reg.active,scope:reg.scope,script:reg.active?.scriptURL||''})),
+              new Promise((_,reject)=>setTimeout(()=>reject(new Error('service worker timeout')),15000))
+            ]));
+            if(!sw.active||!sw.scope.endsWith('/TheRepo/wander/'))throw new Error(`Service worker not ready: ${JSON.stringify(sw)}`);
+            const session=await page.target().createCDPSession();
+            const manifest=await session.send('Page.getAppManifest');
+            if(!manifest.url.endsWith('/wander/manifest.webmanifest'))throw new Error(`Wrong manifest: ${manifest.url}`);
+            if(!manifest.data.includes('app-v2.2'))throw new Error('Manifest does not expose fresh v2.2 install identity');
+            const installability=await session.send('Page.getInstallabilityErrors');
+            if((installability.installabilityErrors||[]).length)throw new Error(`Installability errors: ${JSON.stringify(installability.installabilityErrors)}`);
+            const iconChecks=await page.evaluate(async()=>Promise.all(['./icons/icon-192.png','./icons/icon-512.png'].map(async url=>{const r=await fetch(url,{cache:'no-store'});const blob=await r.blob();return{url,status:r.status,type:r.headers.get('content-type'),size:blob.size}})));
+            if(iconChecks.some(icon=>icon.status!==200||!icon.type?.includes('image/png')||icon.size<1000))throw new Error(`Bad install icons: ${JSON.stringify(iconChecks)}`);
+
+            await page.goto(`${BASE}?offline-seed=${Date.now()}`,{waitUntil:'networkidle2',timeout:60000});
+            await page.waitForFunction(()=>[...document.querySelectorAll('#nowGrid img')].every(img=>img.complete&&img.naturalWidth>0),{timeout:30000});
+            await page.setOfflineMode(true);
+            await page.reload({waitUntil:'domcontentloaded',timeout:30000});
+            await page.waitForSelector('#nowGrid .now-card',{timeout:15000});
+            await page.waitForFunction(()=>[...document.querySelectorAll('#nowGrid img')].every(img=>img.complete&&img.naturalWidth>0&&getComputedStyle(img).display!=='none'),{timeout:20000});
+            const offline=await page.evaluate(()=>({cards:document.querySelectorAll('#nowGrid .now-card').length,images:[...document.querySelectorAll('#nowGrid img')].map(img=>img.naturalWidth)}));
+            if(offline.cards!==6||offline.images.some(width=>!width))throw new Error(`Offline verification failed: ${JSON.stringify(offline)}`);
+            if(errors.length)throw new Error(`Browser console errors: ${errors.join(' | ')}`);
+            console.log(JSON.stringify({counts,firstImages,stableImages,statusPhotos:Object.keys(status.photos).length,routePhotoBefore,routePhotoAfter,controls,sw,manifestUrl:manifest.url,installabilityErrors:installability.installabilityErrors||[],iconChecks,offline},null,2));
+            await browser.close();
+          })().catch(error=>{console.error(error);process.exit(1)});
+          NODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wander-live-production-screenshots
+          path: |
+            wander-live-home.png
+            wander-live-route.png
+          if-no-files-found: ignore
+          retention-days: 7
