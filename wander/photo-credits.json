@@ -47,5 +47,54 @@
     "author": "Oren Rozen",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Portugal_120716_Coimbra_University_07.jpg"
+  },
+  {
+    "asset": "cristo.jpg",
+    "title": "Cristo Rei, Almada 39.jpg",
+    "author": "Simon Burchell",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cristo_Rei,_Almada_39.jpg"
+  },
+  {
+    "asset": "evora.jpg",
+    "title": "Roman-Temple-Evora.jpg",
+    "author": "Acediscovery",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Roman-Temple-Evora.jpg"
+  },
+  {
+    "asset": "graca.jpg",
+    "title": "Miradouro da Graça.jpg",
+    "author": "Filipe Rocha,user:sacavem (pt) http://pt.wikipedia.org/wiki/Usu%C3%A1rio:Sacavem",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Miradouro_da_Gra%C3%A7a.jpg"
+  },
+  {
+    "asset": "guincho.jpg",
+    "title": "Praia do Guincho (cropped).JPG",
+    "author": "Husond",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Praia_do_Guincho_(cropped).JPG"
+  },
+  {
+    "asset": "joanina.jpg",
+    "title": "Biblioteca Joanina (53560470042).jpg",
+    "author": "xiquinhosilva",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Biblioteca_Joanina_(53560470042).jpg"
+  },
+  {
+    "asset": "maat.jpg",
+    "title": "MAAT - The Museum of Art, Architecture and Technology (33806654791).jpg",
+    "author": "Maria Eklind",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:MAAT_-_The_Museum_of_Art,_Architecture_and_Technology_(33806654791).jpg"
+  },
+  {
+    "asset": "monserrate.jpg",
+    "title": "The Palace of Monserrate in Sintra National Park (27954800241).jpg",
+    "author": "travelmag.com",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Palace_of_Monserrate_in_Sintra_National_Park_(27954800241).jpg"
   }
 ]

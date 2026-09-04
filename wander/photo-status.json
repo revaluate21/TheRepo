@@ -77,7 +77,84 @@
       ],
       "stddev": 67.13,
       "entropy": 7.045
+    },
+    "cristo.jpg": {
+      "title": "Cristo Rei, Almada 39.jpg",
+      "bytes": 198900,
+      "sha256": "bfcffd6f1d3417a102e90cf4d994200d0fcd9d3f6bd9c049c0b13bb11cedc5a1",
+      "original": [
+        1920,
+        1440
+      ],
+      "stddev": 54.48,
+      "entropy": 7.242
+    },
+    "evora.jpg": {
+      "title": "Roman-Temple-Evora.jpg",
+      "bytes": 313841,
+      "sha256": "d8713c4598ade62ee6c6c93be1c245e9467538fe153d9884048b018d07f005f8",
+      "original": [
+        1920,
+        1565
+      ],
+      "stddev": 57.79,
+      "entropy": 7.77
+    },
+    "graca.jpg": {
+      "title": "Miradouro da Graça.jpg",
+      "bytes": 521553,
+      "sha256": "b0530e7d11276b9f8231a938a8af568a7394e06d6e4a5d13d2c9d9776b4730d1",
+      "original": [
+        1920,
+        1440
+      ],
+      "stddev": 66.35,
+      "entropy": 7.774
+    },
+    "guincho.jpg": {
+      "title": "Praia do Guincho (cropped).JPG",
+      "bytes": 280371,
+      "sha256": "6dee628544a40a69534b52cc22ed0deda17f4c4025de1fc5ec69f202369bd755",
+      "original": [
+        1920,
+        1033
+      ],
+      "stddev": 41.42,
+      "entropy": 7.259
+    },
+    "joanina.jpg": {
+      "title": "Biblioteca Joanina (53560470042).jpg",
+      "bytes": 265443,
+      "sha256": "bd4ad0f548d80712d6bdd19ba925adf09db550499377fa44c7df04acebcb126b",
+      "original": [
+        1920,
+        1280
+      ],
+      "stddev": 51.34,
+      "entropy": 7.603
+    },
+    "maat.jpg": {
+      "title": "MAAT - The Museum of Art, Architecture and Technology (33806654791).jpg",
+      "bytes": 216699,
+      "sha256": "defd9a6d9a0fd77b5533602c2af8a00fbe6c4534934308ffcaff84fd28baf081",
+      "original": [
+        1920,
+        1280
+      ],
+      "stddev": 58.42,
+      "entropy": 7.505
+    },
+    "monserrate.jpg": {
+      "title": "The Palace of Monserrate in Sintra National Park (27954800241).jpg",
+      "bytes": 501540,
+      "sha256": "9241d9b56c3e11610c3c1fc7c23ffbab9d51d883865215d449c5c0808f77c8c3",
+      "original": [
+        1920,
+        1280
+      ],
+      "stddev": 58.05,
+      "entropy": 7.497
     }
   },
-  "generated_at": "2026-09-04T21:09:58Z"
+  "generated_at": "2026-09-04T21:10:40Z"
 }
