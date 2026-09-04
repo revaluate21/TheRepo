@@ -1,0 +1,83 @@
+{
+  "real_photo_bundle": false,
+  "photos": {
+    "belem.jpg": {
+      "title": "Belém Tower (Torre de Belém) 1.jpg",
+      "bytes": 217287,
+      "sha256": "a579991c8de59f992abe9bad4043a9f7907c4c8a12e107e09347516ce3870d10",
+      "original": [
+        1920,
+        1440
+      ],
+      "stddev": 51.7,
+      "entropy": 7.595
+    },
+    "bica.jpg": {
+      "title": "Elevador da Bica - Lisbon (52750990701).jpg",
+      "bytes": 214133,
+      "sha256": "d43889f5ec08a71563b2dd62f183cb91b47b9764576a1fd34c6c791d7f5510d1",
+      "original": [
+        1920,
+        1283
+      ],
+      "stddev": 78.04,
+      "entropy": 7.324
+    },
+    "boca-vento.jpg": {
+      "title": "Elevador da Boca do Vento, Almada - panoramio.jpg",
+      "bytes": 179309,
+      "sha256": "488a8589af41caea331f6121a3da9a900d2ccd0b80220ae61153c18341845779",
+      "original": [
+        1920,
+        1440
+      ],
+      "stddev": 33.4,
+      "entropy": 6.744
+    },
+    "boca.jpg": {
+      "title": "Boca do Inferno, Cascais.jpg",
+      "bytes": 490701,
+      "sha256": "6a3d840d0197758f3c7d390a1d4429dec62c32a4874bbe4da604e7d5a550a094",
+      "original": [
+        1920,
+        887
+      ],
+      "stddev": 52.69,
+      "entropy": 7.642
+    },
+    "cais.jpg": {
+      "title": "Cais do Sodre, Lisbon (DSC03382).jpg",
+      "bytes": 276557,
+      "sha256": "c13158b37e117473b51fd62c1151a858afab0d9283665e3fefa21e7674918581",
+      "original": [
+        1920,
+        1285
+      ],
+      "stddev": 51.61,
+      "entropy": 7.402
+    },
+    "carmo.jpg": {
+      "title": "Lisbon, the Convento do Carmo.JPG",
+      "bytes": 297335,
+      "sha256": "ccbddc80bb6d5726003684287146f5656abaa1e32e64bbfc1f01e38f3c76dfe8",
+      "original": [
+        1920,
+        1251
+      ],
+      "stddev": 55.17,
+      "entropy": 7.571
+    },
+    "coimbra.jpg": {
+      "title": "Portugal 120716 Coimbra University 07.jpg",
+      "bytes": 261248,
+      "sha256": "bf8f48c6aa89219ece6e103ce09d524b09a7b0f6bf1924d6e9e1fdd087cde658",
+      "original": [
+        1920,
+        1280
+      ],
+      "stddev": 67.13,
+      "entropy": 7.045
+    }
+  },
+  "generated_at": "2026-09-04T21:09:58Z"
+}
