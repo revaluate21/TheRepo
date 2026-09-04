@@ -1,0 +1,289 @@
+{
+  "ok": true,
+  "count": 28,
+  "expected": 28,
+  "generated_at": "2026-09-04T19:13:14Z",
+  "photos": [
+    {
+      "slug": "parque",
+      "filename": "Parque Eduardo VII - Lisbon (52750120427).jpg",
+      "author": "Haydn Blackey",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Parque_Eduardo_VII_-_Lisbon_(52750120427).jpg",
+      "path": "assets/photos/parque.jpg",
+      "bytes": 74306,
+      "sha256": "ec4fd3d7b7ae63c8c3955b3774ba2e00414dc02c8bb087997cf5f55498a04681"
+    },
+    {
+      "slug": "sao_pedro",
+      "filename": "Miradouro de São Pedro de Alcântara (13943471369).jpg",
+      "author": "Jorge Franganillo",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Miradouro_de_São_Pedro_de_Alcântara_(13943471369).jpg",
+      "path": "assets/photos/sao-pedro.jpg",
+      "bytes": 181511,
+      "sha256": "d9c3ede6e7aafad33b3e22002d1e968430000495670b0aabbc26d094e8fe4af1"
+    },
+    {
+      "slug": "carmo",
+      "filename": "Lisbon, the Convento do Carmo.JPG",
+      "author": "Dguendel",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lisbon,_the_Convento_do_Carmo.JPG",
+      "path": "assets/photos/carmo.jpg",
+      "bytes": 227620,
+      "sha256": "0d01c69a6478af6fe260edc9794a23a71665bc2541f9d21afadf5021b78002df"
+    },
+    {
+      "slug": "rossio",
+      "filename": "Rossio Square Lisbon Portugal.jpg",
+      "author": "Salwa Farwaneh",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rossio_Square_Lisbon_Portugal.jpg",
+      "path": "assets/photos/rossio.jpg",
+      "bytes": 158048,
+      "sha256": "20965e8ef7dfb0389f832054286cae0c174cbb0fbcd893da0b68a9fbf92c59d9"
+    },
+    {
+      "slug": "senhora",
+      "filename": "Miradouro da Senhora do Monte (38530147244).jpg",
+      "author": "Pedro / caixa de luz",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Miradouro_da_Senhora_do_Monte_(38530147244).jpg",
+      "path": "assets/photos/senhora.jpg",
+      "bytes": 203474,
+      "sha256": "3e613db3ca2e2716e51062093e90b79711c71fb5fb60277b3213c77528a2fc81"
+    },
+    {
+      "slug": "graca",
+      "filename": "Miradouro da Graça.jpg",
+      "author": "Filipe Rocha",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Miradouro_da_Graça.jpg",
+      "path": "assets/photos/graca.jpg",
+      "bytes": 380875,
+      "sha256": "63863b38e7c9084d0ccffbb5c280da34aa3c30b7cabc4924866d6e9d604d1035"
+    },
+    {
+      "slug": "santa_luzia",
+      "filename": "St. Lucy - Miradouro de Santa Luzia - Lisbon (52751066335).jpg",
+      "author": "Haydn Blackey",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:St._Lucy_-_Miradouro_de_Santa_Luzia_-_Lisbon_(52751066335).jpg",
+      "path": "assets/photos/santa-luzia.jpg",
+      "bytes": 113963,
+      "sha256": "9e336816f3ddbb85928852de832fd1860758b3d96950c17083909c0f7b2bc766"
+    },
+    {
+      "slug": "se",
+      "filename": "Sé de Lisboa (Lisbon Cathedral) 112.jpg",
+      "author": "Simon Burchell",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sé_de_Lisboa_(Lisbon_Cathedral)_112.jpg",
+      "path": "assets/photos/se.jpg",
+      "bytes": 157866,
+      "sha256": "afef62de6b13b547e5c60610329a6b82a207d1a0ead5d27b00b0158782a094d4"
+    },
+    {
+      "slug": "praca",
+      "filename": "Praça do Comércio – Lisboa, Portugal (54817271215).jpg",
+      "author": "Marvin Jansen",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Praça_do_Comércio_–_Lisboa,_Portugal_(54817271215).jpg",
+      "path": "assets/photos/praca.jpg",
+      "bytes": 143143,
+      "sha256": "93afe2a8c3ffc27fa391753b39106d03377f1d546d1dc6db6dff6421717fe75f"
+    },
+    {
+      "slug": "bica",
+      "filename": "Elevador da Bica - Lisbon (52750990701).jpg",
+      "author": "Haydn Blackey",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Elevador_da_Bica_-_Lisbon_(52750990701).jpg",
+      "path": "assets/photos/bica.jpg",
+      "bytes": 162276,
+      "sha256": "9236347749c786f0748e9db2456fb6fed49cc1a3eeb0dba46bfc8d5d6eadb6b9"
+    },
+    {
+      "slug": "pink",
+      "filename": "Lisbon Pink Street.jpg",
+      "author": "FuriousYogi",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lisbon_Pink_Street.jpg",
+      "path": "assets/photos/pink.jpg",
+      "bytes": 257164,
+      "sha256": "fb6db19fe08dc25da9223a0d92731feb33341cae05792005b67067d5eb9894ab"
+    },
+    {
+      "slug": "cais",
+      "filename": "Cais do Sodre, Lisbon (DSC03382).jpg",
+      "author": "Matti Blume",
+      "license": "CC BY-SA",
+      "source": "https://commons.wikimedia.org/wiki/File:Cais_do_Sodre,_Lisbon_(DSC03382).jpg",
+      "path": "assets/photos/cais.jpg",
+      "bytes": 205135,
+      "sha256": "79915b4a50f7749c4a59c2fcf2a02c38cf95bd93da438773b2e4efdb24849865"
+    },
+    {
+      "slug": "belem",
+      "filename": "Torre de Belém, Lisbon 07.jpg",
+      "author": "Simon Burchell",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Torre_de_Belém,_Lisbon_07.jpg",
+      "path": "assets/photos/belem.jpg",
+      "bytes": 143577,
+      "sha256": "0b9b63446bf0304cf5b9d1072537b94a32c1e8a4cb4fe2fc4d94dbf1002766af"
+    },
+    {
+      "slug": "maat",
+      "filename": "MAAT Lisboa.jpg",
+      "author": "Lopo Pizarro",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:MAAT_Lisboa.jpg",
+      "path": "assets/photos/maat.jpg",
+      "bytes": 144757,
+      "sha256": "708099fa152f93739ab2795932696b55bdc5070b6f79aaf8073fafb6904bb31e"
+    },
+    {
+      "slug": "oriente",
+      "filename": "Gare do Oriente (33911454543).jpg",
+      "author": "Maria Eklind",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gare_do_Oriente_(33911454543).jpg",
+      "path": "assets/photos/oriente.jpg",
+      "bytes": 276773,
+      "sha256": "11431fe78c308e7fc4fc6464cd6b9eb9f2dce106f34928ddbc962d3d09ee7872"
+    },
+    {
+      "slug": "cristo",
+      "filename": "Cristo Rei, Almada 07.jpg",
+      "author": "Simon Burchell",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cristo_Rei,_Almada_07.jpg",
+      "path": "assets/photos/cristo.jpg",
+      "bytes": 236309,
+      "sha256": "cbf2b564099eaa952b7ff2ae87db5fce029fa079e4eb5e7069749fa0636249e4"
+    },
+    {
+      "slug": "boca_vento",
+      "filename": "Elevador Panorâmico da Boca do Vento, Almada 03.jpg",
+      "author": "GualdimG",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Elevador_Panorâmico_da_Boca_do_Vento,_Almada_03.jpg",
+      "path": "assets/photos/boca-vento.jpg",
+      "bytes": 70816,
+      "sha256": "8069914aba56e4ff86c9bd67153b9103de13d3fc350b3ca1f0b75cf360cde9b9"
+    },
+    {
+      "slug": "pena",
+      "filename": "Palácio da Pena.Sintra.jpg",
+      "author": "Martina Dias",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Palácio_da_Pena.Sintra.jpg",
+      "path": "assets/photos/pena.jpg",
+      "bytes": 92786,
+      "sha256": "42819b0e4df039b3547e7d0d3fb38ae2de8c44a9cbff1cbb2669a7aab22db71d"
+    },
+    {
+      "slug": "regaleira",
+      "filename": "Quinta da Regaleira J2024.jpg",
+      "author": "Captain Meows",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Quinta_da_Regaleira_J2024.jpg",
+      "path": "assets/photos/regaleira.jpg",
+      "bytes": 108140,
+      "sha256": "1dee26a32e249c4354c573dbcaa353333bb36ce598bf45d485cf0c51c82c9deb"
+    },
+    {
+      "slug": "mouros",
+      "filename": "Castelo dos Mouros, Sintra 04.jpg",
+      "author": "Simon Burchell",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Castelo_dos_Mouros,_Sintra_04.jpg",
+      "path": "assets/photos/mouros.jpg",
+      "bytes": 424746,
+      "sha256": "0823a4408b7401ddd709dd9024e8d6fb13156307e776ce6bf7e233708676b795"
+    },
+    {
+      "slug": "monserrate",
+      "filename": "The beautiful Palace of Monserrate near Sintra (27752301440).jpg",
+      "author": "travelmag.com / Paul Stafford",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_beautiful_Palace_of_Monserrate_near_Sintra_(27752301440).jpg",
+      "path": "assets/photos/monserrate.jpg",
+      "bytes": 248274,
+      "sha256": "00095b4c06c50a51fd89a2afba113e87cedb0611b1fe23cafe1d51c7a35a6c45"
+    },
+    {
+      "slug": "boca",
+      "filename": "Boca do Inferno, Cascais.jpg",
+      "author": "Carlos Sánchez",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Boca_do_Inferno,_Cascais.jpg",
+      "path": "assets/photos/boca.jpg",
+      "bytes": 317105,
+      "sha256": "4ae5cff640635c7d22da8e008847ff0116af6c79651774b0520dd0af526edc6e"
+    },
+    {
+      "slug": "guincho",
+      "filename": "Praia do Guincho, Cascais 02.jpg",
+      "author": "GualdimG",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Praia_do_Guincho,_Cascais_02.jpg",
+      "path": "assets/photos/guincho.jpg",
+      "bytes": 102411,
+      "sha256": "0ff2b6488d7bbd674e1bfefcbe927c7c37a922e41214305ed4952f66c736e0cd"
+    },
+    {
+      "slug": "coimbra",
+      "filename": "Coimbra University.jpg",
+      "author": "Mgm105",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Coimbra_University.jpg",
+      "path": "assets/photos/coimbra.jpg",
+      "bytes": 233419,
+      "sha256": "7f1a47b69bb84b9463601564dfa392348a8c7f4f9581ceaa3387f332fca46ffb"
+    },
+    {
+      "slug": "joanina",
+      "filename": "Joanina Library - Coimbra University.jpg",
+      "author": "Elapsed",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Joanina_Library_-_Coimbra_University.jpg",
+      "path": "assets/photos/joanina.jpg",
+      "bytes": 164230,
+      "sha256": "0c7afab739275167d4eb2f66555ffe97b2478d65221acce0134cbcacb1d4077c"
+    },
+    {
+      "slug": "obidos",
+      "filename": "The Óbidos' Castle (4017081137).jpg",
+      "author": "Pedro Ribeiro Simões",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Óbidos%27_Castle_(4017081137).jpg",
+      "path": "assets/photos/obidos.jpg",
+      "bytes": 273884,
+      "sha256": "64af2b88c835db5b2eebc7d33b1ee1c3a9434a7857a843ab5c245c5bada09d8c"
+    },
+    {
+      "slug": "evora",
+      "filename": "Roman-Temple-Evora.jpg",
+      "author": "Acediscovery",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Roman-Temple-Evora.jpg",
+      "path": "assets/photos/evora.jpg",
+      "bytes": 206032,
+      "sha256": "9f8167137c1a54d3fd6404989d35531041bd22be9d215f337f309d8c03bb5712"
+    },
+    {
+      "slug": "tomar",
+      "filename": "Convent of Christ - Tomar.jpg",
+      "author": "Ptahh",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Convent_of_Christ_-_Tomar.jpg",
+      "path": "assets/photos/tomar.jpg",
+      "bytes": 235649,
+      "sha256": "5c4b008e8a09055456f0693e683a1ac2ce97b6517cce85c818a8b3025cd47be8"
+    }
+  ],
+  "failures": []
+}
