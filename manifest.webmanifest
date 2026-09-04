@@ -1,16 +1,14 @@
 {
   "id":"./",
-  "name":"Lisbon Quest Map",
+  "name":"Lisbon Quest — Day & Night",
   "short_name":"Lisbon Quest",
-  "description":"Playful Lisbon walking quest with live GPS, real landmark photos, nightlife choices and detailed late transport.",
-  "start_url":"./?app=v11",
+  "description":"A playful Lisbon exploration layer that uses Google Maps for reliable turn-by-turn walking.",
+  "start_url":"./?v=13",
   "scope":"./",
   "display":"standalone",
-  "categories":["travel","navigation","fitness"],
-  "background_color":"#fffaf0",
-  "theme_color":"#ff5d73",
+  "background_color":"#fff8eb",
+  "theme_color":"#ff665f",
   "orientation":"portrait-primary",
-  "icons":[
-    {"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
-  ]
+  "categories":["travel","navigation","fitness"],
+  "icons":[{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
 }
