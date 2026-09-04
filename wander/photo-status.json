@@ -286,7 +286,18 @@
       ],
       "stddev": 53.79,
       "entropy": 7.309
+    },
+    "senhora.jpg": {
+      "title": "Miradouro da Senhora do Monte (38530147244).jpg",
+      "bytes": 269440,
+      "sha256": "9dea565865745ee39e7aac852d4088b24e9b2b744ee6c4a919f668eb91bb52a4",
+      "original": [
+        1600,
+        1067
+      ],
+      "stddev": 45.78,
+      "entropy": 7.363
     }
   },
-  "generated_at": "2026-09-04T21:20:42Z"
+  "generated_at": "2026-09-04T21:20:57Z"
 }
