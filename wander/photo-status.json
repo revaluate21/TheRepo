@@ -231,7 +231,18 @@
       ],
       "stddev": 44.56,
       "entropy": 7.377
+    },
+    "regaleira.jpg": {
+      "title": "Quinta da Regaleira 01.jpg",
+      "bytes": 395188,
+      "sha256": "d164b35d18e47426237409dbd60e59f43915dc5328f4a0d9f9e553ff8317ff76",
+      "original": [
+        1920,
+        2776
+      ],
+      "stddev": 33.17,
+      "entropy": 6.775
     }
   },
-  "generated_at": "2026-09-04T21:11:23Z"
+  "generated_at": "2026-09-04T21:16:03Z"
 }
