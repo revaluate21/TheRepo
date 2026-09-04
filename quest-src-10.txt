@@ -1,0 +1,39 @@
+  state.world=world; const matching=LQ.routes.find(r=>r.world===world); if(matching)state.routeId=matching.id; state.current=0; state.detour=null; state.visited.clear();
+  $('#startTime').value=world==='day'?'10:00':'21:30'; renderAll({fit:true});
+}
+function navigateClicked(){
+  const poi=currentPoi(); state.pendingTarget=poi.id; persist();
+  if('speechSynthesis'in window){ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(`Next quest: ${poi.name}. Google Maps is taking over the street-by-street directions.`); u.rate=1.05; speechSynthesis.speak(u); }
+}
+function updateAfterReturn(){
+  if(document.visibilityState!=='visible'||!state.pendingTarget||!navigator.geolocation)return;
+  navigator.geolocation.getCurrentPosition(trackPosition,()=>{}, {enableHighAccuracy:true,maximumAge:5000,timeout:10000});
+}
+async function initBattery(){
+  if(!navigator.getBattery)return; try{state.battery=await navigator.getBattery(); const update=()=>{renderStats(); if(state.battery.level<.2)toast('Low battery: launch Google Maps for the next leg and keep the power bank connected.',4200);}; state.battery.addEventListener('levelchange',update);update();}catch{}
+}
+function bind(){
+  $('#dayModeBtn').addEventListener('click',()=>setWorld('day')); $('#nightModeBtn').addEventListener('click',()=>setWorld('night'));
+  $('#routeSelect').addEventListener('change',e=>{state.routeId=e.target.value;state.world=routeById(state.routeId).world;state.current=0;state.detour=null;state.visited.clear();renderAll({fit:true});});
+  $('#startTime').addEventListener('change',()=>{renderMission();renderTimeline();});
+  $('#locateBtn').addEventListener('click',toggleGps); $('#followBtn').addEventListener('click',()=>{state.follow=!state.follow;$('#followBtn').classList.toggle('active',state.follow);if(state.follow&&state.gps)map?.flyTo([state.gps.lat,state.gps.lon],16);});
+  $('#fitBtn').addEventListener('click',fitRoute); $('#fitRouteBtn').addEventListener('click',fitRoute); $('#brandBtn').addEventListener('click',fitRoute);
+  $('#layersBtn').addEventListener('click',()=>{state.showSide=!state.showSide;$('#layersBtn').classList.toggle('active',state.showSide);renderMap(false);toast(state.showSide?'Side quests visible.':'Side quests hidden.');});
+  $('#joinHereBtn').addEventListener('click',joinFromHere); $('#resetBtn').addEventListener('click',()=>{state.current=0;state.detour=null;state.visited.clear();state.trackedM=0;state.previousGps=null;renderAll({fit:true});toast('Quest progress reset.');});
+  $('#arrivedBtn').addEventListener('click',()=>advance(true)); $('#skipBtn').addEventListener('click',()=>advance(false)); $('#detailsBtn').addEventListener('click',()=>openDetails(currentPoi(),state.current,state.detour?'side':'route'));
+  $('#navigateBtn').addEventListener('click',navigateClicked); $('#detailNavigateBtn').addEventListener('click',()=>{if(state.selected){state.pendingTarget=state.selected.poi.id;persist();}});
+  $('#closeDetailBtn').addEventListener('click',closeDetails); $('#detailBackdrop').addEventListener('click',e=>{if(e.target===$('#detailBackdrop'))closeDetails();}); $('#makeTargetBtn').addEventListener('click',makeSelectedTarget);
+  $('#refreshNearbyBtn').addEventListener('click',renderNearby); $$('.filter').forEach(btn=>btn.addEventListener('click',()=>{$$('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');state.filter=btn.dataset.filter;renderNearby();}));
+  $('#saveHomeBtn').addEventListener('click',()=>{if(!state.gps){toast('Enable GPS while you are at home first.');return;}state.home={lat:state.gps.lat,lon:state.gps.lon,label:'My private saved home point'};renderHome();persist();toast('Exact home point saved only in this browser.');});
+  $('#shareBtn').addEventListener('click',async()=>{try{if(navigator.share)await navigator.share({title:'Lisbon Quest',text:'A day-and-night Lisbon exploration app with real walking navigation.',url:location.origin+location.pathname});else{await navigator.clipboard.writeText(location.origin+location.pathname);toast('Share link copied.');}}catch{}});
+  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();state.deferredInstall=e;$('#installBtn').classList.remove('hidden');}); $('#installBtn').addEventListener('click',async()=>{if(!state.deferredInstall)return;state.deferredInstall.prompt();await state.deferredInstall.userChoice;state.deferredInstall=null;$('#installBtn').classList.add('hidden');});
+  document.addEventListener('visibilitychange',updateAfterReturn);
+  const navLinks=$$('.bottom-nav a'), sections=['mapSection','missionSection','nearbySection','replaySection','homeSection'].map(id=>document.getElementById(id));
+  const observer=new IntersectionObserver(entries=>{const top=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(top)navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===`#${top.target.id}`));},{threshold:[.18,.45]}); sections.forEach(s=>observer.observe(s));
+}
+
+function init(){
+  const query=new URLSearchParams(location.search);
+  if(query.get('route')&&LQ.routes.some(r=>r.id===query.get('route')))state.routeId=query.get('route');
+  if(query.get('world')==='day'||query.get('world')==='night')state.world=query.get('world');
+  renderCredits(); bind(); initMap(); renderAll({fit:false,mapToo:false}); fitRoute(); initBattery();
