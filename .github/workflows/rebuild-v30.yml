@@ -19,14 +19,17 @@ jobs:
         with:
           ref: gh-pages
           fetch-depth: 0
-      - name: Decode and replace
+      - name: Decode and replace app files
         shell: bash
         run: |
           set -euo pipefail
           cat .wander/payload-* > /tmp/wander.b64
           base64 --decode /tmp/wander.b64 > /tmp/wander.tar.gz
-          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
-          tar -xzf /tmp/wander.tar.gz -C .
+          mkdir -p /tmp/wander-src
+          tar -xzf /tmp/wander.tar.gz -C /tmp/wander-src
+          rm -rf /tmp/wander-src/.github
+          find . -mindepth 1 -maxdepth 1 ! -name .git ! -name .github -exec rm -rf {} +
+          cp -a /tmp/wander-src/. .
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
