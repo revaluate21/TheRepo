@@ -4,7 +4,7 @@
 
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = './night-ui.css?v=10';
+  css.href = './night-ui.css?v=11';
   document.head.appendChild(css);
 
   const params = new URLSearchParams(location.search);
@@ -54,7 +54,7 @@
       const u = new URL(location.href);
       u.searchParams.set('route', key);
       u.searchParams.set('now', '1');
-      u.searchParams.set('app', 'v10');
+      u.searchParams.set('app', 'v11');
       u.searchParams.set('fresh', '1');
       location.href = u.toString();
     });
