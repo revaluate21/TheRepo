@@ -1,0 +1,165 @@
+name: Finish Wander photographs one per fresh runner
+
+on:
+  push:
+    branches: [gh-pages]
+    paths:
+      - '.github/workflows/finish-wander-photos-one-per-runner.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wander-photo-finish
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  regaleira:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: gh-pages, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - run: python tools/fetch_one_wander_photo.py --asset regaleira.jpg
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/photos/regaleira.jpg wander/photo-credits.json wander/photo-status.json
+          git commit -m 'Add real Regaleira photograph'
+          git pull --rebase origin gh-pages
+          git push origin HEAD:gh-pages
+
+  rossio:
+    needs: regaleira
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: gh-pages, fetch-depth: 0}
+      - run: git fetch origin gh-pages && git checkout -B gh-pages origin/gh-pages
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - run: python tools/fetch_one_wander_photo.py --asset rossio.jpg
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/photos/rossio.jpg wander/photo-credits.json wander/photo-status.json
+          git commit -m 'Add real Rossio photograph'
+          git pull --rebase origin gh-pages
+          git push origin HEAD:gh-pages
+
+  santa-luzia:
+    needs: rossio
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: gh-pages, fetch-depth: 0}
+      - run: git fetch origin gh-pages && git checkout -B gh-pages origin/gh-pages
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - run: python tools/fetch_one_wander_photo.py --asset santa-luzia.jpg
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/photos/santa-luzia.jpg wander/photo-credits.json wander/photo-status.json
+          git commit -m 'Add real Santa Luzia photograph'
+          git pull --rebase origin gh-pages
+          git push origin HEAD:gh-pages
+
+  sao-pedro:
+    needs: santa-luzia
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: gh-pages, fetch-depth: 0}
+      - run: git fetch origin gh-pages && git checkout -B gh-pages origin/gh-pages
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - run: python tools/fetch_one_wander_photo.py --asset sao-pedro.jpg
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/photos/sao-pedro.jpg wander/photo-credits.json wander/photo-status.json
+          git commit -m 'Add real São Pedro de Alcântara photograph'
+          git pull --rebase origin gh-pages
+          git push origin HEAD:gh-pages
+
+  se:
+    needs: sao-pedro
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: gh-pages, fetch-depth: 0}
+      - run: git fetch origin gh-pages && git checkout -B gh-pages origin/gh-pages
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - run: python tools/fetch_one_wander_photo.py --asset se.jpg
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/photos/se.jpg wander/photo-credits.json wander/photo-status.json
+          git commit -m 'Add real Lisbon Cathedral photograph'
+          git pull --rebase origin gh-pages
+          git push origin HEAD:gh-pages
+
+  senhora:
+    needs: se
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: gh-pages, fetch-depth: 0}
+      - run: git fetch origin gh-pages && git checkout -B gh-pages origin/gh-pages
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - run: python tools/fetch_one_wander_photo.py --asset senhora.jpg
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/photos/senhora.jpg wander/photo-credits.json wander/photo-status.json
+          git commit -m 'Add real Senhora do Monte photograph'
+          git pull --rebase origin gh-pages
+          git push origin HEAD:gh-pages
+
+  tomar-and-finalise:
+    needs: senhora
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: gh-pages, fetch-depth: 0}
+      - run: git fetch origin gh-pages && git checkout -B gh-pages origin/gh-pages
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - run: python tools/fetch_one_wander_photo.py --asset tomar.jpg
+      - name: Validate all 28 real photographs and build credits/contact sheet
+        run: python tools/build_wander_photos.py --finalise
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/photos/tomar.jpg wander/photo-credits.json wander/photo-credits.html wander/photo-status.json
+          git commit -m 'Complete Wander real photograph library'
+          git pull --rebase origin gh-pages
+          git push origin HEAD:gh-pages
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wander-real-photo-contact-sheet-final
+          path: /tmp/wander-real-photo-contact-sheet.jpg
+          retention-days: 7
