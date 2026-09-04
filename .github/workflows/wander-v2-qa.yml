@@ -22,13 +22,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Static JavaScript checks
+        run: node --check wander/data.js && node --check wander/app.js && node --check wander/sw.js
       - name: Install browser test driver
         run: npm install --no-save puppeteer-core@24
       - name: Start local site
         run: |
           python3 -m http.server 8080 >/tmp/wander-server.log 2>&1 &
           for i in {1..20}; do curl -fsS http://127.0.0.1:8080/wander/ >/dev/null && break; sleep 1; done
-      - name: Test installability, images, navigation and offline shell
+      - name: Test installability, photos, navigation and offline shell
         run: |
           node <<'NODE'
           const puppeteer = require('puppeteer-core');
@@ -52,37 +54,87 @@ jobs:
             const page=await browser.newPage();
             await page.setViewport({width:390,height:844,deviceScaleFactor:1});
             await page.setGeolocation({latitude:38.7223,longitude:-9.1393});
-            await page.setRequestInterception(true);
-            page.on('request',req=>req.url().includes('api.open-meteo.com')?req.respond({status:200,contentType:'application/json',body:JSON.stringify(mockWeather)}):req.continue());
-            const errors=[];page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+            await page.evaluateOnNewDocument(mock => {
+              const nativeFetch = window.fetch.bind(window);
+              window.fetch = (input, init) => {
+                const url = typeof input === 'string' ? input : input?.url || '';
+                if (url.includes('api.open-meteo.com')) {
+                  return Promise.resolve(new Response(JSON.stringify(mock), {
+                    status: 200,
+                    headers: {'Content-Type':'application/json','Access-Control-Allow-Origin':'*'}
+                  }));
+                }
+                return nativeFetch(input, init);
+              };
+            }, mockWeather);
+            const errors=[];
+            page.on('pageerror',e=>errors.push(String(e)));
+            page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+
             await page.goto('http://127.0.0.1:8080/wander/',{waitUntil:'networkidle0'});
             await page.waitForSelector('#nowGrid .now-card');
-            const counts=await page.evaluate(()=>({now:document.querySelectorAll('#nowGrid .now-card').length,days:document.querySelectorAll('#fiveDayGrid .day-card').length,all:document.querySelectorAll('#allGrid .world-card').length}));
+            const counts=await page.evaluate(()=>({
+              now:document.querySelectorAll('#nowGrid .now-card').length,
+              days:document.querySelectorAll('#fiveDayGrid .day-card').length,
+              all:document.querySelectorAll('#allGrid .world-card').length
+            }));
             if(counts.now!==6||counts.days!==5||counts.all<15)throw new Error(`Bad card counts ${JSON.stringify(counts)}`);
+
             await page.waitForFunction(()=>[...document.querySelectorAll('#nowGrid img')].every(i=>i.complete&&i.naturalWidth>0),{timeout:15000});
             await new Promise(r=>setTimeout(r,2200));
             const images=await page.evaluate(()=>[...document.querySelectorAll('#nowGrid img')].map(i=>({w:i.naturalWidth,h:i.naturalHeight,d:getComputedStyle(i).display})));
-            if(images.some(i=>!i.w||!i.h||i.d==='none'))throw new Error(`Right-now image failed ${JSON.stringify(images)}`);
-            await page.click('#nowGrid .now-card');await page.waitForSelector('#routeView:not(.hidden)');
+            if(images.some(i=>!i.w||!i.h||i.d==='none'))throw new Error(`Right-now photo failed ${JSON.stringify(images)}`);
+
+            await page.click('#nowGrid .now-card');
+            await page.waitForSelector('#routeView:not(.hidden)');
             await page.waitForFunction(()=>{const i=document.querySelector('#stopPhoto');return i&&i.complete&&i.naturalWidth>0&&getComputedStyle(i).display!=='none'},{timeout:15000});
-            const first=await page.evaluate(()=>({name:document.querySelector('#stopName').textContent,w:document.querySelector('#stopPhoto').naturalWidth,d:getComputedStyle(document.querySelector('#stopPhoto')).display}));
-            await new Promise(r=>setTimeout(r,2200));
+            const first=await page.evaluate(()=>({
+              name:document.querySelector('#stopName').textContent,
+              w:document.querySelector('#stopPhoto').naturalWidth,
+              d:getComputedStyle(document.querySelector('#stopPhoto')).display
+            }));
+            await new Promise(r=>setTimeout(r,3000));
             const later=await page.evaluate(()=>({w:document.querySelector('#stopPhoto').naturalWidth,d:getComputedStyle(document.querySelector('#stopPhoto')).display}));
-            if(!first.w||first.d==='none'||!later.w||later.d==='none')throw new Error(`Stop image did not persist ${JSON.stringify({first,later})}`);
-            const sw=await page.evaluate(()=>navigator.serviceWorker.ready.then(r=>({scope:r.scope,active:!!r.active})));
-            if(!sw.active||!sw.scope.endsWith('/wander/'))throw new Error(`Bad SW ${JSON.stringify(sw)}`);
+            if(!first.w||first.d==='none'||!later.w||later.d==='none')throw new Error(`Stop photo did not persist ${JSON.stringify({first,later})}`);
+
+            const goDestination=await page.evaluate(()=>{
+              const button=document.querySelector('#goButton');
+              let destination='';
+              const oldAssign=window.location.assign;
+              button.addEventListener('click',event=>event.preventDefault(),{capture:true,once:true});
+              const stop=document.querySelector('#stopName').textContent;
+              return {stop,button:!!button};
+            });
+            if(!goDestination.button)throw new Error('GO navigation button missing');
+
+            const sw=await page.evaluate(()=>Promise.race([
+              navigator.serviceWorker.ready.then(r=>({scope:r.scope,active:!!r.active})),
+              new Promise((_,reject)=>setTimeout(()=>reject(new Error('service worker timeout')),8000))
+            ]));
+            if(!sw.active||!sw.scope.endsWith('/wander/'))throw new Error(`Bad service worker ${JSON.stringify(sw)}`);
+
             const client=await page.target().createCDPSession();
             const manifest=await client.send('Page.getAppManifest');
             if(!manifest.url.endsWith('/wander/manifest.webmanifest'))throw new Error(`Wrong manifest ${manifest.url}`);
             const install=await client.send('Page.getInstallabilityErrors');
-            const fatal=(install.installabilityErrors||[]).filter(x=>!['no-manifest'].includes(x.errorId));
+            const fatal=install.installabilityErrors||[];
             if(fatal.length)throw new Error(`Installability errors ${JSON.stringify(fatal)}`);
+
             await page.goto('http://127.0.0.1:8080/wander/',{waitUntil:'networkidle0'});
-            await page.setOfflineMode(true);await page.reload({waitUntil:'domcontentloaded'});await page.waitForSelector('#nowGrid .now-card');
-            const offlineCount=await page.$$eval('#nowGrid .now-card',els=>els.length);if(offlineCount!==6)throw new Error('Offline shell failed');
+            await page.waitForFunction(()=>[...document.querySelectorAll('#nowGrid img')].every(i=>i.complete&&i.naturalWidth>0),{timeout:15000});
+            await page.setOfflineMode(true);
+            await page.reload({waitUntil:'domcontentloaded'});
+            await page.waitForSelector('#nowGrid .now-card');
+            await page.waitForFunction(()=>[...document.querySelectorAll('#nowGrid img')].every(i=>i.complete&&i.naturalWidth>0),{timeout:15000});
+            const offline=await page.evaluate(()=>({
+              count:document.querySelectorAll('#nowGrid .now-card').length,
+              images:[...document.querySelectorAll('#nowGrid img')].map(i=>i.naturalWidth)
+            }));
+            if(offline.count!==6||offline.images.some(w=>!w))throw new Error(`Offline shell/photo failure ${JSON.stringify(offline)}`);
+
             await page.screenshot({path:'wander-v2-mobile.png',fullPage:true});
             if(errors.length)throw new Error(`Console errors: ${errors.join(' | ')}`);
-            console.log(JSON.stringify({counts,images,first,later,sw,manifest:manifest.url,offlineCount,installabilityErrors:install.installabilityErrors||[]},null,2));
+            console.log(JSON.stringify({counts,images,first,later,sw,manifest:manifest.url,installabilityErrors:install.installabilityErrors||[],offline},null,2));
             await browser.close();
           })().catch(error=>{console.error(error);process.exit(1)});
           NODE
