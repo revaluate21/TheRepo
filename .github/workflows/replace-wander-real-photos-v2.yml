@@ -1,0 +1,205 @@
+name: Build verified Wander real-photo bundle
+
+on:
+  push:
+    branches: [gh-pages]
+    paths:
+      - '.github/workflows/replace-wander-real-photos-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wander-real-photos-v2
+  cancel-in-progress: false
+
+jobs:
+  build-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - name: Fetch, process and inspect all photographs
+        run: |
+          cat > /tmp/build_photos.py <<'PY'
+          from __future__ import annotations
+          import hashlib, html, io, json, random, re, time, unicodedata
+          import urllib.error, urllib.parse, urllib.request
+          from pathlib import Path
+          from difflib import SequenceMatcher
+          from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageStat
+
+          API='https://commons.wikimedia.org/w/api.php'
+          UA='WanderPortugal/2.1 (real-photo PWA bundle; github.com/revaluate21/TheRepo)'
+          OUT=Path('assets/photos'); OUT.mkdir(parents=True,exist_ok=True)
+          ITEMS={
+            'belem.jpg':('Belém Tower (Torre de Belém) 1.jpg','Belém Tower Lisbon exterior'),
+            'bica.jpg':('Elevador da Bica - Lisbon (52750990701).jpg','Elevador da Bica Lisbon street'),
+            'boca-vento.jpg':('Elevador da Boca do Vento, Almada - panoramio.jpg','Boca do Vento Almada Lisbon view'),
+            'boca.jpg':('Boca do Inferno, Cascais.jpg','Boca do Inferno Cascais cliffs'),
+            'cais.jpg':('Cais do Sodre, Lisbon (DSC03382).jpg','Cais do Sodré Lisbon'),
+            'carmo.jpg':('Lisbon, the Convento do Carmo.JPG','Convento do Carmo Lisbon ruins'),
+            'coimbra.jpg':('Portugal 120716 Coimbra University 07.jpg','University of Coimbra courtyard'),
+            'cristo.jpg':('Cristo Rei, Almada 39.jpg','Cristo Rei Almada Lisbon view'),
+            'evora.jpg':('Roman-Temple-Evora.jpg','Roman Temple Évora Portugal'),
+            'graca.jpg':('Miradouro da Graça.jpg','Miradouro da Graça Lisbon'),
+            'guincho.jpg':('Praia do Guincho (cropped).JPG','Praia do Guincho Cascais Atlantic'),
+            'joanina.jpg':('Biblioteca Joanina (53560470042).jpg','Biblioteca Joanina Coimbra'),
+            'maat.jpg':('MAAT - The Museum of Art, Architecture and Technology (33806654791).jpg','MAAT Lisbon exterior'),
+            'monserrate.jpg':('The Palace of Monserrate in Sintra National Park (27954800241).jpg','Monserrate Palace Sintra garden'),
+            'mouros.jpg':('The Moorish Castle, Sintra, Portugal (27954846141).jpg','Moorish Castle Sintra walls'),
+            'obidos.jpg':("The Óbidos' Castle (4017081137).jpg",'Óbidos castle walls Portugal'),
+            'oriente.jpg':('Gare do Oriente.jpg','Gare do Oriente Lisbon architecture'),
+            'parque.jpg':('Parque Eduardo VII - Lisbon (52750120427).jpg','Parque Eduardo VII Lisbon view'),
+            'pena.jpg':('Pena Palace, Sintra, Portugal, 20250606 1019 9978.jpg','Pena Palace Sintra colourful exterior'),
+            'pink.jpg':('Lisbon Pink Street.jpg','Pink Street Lisbon Rua Nova do Carvalho'),
+            'praca.jpg':('Praça do Comércio – Lisboa, Portugal (54817271215).jpg','Praça do Comércio Lisbon square'),
+            'regaleira.jpg':('Quinta da Regaleira 01.jpg','Quinta da Regaleira Sintra palace'),
+            'rossio.jpg':('Rossio Square Lisbon Portugal.jpg','Rossio Square Lisbon'),
+            'santa-luzia.jpg':('St. Lucy - Miradouro de Santa Luzia - Lisbon (52751066335).jpg','Miradouro Santa Luzia Lisbon tiles'),
+            'sao-pedro.jpg':('Miradouro de São Pedro de Alcântara (13943471369).jpg','São Pedro de Alcântara Lisbon viewpoint'),
+            'se.jpg':('Sé de Lisboa (Lisbon Cathedral) 112.jpg','Lisbon Cathedral Sé exterior'),
+            'senhora.jpg':('Miradouro da Senhora do Monte (38530147244).jpg','Senhora do Monte Lisbon viewpoint'),
+            'tomar.jpg':('Convent of Christ - Tomar.jpg','Convent of Christ Tomar Portugal')
+          }
+
+          def retry_open(req, timeout=60, attempts=8):
+            for attempt in range(attempts):
+              try:
+                return urllib.request.urlopen(req,timeout=timeout)
+              except urllib.error.HTTPError as e:
+                if e.code not in (429,500,502,503,504) or attempt==attempts-1: raise
+                retry=e.headers.get('Retry-After')
+                wait=float(retry) if retry and retry.isdigit() else min(60,4*(2**attempt))
+                wait+=random.uniform(.2,1.0)
+                print(f'HTTP {e.code}; waiting {wait:.1f}s')
+                time.sleep(wait)
+              except (urllib.error.URLError,TimeoutError):
+                if attempt==attempts-1: raise
+                time.sleep(min(45,3*(2**attempt))+random.uniform(.2,.8))
+
+          def api(params, post=False):
+            encoded=urllib.parse.urlencode(params)
+            if post:
+              req=urllib.request.Request(API,data=encoded.encode(),headers={'User-Agent':UA,'Accept':'application/json','Content-Type':'application/x-www-form-urlencoded'})
+            else:
+              req=urllib.request.Request(API+'?'+encoded,headers={'User-Agent':UA,'Accept':'application/json'})
+            with retry_open(req,timeout=45) as r:return json.load(r)
+
+          def ntitle(value):
+            value=value.removeprefix('File:').replace('_',' ')
+            return unicodedata.normalize('NFKC',value).casefold().strip()
+
+          base={'action':'query','format':'json','formatversion':'2','redirects':'1','prop':'imageinfo','iiprop':'url|extmetadata|size|mime','iiurlwidth':'1600'}
+          titles='|'.join('File:'+title for title,_ in ITEMS.values())
+          batch=api({**base,'titles':titles},post=True)
+          pages={ntitle(p.get('title','')):p for p in batch.get('query',{}).get('pages',[]) if p.get('imageinfo') and not p.get('missing')}
+          print('Batch resolved',len(pages),'of',len(ITEMS))
+
+          def similarity(candidate,wanted,query):
+            c=ntitle(candidate);w=ntitle(wanted)
+            words={x for x in re.findall(r'[\wÀ-ÿ]+',query.casefold()) if len(x)>3}
+            return SequenceMatcher(None,c,w).ratio()+sum(word in c for word in words)*.09
+
+          def resolve(title,query):
+            page=pages.get(ntitle(title))
+            if page:return page,page['imageinfo'][0]
+            print('Exact title unresolved; searching:',title)
+            result=api({**base,'generator':'search','gsrsearch':query,'gsrnamespace':'6','gsrlimit':'20','gsrwhat':'text'})
+            candidates=[]
+            for p in result.get('query',{}).get('pages',[]):
+              infos=p.get('imageinfo') or []
+              if not infos:continue
+              inf=infos[0]
+              if inf.get('mime') not in ('image/jpeg','image/png','image/webp'):continue
+              if min(inf.get('width',0),inf.get('height',0))<700:continue
+              candidates.append((similarity(p.get('title',''),title,query),p,inf))
+            if not candidates:raise RuntimeError('No Commons photograph found for '+title)
+            _,p,inf=max(candidates,key=lambda x:x[0]);return p,inf
+
+          def download(url):
+            req=urllib.request.Request(url,headers={'User-Agent':UA,'Accept':'image/webp,image/*,*/*;q=.8'})
+            with retry_open(req,timeout=75) as r:
+              data=r.read()
+            if len(data)<50000:raise RuntimeError(f'Image was only {len(data)} bytes')
+            return data
+
+          def clean(value):
+            value=html.unescape(value or '')
+            value=re.sub(r'<br\s*/?>',' ',value,flags=re.I)
+            value=re.sub(r'<[^>]+>','',value)
+            return re.sub(r'\s+',' ',value).strip()
+
+          credits=[];thumbs=[]
+          status={'real_photo_bundle':True,'generated_at':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'photos':{}}
+          for index,(asset,(wanted,query)) in enumerate(ITEMS.items(),1):
+            p,inf=resolve(wanted,query)
+            print(f'[{index:02d}/28] {asset} ← {p.get("title")}')
+            raw=download(inf.get('thumburl') or inf['url'])
+            with Image.open(io.BytesIO(raw)) as source:
+              source=ImageOps.exif_transpose(source).convert('RGB');original=source.size
+              image=ImageOps.fit(source,(1280,800),method=Image.Resampling.LANCZOS,centering=(.5,.5))
+            gray=image.resize((160,100)).convert('L');stat=ImageStat.Stat(gray);std=stat.stddev[0];entropy=gray.entropy();extrema=gray.getextrema()
+            if std<18 or entropy<4.4 or extrema[1]-extrema[0]<75:raise RuntimeError(f'{asset} failed real-photo detail test')
+            output=OUT/asset;image.save(output,'JPEG',quality=88,optimize=True,progressive=True,subsampling=1)
+            if output.stat().st_size<80000:raise RuntimeError(f'{asset} compressed too small: {output.stat().st_size}')
+            meta=inf.get('extmetadata') or {};actual=p.get('title','File:'+wanted).removeprefix('File:')
+            author=clean((meta.get('Artist') or {}).get('value')) or 'Wikimedia Commons contributor'
+            license_name=clean((meta.get('LicenseShortName') or {}).get('value')) or clean((meta.get('UsageTerms') or {}).get('value')) or 'See source'
+            source_url='https://commons.wikimedia.org/wiki/File:'+urllib.parse.quote(actual.replace(' ','_'),safe="()_',-–")
+            credits.append({'asset':asset,'title':actual,'author':author,'license':license_name,'source':source_url})
+            status['photos'][asset]={'title':actual,'bytes':output.stat().st_size,'sha256':hashlib.sha256(output.read_bytes()).hexdigest(),'original':original,'stddev':round(std,2),'entropy':round(entropy,3)}
+            thumbs.append((asset,image.resize((320,200),Image.Resampling.LANCZOS)))
+            time.sleep(2.2+random.uniform(.2,.8))
+
+          Path('wander/photo-credits.json').write_text(json.dumps(credits,ensure_ascii=False,indent=2),encoding='utf-8')
+          Path('wander/photo-status.json').write_text(json.dumps(status,ensure_ascii=False,indent=2),encoding='utf-8')
+          lis=''.join(f'<li><b>{html.escape(c["asset"])}</b> — <a href="{html.escape(c["source"])}">{html.escape(c["title"])}</a>, {html.escape(c["author"])}, {html.escape(c["license"])}</li>' for c in credits)
+          Path('wander/photo-credits.html').write_text('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wander photograph credits</title><style>body{font:16px system-ui;max-width:900px;margin:auto;padding:24px;line-height:1.55;background:#fffdf7;color:#161b35}a{color:#6847e8}li{margin:10px 0}</style><h1>Wander Portugal — photograph credits</h1><p>Photographs were resized and centre-cropped. Open each source for the original and complete licence.</p><ol>'+lis+'</ol>',encoding='utf-8')
+          sheet=Image.new('RGB',(1600,1410),'white');draw=ImageDraw.Draw(sheet);font=ImageFont.load_default(size=18)
+          for i,(asset,thumb) in enumerate(thumbs):
+            x=(i%5)*320;y=(i//5)*235;sheet.paste(thumb,(x,y));draw.rectangle((x,y+200,x+320,y+235),fill='white');draw.text((x+8,y+207),asset,fill=(20,25,45),font=font)
+          sheet.save('/tmp/wander-real-photos.jpg','JPEG',quality=90,optimize=True)
+          print('All 28 real photographs passed detail checks.')
+          PY
+          python /tmp/build_photos.py
+      - name: Final deterministic validation
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image,ImageStat
+          status=json.loads(Path('wander/photo-status.json').read_text())
+          files=sorted(Path('assets/photos').glob('*.jpg'))
+          assert status['real_photo_bundle'] and len(files)==28 and len(status['photos'])==28
+          hashes=set()
+          for path in files:
+            with Image.open(path) as im:
+              assert im.size==(1280,800)
+              g=im.resize((160,100)).convert('L')
+              assert ImageStat.Stat(g).stddev[0]>=18 and g.entropy()>=4.4
+            assert path.stat().st_size>80000
+            h=status['photos'][path.name]['sha256'];assert h not in hashes;hashes.add(h)
+          print('Validated 28 unique, detailed, 1280x800 photographs.')
+          PY
+      - name: Commit bundle
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/photos wander/photo-credits.json wander/photo-credits.html wander/photo-status.json
+          git commit -m 'Replace Wander placeholders with 28 verified real photographs'
+          git pull --rebase origin gh-pages
+          git push origin HEAD:gh-pages
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wander-real-photo-contact-sheet-v2
+          path: /tmp/wander-real-photos.jpg
+          retention-days: 7
