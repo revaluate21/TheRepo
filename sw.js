@@ -1,6 +1,6 @@
-const STATIC='lisbon-quest-static-v10';
-const RUNTIME='lisbon-quest-runtime-v10';
-const CORE=['./','./index.html','./style.css','./data.js','./nightlife.js','./live-night.js','./night-ui.css','./night-ui.js','./app.js','./app-core.js','./app-ui.js','./manifest.webmanifest','./icon.svg'];
+const STATIC='lisbon-quest-static-v11';
+const RUNTIME='lisbon-quest-runtime-v11';
+const CORE=['./','./index.html','./launch.html','./style.css','./data.js','./nightlife.js','./live-night.js','./night-ui.css','./night-ui.js','./app.js','./app-core.js','./app-ui.js','./manifest.webmanifest','./icon.svg'];
 const THIRD=['https://unpkg.com/leaflet@1.9.4/dist/leaflet.css','https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{const c=await caches.open(STATIC);await c.addAll(CORE);for(const u of THIRD){try{const r=await fetch(u,{mode:'cors'});if(r.ok)await c.put(u,r)}catch(e){}}await self.skipWaiting()})()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{const ks=await caches.keys();await Promise.all(ks.filter(k=>![STATIC,RUNTIME].includes(k)).map(k=>caches.delete(k)));await self.clients.claim()})()));
