@@ -275,7 +275,18 @@
       ],
       "stddev": 39.51,
       "entropy": 7.244
+    },
+    "se.jpg": {
+      "title": "Sé de Lisboa (Lisbon Cathedral) 112.jpg",
+      "bytes": 230320,
+      "sha256": "7ab7f982c4bcc346938155f5e09fdc6add721faaa46d63eb1c7505e0ee6e49a0",
+      "original": [
+        1600,
+        1200
+      ],
+      "stddev": 53.79,
+      "entropy": 7.309
     }
   },
-  "generated_at": "2026-09-04T21:20:25Z"
+  "generated_at": "2026-09-04T21:20:42Z"
 }
