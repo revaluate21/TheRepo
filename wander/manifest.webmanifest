@@ -1,9 +1,9 @@
 {
-  "id": "/TheRepo/wander/app-v2",
+  "id": "/TheRepo/wander/app-v2.2",
   "name": "Wander Portugal",
   "short_name": "Wander",
   "description": "Photo-first Portugal walks with Google Maps voice navigation and weather-aware suggestions.",
-  "start_url": "./?source=pwa-v2",
+  "start_url": "./?source=pwa-v2.2",
   "scope": "./",
   "display": "standalone",
   "display_override": ["standalone", "minimal-ui"],
