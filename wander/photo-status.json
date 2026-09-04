@@ -253,7 +253,18 @@
       ],
       "stddev": 59.67,
       "entropy": 7.732
+    },
+    "santa-luzia.jpg": {
+      "title": "St. Lucy - Miradouro de Santa Luzia - Lisbon (52751066335).jpg",
+      "bytes": 260173,
+      "sha256": "a4bdf51bb80d3e2436194f8cb8c38cc924d643d2f533baed9349c10892b81d40",
+      "original": [
+        1369,
+        2424
+      ],
+      "stddev": 38.0,
+      "entropy": 6.841
     }
   },
-  "generated_at": "2026-09-04T21:16:18Z"
+  "generated_at": "2026-09-04T21:20:00Z"
 }
