@@ -242,7 +242,18 @@
       ],
       "stddev": 33.17,
       "entropy": 6.775
+    },
+    "rossio.jpg": {
+      "title": "Rossio Square Lisbon Portugal.jpg",
+      "bytes": 365853,
+      "sha256": "4a46f11b520f9e138afa1c69b366fd4af7c62cac18217a961adaf4f2a0b2ee5e",
+      "original": [
+        1920,
+        2560
+      ],
+      "stddev": 59.67,
+      "entropy": 7.732
     }
   },
-  "generated_at": "2026-09-04T21:16:03Z"
+  "generated_at": "2026-09-04T21:16:18Z"
 }
