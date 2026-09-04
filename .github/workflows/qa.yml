@@ -1,0 +1,64 @@
+name: Browser QA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [gh-pages]
+    paths-ignore:
+      - README.md
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wander-browser-qa
+  cancel-in-progress: true
+
+jobs:
+  mobile-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - name: Check whether the real photo bundle is ready
+        id: photos
+        run: |
+          if [ -f photo-status.json ]; then
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'ready=false' >> "$GITHUB_OUTPUT"
+            echo 'Photo workflow will trigger a second QA run after bundling images.'
+          fi
+      - uses: actions/setup-node@v4
+        if: steps.photos.outputs.ready == 'true'
+        with:
+          node-version: '22'
+      - name: Install test dependencies
+        if: steps.photos.outputs.ready == 'true'
+        run: npm install --no-audit --no-fund
+      - name: Install Chromium
+        if: steps.photos.outputs.ready == 'true'
+        run: npx playwright install --with-deps chromium
+      - name: Static validation
+        if: steps.photos.outputs.ready == 'true'
+        run: |
+          node --check app.js
+          node --check routes.js
+          python3 -m json.tool manifest.webmanifest >/dev/null
+          python3 -m py_compile scripts/fetch_photos.py
+          test "$(find assets/photos -name '*.jpg' | wc -l)" -eq 28
+      - name: Pixel-size browser tests
+        if: steps.photos.outputs.ready == 'true'
+        run: npx playwright test
+      - name: Upload visual QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wander-browser-qa
+          path: |
+            test-results/
+            playwright-report/
+          if-no-files-found: warn
+          retention-days: 7
