@@ -8,11 +8,11 @@
     document.head.appendChild(script);
   });
   try{
-    await load('./nightlife.js?v=10');
-    await load('./live-night.js?v=10');
-    await load('./app-core.js?v=10');
-    await load('./app-ui.js?v=10');
-    await load('./night-ui.js?v=10');
+    await load('./nightlife.js?v=11');
+    await load('./live-night.js?v=11');
+    await load('./app-core.js?v=11');
+    await load('./app-ui.js?v=11');
+    await load('./night-ui.js?v=11');
   }catch(error){
     console.error(error);
     const banner=document.getElementById('offlineBanner');
