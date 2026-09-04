@@ -1,6 +1,6 @@
 const STATIC='lisbon-quest-v13-static';
 const RUNTIME='lisbon-quest-v13-runtime';
-const CORE=['./','./index.html','./quest.css?v=13','./quest-style-01.css?v=13','./quest-style-02.css?v=13','./quest-style-03.css?v=13','./quest-style-04.css?v=13','./quest-style-05.css?v=13','./quest-data.js?v=13','./quest.js?v=13','./quest-src-01.txt?v=13','./quest-src-02.txt?v=13','./quest-src-03.txt?v=13','./quest-src-04.txt?v=13','./quest-src-05.txt?v=13','./quest-src-06.txt?v=13','./quest-src-07.txt?v=13','./quest-src-08.txt?v=13','./quest-src-09.txt?v=13','./quest-src-10.txt?v=13','./quest-src-11.txt?v=13','./manifest.webmanifest?v=13','./icon.svg'];
+const CORE=['./','./index.html','./revamp.html','./quest.css?v=13','./quest-style-01.css?v=13','./quest-style-02.css?v=13','./quest-style-03.css?v=13','./quest-style-04.css?v=13','./quest-style-05.css?v=13','./quest-data.js?v=13','./quest.js?v=13','./quest-src-01.txt?v=13','./quest-src-02.txt?v=13','./quest-src-03.txt?v=13','./quest-src-04.txt?v=13','./quest-src-05.txt?v=13','./quest-src-06.txt?v=13','./quest-src-07.txt?v=13','./quest-src-08.txt?v=13','./quest-src-09.txt?v=13','./quest-src-10.txt?v=13','./quest-src-11.txt?v=13','./manifest.webmanifest?v=13','./icon.svg'];
 const THIRD=['https://unpkg.com/leaflet@1.9.4/dist/leaflet.css','https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{
   const cache=await caches.open(STATIC);
