@@ -560,8 +560,9 @@
     if (stop) {
       const d = hav(next, stop);
       const threshold = Math.max(55, Math.min(90, 45 + next.acc * .45));
+      const highConfidenceArrival = next.acc <= 30 && d <= Math.max(24, next.acc * 1.25);
       if (d <= threshold && next.acc <= 100) state.arrivalHits += 1; else state.arrivalHits = 0;
-      if (state.arrivalHits >= 2 && !state.arrived) {
+      if ((highConfidenceArrival || state.arrivalHits >= 2) && !state.arrived) {
         state.arrived = true;
         if (state.haptics) navigator.vibrate?.([160, 70, 80]);
         speak(`You are at ${stop.name}.`);
