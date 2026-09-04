@@ -13,15 +13,15 @@
       "entropy": 7.595
     },
     "bica.jpg": {
-      "title": "Elevador da Bica - Lisbon (52750990701).jpg",
-      "bytes": 214133,
-      "sha256": "d43889f5ec08a71563b2dd62f183cb91b47b9764576a1fd34c6c791d7f5510d1",
+      "title": "Yellow Elevador da Bica Funicular in Lisbon, Portugal (54715452370).jpg",
+      "bytes": 241605,
+      "sha256": "38644a14ea9469e5b32395a3914db515da9588b63d0f8cb52ae4ec39736d8354",
       "original": [
-        1920,
-        1283
+        1600,
+        2133
       ],
-      "stddev": 78.04,
-      "entropy": 7.324
+      "stddev": 56.51,
+      "entropy": 7.603
     },
     "boca-vento.jpg": {
       "title": "Elevador da Boca do Vento, Almada - panoramio.jpg",
@@ -189,15 +189,15 @@
       "entropy": 7.653
     },
     "parque.jpg": {
-      "title": "Parque Eduardo VII - Lisbon (52750120427).jpg",
-      "bytes": 118518,
-      "sha256": "45d0cf316b5faf5a40c684eb6cf32358e70ee95b5087dca660921bfe1f4d14e2",
+      "title": "Parque Eduardo VII (Lisbon).jpg",
+      "bytes": 319658,
+      "sha256": "0df524ac796bc868d100815a212f02ea80dd00f741839c253c922cfbd393f8ef",
       "original": [
-        1920,
-        2557
+        1600,
+        1067
       ],
-      "stddev": 35.61,
-      "entropy": 6.772
+      "stddev": 50.08,
+      "entropy": 7.342
     },
     "pena.jpg": {
       "title": "Pena Palace, Sintra, Portugal, 20250606 1019 9978.jpg",
@@ -222,15 +222,15 @@
       "entropy": 7.609
     },
     "praca.jpg": {
-      "title": "Praça do Comércio – Lisboa, Portugal (54817271215).jpg",
-      "bytes": 190193,
-      "sha256": "e9c67bd678b4e1a446e8b4defaa1aad040e911d6a0cb594b2cdf82f39db4c7ad",
+      "title": "Praça do Comércio (Commerce Square) - Lisbon (52742691555).jpg",
+      "bytes": 241880,
+      "sha256": "cbc2684795150e275cca9fd96adcbc6902c2a5e350fbd994d831cac0687807be",
       "original": [
-        1920,
-        1280
+        1600,
+        1069
       ],
-      "stddev": 44.56,
-      "entropy": 7.377
+      "stddev": 47.05,
+      "entropy": 6.963
     },
     "regaleira.jpg": {
       "title": "Quinta da Regaleira 01.jpg",
@@ -244,26 +244,26 @@
       "entropy": 6.775
     },
     "rossio.jpg": {
-      "title": "Rossio Square Lisbon Portugal.jpg",
-      "bytes": 365853,
-      "sha256": "4a46f11b520f9e138afa1c69b366fd4af7c62cac18217a961adaf4f2a0b2ee5e",
+      "title": "Lisboa, Rossio 3.jpg",
+      "bytes": 266447,
+      "sha256": "c2a6ec4dcc0094c6dc1adbd3a1bfb757b62c2657635055beb6a4d6fdbe5a2c2f",
       "original": [
-        1920,
-        2560
+        1600,
+        1063
       ],
-      "stddev": 59.67,
-      "entropy": 7.732
+      "stddev": 65.73,
+      "entropy": 7.155
     },
     "santa-luzia.jpg": {
-      "title": "St. Lucy - Miradouro de Santa Luzia - Lisbon (52751066335).jpg",
-      "bytes": 260173,
-      "sha256": "a4bdf51bb80d3e2436194f8cb8c38cc924d643d2f533baed9349c10892b81d40",
+      "title": "Miradouro de Santa Luzia View over Alfama, Lisbon (54733651122).jpg",
+      "bytes": 294422,
+      "sha256": "c6de60c2650c40050621b68a43b2f2ddd7654d056cec1eebb9d2f05ee9f2b0c4",
       "original": [
-        1369,
-        2424
+        1600,
+        1200
       ],
-      "stddev": 38.0,
-      "entropy": 6.841
+      "stddev": 42.38,
+      "entropy": 7.329
     },
     "sao-pedro.jpg": {
       "title": "Miradouro de São Pedro de Alcântara (13943471369).jpg",
@@ -277,26 +277,26 @@
       "entropy": 7.244
     },
     "se.jpg": {
-      "title": "Sé de Lisboa (Lisbon Cathedral) 112.jpg",
-      "bytes": 230320,
-      "sha256": "7ab7f982c4bcc346938155f5e09fdc6add721faaa46d63eb1c7505e0ee6e49a0",
+      "title": "Sé-de-Lisboa facade.jpg",
+      "bytes": 175943,
+      "sha256": "7f93a1d95b25de03dfc8e0e2665ba606ed02b874f31de95184bc27e0e8e286c9",
       "original": [
-        1600,
-        1200
+        1328,
+        1784
       ],
-      "stddev": 53.79,
-      "entropy": 7.309
+      "stddev": 55.5,
+      "entropy": 7.185
     },
     "senhora.jpg": {
-      "title": "Miradouro da Senhora do Monte (38530147244).jpg",
-      "bytes": 269440,
-      "sha256": "9dea565865745ee39e7aac852d4088b24e9b2b744ee6c4a919f668eb91bb52a4",
+      "title": "Panoramic View from Miradouro da Senhora do Monte in Lisbon (54742879994).jpg",
+      "bytes": 293940,
+      "sha256": "a62ea61f2c669ddca4004cc102654cf592180d65baeb57439cc16e36f61d8f74",
       "original": [
         1600,
-        1067
+        900
       ],
-      "stddev": 45.78,
-      "entropy": 7.363
+      "stddev": 46.14,
+      "entropy": 7.357
     },
     "tomar.jpg": {
       "title": "Convent of Christ - Tomar.jpg",
@@ -310,6 +310,6 @@
       "entropy": 7.825
     }
   },
-  "generated_at": "2026-09-04T21:21:16Z",
-  "validated_at": "2026-09-04T21:21:17Z"
+  "generated_at": "2026-09-04T21:28:44Z",
+  "validated_at": "2026-09-04T21:28:45Z"
 }
