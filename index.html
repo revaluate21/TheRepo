@@ -3,187 +3,175 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#ff665f">
-  <meta name="description" content="Lisbon Quest: a daytime and night exploration layer that hands real turn-by-turn walking to Google Maps.">
-  <title>Lisbon Quest — Day & Night</title>
-  <link rel="manifest" href="./manifest.webmanifest?v=13">
-  <link rel="preconnect" href="https://unpkg.com" crossorigin>
-  <link rel="preconnect" href="https://commons.wikimedia.org" crossorigin>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
-  <link rel="stylesheet" href="./quest.css?v=13">
+  <meta name="theme-color" content="#ff5c7a">
+  <meta name="description" content="Photo-first Portugal walking routes with live weather, GPS arrival checks and reliable Google Maps turn-by-turn navigation.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./app.css?v=30">
+  <title>Wander Portugal</title>
 </head>
 <body>
-<div id="app" class="app" data-world="day">
+<div id="app" class="app-shell">
   <header class="topbar">
-    <button class="brand" id="brandBtn" type="button" aria-label="Fit route on map">
-      <span class="brand-mark">Q</span>
-      <span><strong>Lisbon Quest</strong><small>Explore by day. Roam by night.</small></span>
-    </button>
+    <button id="backBtn" class="round-btn hidden" aria-label="Back">←</button>
+    <a class="brand" href="#home" aria-label="Wander home"><span class="brand-mark">W</span><span>WANDER</span></a>
     <div class="top-actions">
-      <button class="round-btn" id="shareBtn" type="button" aria-label="Share app">↗</button>
-      <button class="round-btn hidden" id="installBtn" type="button" aria-label="Install app">↓</button>
+      <button id="installBtn" class="round-btn hidden" aria-label="Install app">↓</button>
+      <button id="shareBtn" class="round-btn" aria-label="Share app">↗</button>
+      <button id="homeBtn" class="round-btn" aria-label="Home">⌂</button>
     </div>
   </header>
 
-  <section class="world-switcher" aria-label="Choose day or night view">
-    <button id="dayModeBtn" class="world-btn active" type="button"><span>☀️</span><b>Day</b><small>interiors, colour, shade</small></button>
-    <button id="nightModeBtn" class="world-btn" type="button"><span>🌙</span><b>Night</b><small>lights, atmosphere, busier route</small></button>
-  </section>
-
-  <section class="hero-map" id="mapSection">
-    <div id="map" aria-label="North-up Lisbon quest map"></div>
-    <div class="map-scrim"></div>
-    <div class="map-status" id="mapStatus">Quest overview — Google Maps handles every street turn.</div>
-    <div class="mission-hud">
-      <div class="mission-mini">NEXT QUEST</div>
-      <div class="mission-line">
-        <span id="hudIcon" class="hud-icon">📍</span>
-        <div><strong id="hudName">Choose a route</strong><small id="hudMeta">GPS is optional for browsing</small></div>
-      </div>
-    </div>
-    <div class="map-controls">
-      <button id="locateBtn" type="button" title="Locate me">◎</button>
-      <button id="followBtn" type="button" class="active" title="Follow my position">⌖</button>
-      <button id="fitBtn" type="button" title="Fit quest">⤢</button>
-      <button id="layersBtn" type="button" title="Toggle side quests">★</button>
-    </div>
-    <div class="map-stats">
-      <span><b id="distanceWalked">0.0</b> km tracked</span>
-      <span><b id="routeProgress">0</b>% discovered</span>
-      <span><b id="gpsAccuracy">—</b> GPS</span>
-      <span id="batteryChip" class="hidden"><b id="batteryValue">—</b> battery</span>
-    </div>
-  </section>
-
-  <section class="planner-card" id="planner">
-    <div class="planner-grid">
-      <label><span>Route</span><select id="routeSelect"></select></label>
-      <label><span>Start time</span><input id="startTime" type="time" value="10:00"></label>
-    </div>
-    <div class="route-summary" id="routeSummary"></div>
-    <div class="planner-actions">
-      <a id="transitStartBtn" class="btn secondary" target="_blank" rel="noopener">Transit to first stop</a>
-      <button id="joinHereBtn" class="btn secondary" type="button">Join from where I am</button>
-      <button id="fitRouteBtn" class="btn secondary" type="button">Show full quest</button>
-      <button id="resetBtn" class="btn text" type="button">Reset progress</button>
-    </div>
-  </section>
-
   <main>
-    <section class="section mission-section" id="missionSection">
-      <div class="section-title"><div><span class="eyebrow">PHONE-DOWN MODE</span><h2>Let Google navigate this leg</h2></div><span id="missionCount" class="count-pill">1 / 1</span></div>
-      <article class="mission-card">
-        <div class="mission-photo-wrap">
-          <div id="missionFallback" class="photo-fallback">📍</div>
-          <img id="missionPhoto" alt="" loading="eager">
-          <div class="photo-badges"><span id="openBadge">Outdoor</span><span id="distanceBadge">GPS off</span></div>
+    <section id="homeView" class="view active" aria-label="Route picker">
+      <div class="weather-strip">
+        <span id="nowClock">--:--</span>
+        <span class="dot">•</span>
+        <span id="weatherText">Checking weather…</span>
+        <button id="nearMeBtn" class="text-btn">near me</button>
+      </div>
+
+      <section id="bestNow" class="hero-card" aria-live="polite">
+        <img id="bestNowImage" alt="Best walk now">
+        <div class="hero-shade"></div>
+        <div class="hero-copy">
+          <span id="bestNowBadge" class="pill light">BEST NOW</span>
+          <h1 id="bestNowTitle">Finding your world…</h1>
+          <p id="bestNowMeta">time · weather · distance</p>
+          <button id="bestNowGo" class="go-btn">GO →</button>
         </div>
-        <div class="mission-copy">
-          <div class="mission-category" id="missionCategory">Landmark</div>
-          <h2 id="missionName">Lisbon</h2>
-          <p id="missionIntro"></p>
-          <div class="day-night-compare">
-            <div><b>☀️ By day</b><p id="dayNote"></p></div>
-            <div><b>🌙 By night</b><p id="nightNote"></p></div>
-          </div>
-          <div class="intel-grid">
-            <div><span>Plan</span><b id="missionEta">—</b></div>
-            <div><span>Terrain</span><b id="missionTerrain">—</b></div>
-            <div><span>Time here</span><b id="missionDwell">—</b></div>
-          </div>
-          <div id="hoursBox" class="hours-box"></div>
-          <a id="navigateBtn" class="btn navigate" target="_blank" rel="noopener"><span>▶</span><strong>Start walking navigation</strong><small>Google Maps voice + actual streets</small></a>
-          <div class="mission-actions">
-            <button id="arrivedBtn" class="btn success" type="button">I’m here ✓</button>
-            <button id="skipBtn" class="btn secondary" type="button">Skip</button>
-            <button id="detailsBtn" class="btn secondary" type="button">Photos & details</button>
-          </div>
-          <p class="pocket-note">Launch navigation, put the phone away, and let Google Maps speak through your headphones. Reopen Lisbon Quest when you arrive.</p>
+      </section>
+
+      <section class="section-block">
+        <div class="section-title"><div><span class="eyebrow">YOUR NEXT FIVE DAYS</span><h2>One unforgettable world a day</h2></div></div>
+        <div id="fiveDayRow" class="card-row"></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-title"><div><span class="eyebrow">CHOOSE A MOOD</span><h2>What do you want to feel?</h2></div></div>
+        <div class="mood-row" id="moodRow">
+          <button data-mood="wow" class="mood-chip active">🤯 mindblown</button>
+          <button data-mood="peace">🌿 peaceful</button>
+          <button data-mood="night">🌙 night</button>
+          <button data-mood="coast">🌊 breeze</button>
+          <button data-mood="long">🥾 long</button>
+        </div>
+        <div id="moodRoutes" class="route-grid"></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-title"><div><span class="eyebrow">ALL WORLDS</span><h2>Portugal from your pocket</h2></div></div>
+        <div id="worldGrid" class="world-grid"></div>
+      </section>
+
+      <details class="tiny-details">
+        <summary>Weather, photos and route safety</summary>
+        <p>Recommendations use your device time, GPS distance and current Open‑Meteo conditions. Day-only forest/cliff routes are suppressed after dark. Official closures and live transport still need checking.</p>
+      </details>
+    </section>
+
+    <section id="worldView" class="view" aria-label="Place routes">
+      <div class="world-hero">
+        <img id="worldHeroImage" alt="">
+        <div class="hero-shade"></div>
+        <div class="world-hero-copy"><span id="worldKicker" class="pill light">WORLD</span><h1 id="worldTitle"></h1><p id="worldSubtitle"></p></div>
+      </div>
+      <div id="worldRoutes" class="route-grid page-grid"></div>
+    </section>
+
+    <section id="routeView" class="view" aria-label="Route overview">
+      <article class="route-hero">
+        <img id="routeHeroImage" alt="">
+        <div class="hero-shade"></div>
+        <div class="route-hero-copy">
+          <span id="routeWorld" class="pill light"></span>
+          <h1 id="routeTitle"></h1>
+          <p id="routeVibe"></p>
+          <div id="routeStats" class="stats-row"></div>
         </div>
       </article>
-    </section>
-
-    <section class="section" id="routeSection">
-      <div class="section-title"><div><span class="eyebrow">QUEST LOG</span><h2>Your route, without backtracking</h2><p>Tap any stop to inspect it or make it the next target.</p></div></div>
-      <div id="routeTimeline" class="timeline"></div>
-    </section>
-
-    <section class="section" id="nearbySection">
-      <div class="section-title"><div><span class="eyebrow">SIDE QUESTS</span><h2>Interesting detours nearby</h2><p>No restaurant recommendations. Distances update from GPS or the map centre.</p></div><button id="refreshNearbyBtn" class="chip-btn" type="button">Refresh</button></div>
-      <div class="filter-row" id="filterRow">
-        <button class="filter active" data-filter="all">All</button>
-        <button class="filter" data-filter="view">Views</button>
-        <button class="filter" data-filter="inside">Inside</button>
-        <button class="filter" data-filter="green">Green</button>
-        <button class="filter" data-filter="play">Play</button>
-        <button class="filter" data-filter="nightlife">Nightlife</button>
+      <div class="route-actions sticky-actions">
+        <button id="startRouteBtn" class="primary-btn">START THIS WALK</button>
+        <a id="getThereBtn" class="secondary-btn" target="_blank" rel="noopener">GET THERE</a>
       </div>
-      <div id="nearbyGrid" class="nearby-grid"></div>
-    </section>
-
-    <section class="section" id="replaySection">
-      <div class="section-title"><div><span class="eyebrow">DAY VS NIGHT</span><h2>What changes when the sun is up?</h2></div></div>
-      <div class="replay-grid">
-        <article class="replay-card day"><div class="replay-icon">☀️</div><h3>Daytime Lisbon</h3><p>Tiles, façades, gardens and interior museums become the main event. It is busier and much easier to orient yourself, but exposed hills and the riverfront can feel brutally hot.</p><ul><li>Best for Estufa Fria, Carmo interior, Castelo and Aljube.</li><li>Start early or use the heat-smart route.</li><li>More people around; less eerie, less cinematic.</li></ul></article>
-        <article class="replay-card night"><div class="replay-icon">🌙</div><h3>Night-time Lisbon</h3><p>Quieter streets, warm lighting and the river breeze make the city atmospheric, but interiors close and isolated uphill sections can feel emptier.</p><ul><li>Use the busy-and-bright route after midnight.</li><li>Keep one ear free and avoid stopping for unsolicited pitches.</li><li>The app sends street routing to Google Maps so the phone can stay away.</li></ul></article>
+      <div id="routeWeatherCallout" class="route-callout"></div>
+      <div id="routeWarnings" class="route-callout subtle"></div>
+      <section class="photo-stops">
+        <div class="section-title"><div><span class="eyebrow">WHAT YOU'LL SEE</span><h2 id="stopCountTitle"></h2></div></div>
+        <div id="stopPreview" class="stop-preview"></div>
+      </section>
+      <div class="route-actions bottom-route-actions">
+        <button id="startRouteBtn2" class="primary-btn">START THIS WALK</button>
+        <a id="returnCheckBtn" class="secondary-btn" target="_blank" rel="noopener">CHECK RETURN</a>
       </div>
     </section>
 
-    <section class="section" id="homeSection">
-      <div class="section-title"><div><span class="eyebrow">EXTRACTION</span><h2>Get back to 2660-213</h2><p>The public version stores only the postcode area. Save an exact point locally while at home.</p></div></div>
-      <div class="home-grid">
-        <article class="home-card primary-home">
-          <h3>🏠 Home now</h3>
-          <p id="homeLabel">Approximate 2660-213 area</p>
-          <a id="transitHomeBtn" class="btn navigate compact" target="_blank" rel="noopener"><span>🚌</span><strong>Live public transport home</strong><small>Google Maps from current location</small></a>
-          <a id="walkHomeBtn" class="btn secondary" target="_blank" rel="noopener">Walking route to saved home</a>
-          <button id="saveHomeBtn" class="btn secondary" type="button">Save this GPS point as home</button>
-        </article>
-        <article class="home-card">
-          <h3>🌙 Late-night fallback</h3>
-          <p>Check live transit first. The useful corridors are usually the 207 toward Fetais or 206 toward Odivelas, followed by a short final ride. After Metro reopens, route via Campo Grande.</p>
-          <div class="link-stack"><a href="https://cway.carris.pt/" target="_blank" rel="noopener">CARRISway live vehicles</a><a href="https://www.metrolisboa.pt/en/travel/timetables-and-frequency%20/" target="_blank" rel="noopener">Metro status and hours</a><a href="https://www.google.com/maps/search/?api=1&query=police%20station%20near%20me" target="_blank" rel="noopener">Nearby police station</a></div>
-        </article>
-        <article class="home-card safety-card">
-          <h3>🛡️ Night awareness</h3>
-          <p>Prefer lit streets with foot traffic, do not advertise a nearly dead battery, and keep enough audio awareness for traffic and people. A simple “não, obrigado” while continuing to walk is enough for unsolicited sellers. Emergency number: <strong>112</strong>.</p>
-        </article>
+    <section id="walkView" class="view walk-view" aria-label="Active walk navigator">
+      <div class="walk-topline">
+        <span id="walkRouteName">Route</span>
+        <span id="walkProgress">1 / 1</span>
       </div>
-    </section>
 
-    <section class="section small-print">
-      <details><summary>How this version avoids the bad arrow problem</summary><p>This map stays north-up and shows only your location, the quest order and nearby attractions. It does not pretend that a phone compass knows which alley to take. The large navigation button opens Google Maps with walking mode and <code>dir_action=navigate</code>, so Google handles the pedestrian street graph and turn-by-turn voice guidance.</p></details>
-      <details><summary>GPS and offline notes</summary><p>Arrival detection works while this app is open. Browsers can pause GPS when backgrounded, which is why Google Maps handles the journey while the phone is in your pocket. The app shell and viewed images can be cached; unseen map tiles and live transit still need data.</p></details>
-      <details><summary>Photo and information credits</summary><div id="credits"></div></details>
+      <article id="navCard" class="nav-card">
+        <div class="nav-photo-wrap">
+          <img id="navPhoto" alt="Next landmark">
+          <div class="nav-photo-shade"></div>
+          <span id="navStatus" class="nav-status">NEXT</span>
+          <button id="photoInfoBtn" class="photo-info" aria-label="Photo information">ⓘ</button>
+        </div>
+        <div class="nav-main">
+          <p id="navDistance" class="nav-distance">GPS OFF</p>
+          <h1 id="navName">Next place</h1>
+          <p id="navCue" class="nav-cue"></p>
+          <button id="launchMapsBtn" class="navigate-btn"><span class="nav-icon">➜</span><span><small>PHONE-DOWN MODE</small>START TURN-BY-TURN</span></button>
+          <div class="nav-mini-actions">
+            <button id="reachedBtn" class="arrived-btn">I'M HERE ✓</button>
+            <button id="skipStopBtn" class="plain-btn">SKIP</button>
+          </div>
+        </div>
+      </article>
+
+      <div class="phone-down-note"><span>🎧</span><p><b>Google Maps does the turns.</b><br>This app remembers the next landmark.</p></div>
+
+      <section class="map-panel">
+        <button id="toggleMapBtn" class="map-toggle"><span>ROUTE MAP</span><span id="mapChevron">⌄</span></button>
+        <div id="mapBody" class="map-body collapsed">
+          <svg id="routeSvg" viewBox="0 0 1000 620" role="img" aria-label="Schematic route map"></svg>
+          <div class="map-legend"><span><i class="you-dot"></i>you</span><span><i class="next-dot"></i>next</span><span><i class="done-dot"></i>done</span></div>
+        </div>
+      </section>
+
+      <section class="next-strip">
+        <span class="eyebrow">COMING UP</span>
+        <div id="comingUp" class="coming-up"></div>
+      </section>
+
+      <section class="walk-controls">
+        <button id="voiceBtn" class="control-btn active">🔊 voice</button>
+        <button id="vibrateBtn" class="control-btn active">〰 haptics</button>
+        <button id="gpsBtn" class="control-btn">◎ GPS</button>
+        <button id="wakeBtn" class="control-btn">☀ awake</button>
+      </section>
+
+      <section class="home-rescue">
+        <div><span class="eyebrow">DONE OR TIRED?</span><h2>Get me home</h2><p id="homeRescueText">Live transport from where you are.</p></div>
+        <a id="goHomeBtn" class="home-rescue-btn" target="_blank" rel="noopener">HOME →</a>
+      </section>
     </section>
   </main>
-</div>
 
-<nav class="bottom-nav" aria-label="App sections">
-  <a href="#mapSection" class="active"><span>🗺️</span>Map</a>
-  <a href="#missionSection"><span>▶</span>Next</a>
-  <a href="#nearbySection"><span>★</span>Nearby</a>
-  <a href="#replaySection"><span>☀️</span>Replay</a>
-  <a href="#homeSection"><span>🏠</span>Home</a>
-</nav>
-
-<div id="detailBackdrop" class="detail-backdrop" role="dialog" aria-modal="true" aria-labelledby="detailName">
-  <article class="detail-sheet">
-    <div class="detail-hero"><div id="detailFallback" class="photo-fallback">📍</div><img id="detailPhoto" alt=""><button id="closeDetailBtn" class="close-btn" type="button">×</button><div class="detail-title"><span id="detailCategory"></span><h2 id="detailName"></h2></div></div>
-    <div class="detail-body">
-      <div class="detail-stats"><div><span>Distance</span><b id="detailDistance">—</b></div><div><span>Status</span><b id="detailStatus">—</b></div><div><span>Typical stop</span><b id="detailDwell">—</b></div></div>
-      <p id="detailIntro"></p>
-      <div class="day-night-compare"><div><b>☀️ Day</b><p id="detailDay"></p></div><div><b>🌙 Night</b><p id="detailNight"></p></div></div>
-      <div id="detailHours" class="hours-box"></div>
-      <div class="detail-actions"><a id="detailNavigateBtn" class="btn navigate compact" target="_blank" rel="noopener"><span>▶</span><strong>Navigate here</strong><small>Google Maps walking</small></a><a id="detailPhotosBtn" class="btn secondary" target="_blank" rel="noopener">More photos</a><button id="makeTargetBtn" class="btn secondary" type="button">Make next quest</button></div>
-      <p id="detailCredit" class="credit"></p>
-    </div>
-  </article>
+  <nav id="bottomNav" class="bottom-nav">
+    <button data-target="home">⌂<span>Home</span></button>
+    <button data-target="best">✦<span>Best now</span></button>
+    <button data-target="worlds">◫<span>Worlds</span></button>
+    <button data-target="active">➜<span>Walk</span></button>
+  </nav>
 </div>
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
-<script src="./quest-data.js?v=13"></script>
-<script src="./quest.js?v=13"></script>
+<div id="photoModal" class="modal" role="dialog" aria-modal="true" aria-label="Photo credit"><div class="modal-card"><button id="closeModal" class="modal-close">×</button><img id="modalPhoto" alt=""><h2 id="modalTitle"></h2><p id="modalCredit"></p><a id="modalSource" target="_blank" rel="noopener">Open source</a></div></div>
+
+<script src="./routes.js?v=30"></script>
+<script src="./app.js?v=30"></script>
 </body>
 </html>

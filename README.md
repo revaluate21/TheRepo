@@ -1,71 +1,32 @@
-# Polymarket + Kalshi Research & Execution Suite
+# Wander Portugal
 
-Local-first, simulation-default research and execution workstation with one-command startup.
+A photo-first, weather-aware walking PWA designed for **phone-down exploration**.
 
-## Safety Defaults
-- Default mode is **simulation** and deterministic.
-- Live mode requires `--live --confirm-live` and UI phrase acknowledgment.
-- Dry run live mode (`--dry-run-live`) performs auth/sign flow but no order submission.
-- No guaranteed profit claims; alerts and strategies are probabilistic.
+## Core idea
 
-## Quick start (Windows friendly)
+- Wander chooses the place, route order, weather fit and visual checkpoints.
+- Google Maps handles real turn-by-turn walking directions for each leg.
+- The app does not use a custom compass arrow as the primary navigator.
+- Accurate GPS is used for distance, joining a route near a later stop, and arrival confirmation.
+
+## Included worlds
+
+Lisbon, Almada, Sintra, Cascais, Coimbra, Óbidos, Évora and Tomar. The route catalogue includes old-city panoramas, night walks, waterfronts, futuristic architecture, palaces, forests, Atlantic cliffs, Roman streets and Templar sites.
+
+## Photos and licences
+
+`photo-sources.txt` lists every Wikimedia Commons filename, author, licence and source page. GitHub Actions downloads and optimises those images into `assets/photos/`; the app exposes the credit for each active landmark.
+
+## Local QA
+
 ```bash
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-python run_app.py serve
-```
-Then open http://127.0.0.1:8000
-
-Or:
-```bash
-make run
+npm install
+npx playwright install --with-deps chromium
+npm test
 ```
 
-## Project tree
-```text
-.
-├── app
-│   ├── cli.py
-│   ├── connectors
-│   │   ├── kalshi.py
-│   │   ├── news.py
-│   │   ├── polymarket.py
-│   │   └── simulated.py
-│   ├── core
-│   │   ├── config.py
-│   │   ├── models.py
-│   │   └── state_machine.py
-│   ├── risk
-│   │   └── manager.py
-│   ├── services
-│   │   └── engine.py
-│   ├── storage
-│   │   ├── db.py
-│   │   ├── journal.py
-│   │   └── replay.py
-│   ├── strategies
-│   │   ├── convergence.py
-│   │   ├── mispricing.py
-│   │   ├── news_shock.py
-│   │   └── spread_capture.py
-│   └── web
-│       ├── app.py
-│       └── templates/index.html
-├── tests
-├── .env.example
-├── Makefile
-├── pyproject.toml
-├── requirements.txt
-└── run_app.py
-```
+The browser tests cover a Pixel-size home screen, route selection, GPS arrival, checkpoint advancement, photo credit, weather/time safety labels and offline reload.
 
-## Tests
-```bash
-pytest -q
-```
+## Sources used for route design
 
-## Notes on integrations
-- Polymarket integration uses `py-clob-client` APIs (EIP-712 signing, API creds, order post).
-- Kalshi integration uses official public market data endpoint `/markets`.
-- X ingestion uses official API only when keys are set; otherwise RSS fallback.
+Official links are included in the app where a live closure or timetable check matters, including CP, Parques de Sintra, IPMA and Google Maps transit/navigation.

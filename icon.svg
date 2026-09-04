@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff665f"/><stop offset=".5" stop-color="#ff3fb5"/><stop offset="1" stop-color="#6c63ff"/></linearGradient></defs>
-<rect width="512" height="512" rx="112" fill="#fff8eb"/><rect x="24" y="24" width="464" height="464" rx="100" fill="url(#g)"/>
-<path d="M107 375c53-92 86-57 108-137 21-77 87-113 190-90" fill="none" stroke="#fff" stroke-width="42" stroke-linecap="round" stroke-dasharray="1 66"/>
-<circle cx="107" cy="375" r="31" fill="#44d6b3" stroke="#18213a" stroke-width="10"/><path d="M219 211l121 55-110 69z" fill="#ffd166" stroke="#18213a" stroke-width="12" stroke-linejoin="round"/>
-<circle cx="405" cy="148" r="34" fill="#55c8ff" stroke="#18213a" stroke-width="10"/><text x="256" y="467" text-anchor="middle" font-size="58" font-family="system-ui" font-weight="900" fill="#fff">LISBON</text>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff5c7a"/><stop offset=".55" stop-color="#ff3fbc"/><stop offset="1" stop-color="#7458ff"/></linearGradient></defs>
+  <rect width="512" height="512" rx="128" fill="#fff9eb"/>
+  <rect x="36" y="36" width="440" height="440" rx="112" fill="url(#g)"/>
+  <path d="M126 123l66 267 64-155 64 155 66-267" fill="none" stroke="#fff" stroke-width="55" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="386" cy="117" r="39" fill="#ffbe3b" stroke="#fff" stroke-width="13"/>
 </svg>

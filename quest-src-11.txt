@@ -1,5 +1,0 @@
-  if(query.get('demo')==='rossio'){trackPosition({coords:{latitude:38.71338,longitude:-9.13920,accuracy:8},timestamp:Date.now()});}
-  if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js?v=13').catch(()=>{});
-}
-
-init();

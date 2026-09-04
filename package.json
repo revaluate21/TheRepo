@@ -1,0 +1,12 @@
+{
+  "name": "wander-portugal-pwa",
+  "private": true,
+  "version": "3.0.0",
+  "description": "Browser QA for the Wander Portugal static PWA",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.57.0"
+  }
+}
