@@ -32,7 +32,8 @@
       <article class="return-card"><h3>🚌 207 from Rossio → Fetais</h3><p><b>Closest option right now.</b> Board at <strong>00902 Rossio</strong>. Approximate Rossio pass times:</p><div id="rossio207Times" class="time-row"></div><p>Ride north to Fetais, then take a short Bolt/Uber to 2660-213. Check CARRISway before committing.</p></article>
       <article class="return-card"><h3>🚌 207 from Cais do Sodré → Fetais</h3><p>Best when your route finishes by Pink Street / the river. Terminal stop <strong>03807 Cais Sodré</strong>:</p><div id="cais207Times" class="time-row"></div><p>Terminal departure is easier to understand than intercepting the bus mid-route.</p></article>
       <article class="return-card"><h3>🚌 206 backup → Odivelas</h3><p>Leaves Cais do Sodré, passes Praça do Comércio, Campo Grande and Sr. Roubado, then Odivelas:</p><div id="cais206Times" class="time-row"></div><p>Use a Bolt/Uber from Sr. Roubado or Odivelas for the last leg. It does not serve Rossio on its base route.</p></article>
-      <article class="return-card"><h3>🌅 Dawn reset: 736 / Metro</h3><p>If you stay past the final 207, 736 begins from Rossio toward Odivelas:</p><div id="rossio736Times" class="time-row"></div><p>Lisbon Metro resumes around <strong>06:30</strong>. At that point, use live Maps/CARRISway rather than waiting around for one specific night bus.</p></article>
+      <article class="return-card"><h3>🌅 Dawn reset: 736 / Metro</h3><p>If you stay past the final 207, 736 begins from Rossio toward Odivelas:</p><div id="rossio736Times" class="time-row"></div><p>Lisbon Metro resumes around <strong>06:30</strong>. Both 736 and Metro serve Campo Grande.</p></article>
+      <article class="return-card"><h3>🏠 Fully public route via Campo Grande</h3><p>Take 736 from Rossio—or Metro after 06:30—to <strong>Campo Grande</strong>, then board Carris Metropolitana <strong>2769 at P2</strong> toward Santo António dos Cavaleiros:</p><div id="campo2769Times" class="time-row"></div><p>This can get you back near 2660-213 without a Bolt. Re-check the P2 departure in live transit before boarding.</p></article>
     </div>
     <div class="live-links"><a class="btn aqua small" href="https://cway.carris.pt/" target="_blank" rel="noopener">CARRISway live buses</a><a class="btn ghost small" href="https://www.google.com/maps/search/?api=1&query=00902%20Rossio%20Lisboa" target="_blank" rel="noopener">Find 00902 Rossio</a><a class="btn ghost small" href="https://www.google.com/maps/search/?api=1&query=03807%20Cais%20Sodr%C3%A9%20Lisboa" target="_blank" rel="noopener">Find 03807 Cais</a></div>
     <p class="safety-note">Late-night timetable times are planned, not a live guarantee. Keep battery for the final leg, use lit/busier streets, and keep enough awareness to hear traffic and people around you.</p>`;
@@ -80,6 +81,7 @@
     pills('#cais207Times', DATA.liveNight.buses.cais207);
     pills('#cais206Times', DATA.liveNight.buses.cais206);
     pills('#rossio736Times', DATA.liveNight.buses.rossio736);
+    pills('#campo2769Times', DATA.liveNight.buses.campo2769);
     const rNext=nextTime(DATA.liveNight.buses.rossio207), cNext=nextTime(DATA.liveNight.buses.cais207);
     let advice;
     if (mode === 'rossio-club') advice = `<b>Best fit for your mood:</b> leave McDonald's, walk straight down to Praça do Comércio and try Riktus. Your selected route plans to finish about <strong>${plannedFinish()}</strong>.`;
