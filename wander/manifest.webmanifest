@@ -1,0 +1,14 @@
+{
+  "id":"./",
+  "name":"Wander Portugal",
+  "short_name":"Wander",
+  "description":"Phone-down walking routes across Lisbon, Sintra, Coimbra and nearby Portugal.",
+  "start_url":"./?v=20",
+  "scope":"./",
+  "display":"standalone",
+  "orientation":"portrait-primary",
+  "background_color":"#fff9ee",
+  "theme_color":"#ff5d73",
+  "categories":["travel","navigation","fitness"],
+  "icons":[{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
