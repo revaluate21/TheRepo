@@ -154,7 +154,84 @@
       ],
       "stddev": 58.05,
       "entropy": 7.497
+    },
+    "mouros.jpg": {
+      "title": "The Moorish Castle, Sintra, Portugal (27954846141).jpg",
+      "bytes": 392274,
+      "sha256": "d72d09088e6eab598acbf648e96f0065845e1ea10082358aa29b67df1f135107",
+      "original": [
+        1920,
+        1280
+      ],
+      "stddev": 69.17,
+      "entropy": 7.454
+    },
+    "obidos.jpg": {
+      "title": "The Óbidos' Castle (4017081137).jpg",
+      "bytes": 340517,
+      "sha256": "1c5e7b2750121a7b7819a253703a8af8cf99f764f873b7878e28a4121c2d2dc5",
+      "original": [
+        1920,
+        1177
+      ],
+      "stddev": 80.2,
+      "entropy": 6.983
+    },
+    "oriente.jpg": {
+      "title": "Gare do Oriente.jpg",
+      "bytes": 299326,
+      "sha256": "95af8c3913bd7680174ddc1ba73276aae5ff811c19cd8e6c2dcc7bec2501b2b5",
+      "original": [
+        1920,
+        747
+      ],
+      "stddev": 67.53,
+      "entropy": 7.653
+    },
+    "parque.jpg": {
+      "title": "Parque Eduardo VII - Lisbon (52750120427).jpg",
+      "bytes": 118518,
+      "sha256": "45d0cf316b5faf5a40c684eb6cf32358e70ee95b5087dca660921bfe1f4d14e2",
+      "original": [
+        1920,
+        2557
+      ],
+      "stddev": 35.61,
+      "entropy": 6.772
+    },
+    "pena.jpg": {
+      "title": "Pena Palace, Sintra, Portugal, 20250606 1019 9978.jpg",
+      "bytes": 422501,
+      "sha256": "833ec37fe27ad69c26433a2fc7b81fa38116001596ef5e7fed7a73fd9400a75e",
+      "original": [
+        1920,
+        1282
+      ],
+      "stddev": 44.73,
+      "entropy": 7.319
+    },
+    "pink.jpg": {
+      "title": "Lisbon Pink Street.jpg",
+      "bytes": 362018,
+      "sha256": "b42e3af2a5b5b019937275e0116dc2184a4ecc9daae0883e9655e12c85fb0be3",
+      "original": [
+        1920,
+        1440
+      ],
+      "stddev": 51.16,
+      "entropy": 7.609
+    },
+    "praca.jpg": {
+      "title": "Praça do Comércio – Lisboa, Portugal (54817271215).jpg",
+      "bytes": 190193,
+      "sha256": "e9c67bd678b4e1a446e8b4defaa1aad040e911d6a0cb594b2cdf82f39db4c7ad",
+      "original": [
+        1920,
+        1280
+      ],
+      "stddev": 44.56,
+      "entropy": 7.377
     }
   },
-  "generated_at": "2026-09-04T21:10:40Z"
+  "generated_at": "2026-09-04T21:11:23Z"
 }
