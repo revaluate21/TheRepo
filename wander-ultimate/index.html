@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ff5b73">
+  <meta name="description" content="Phone-down walking worlds across Lisbon, Sintra, Coimbra and nearby Portugal.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css?v=1">
+  <title>Wander Portugal</title>
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="topbar">
+      <button id="brandBtn" class="brand" aria-label="Home">
+        <span class="brand-mark">W</span><span>WANDER</span>
+      </button>
+      <div class="top-actions">
+        <button id="weatherBtn" class="weather-pill" aria-label="Weather"><span id="weatherIcon">☀️</span><strong id="weatherTemp">—°</strong></button>
+        <button id="shareBtn" class="round-btn" aria-label="Share">↗</button>
+        <button id="installBtn" class="round-btn hidden" aria-label="Install">↓</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="homeView" class="view">
+        <div class="home-intro">
+          <span id="timeLabel" class="kicker">PORTUGAL · PHONE-DOWN MODE</span>
+          <h1>Pick a world.<br><em>Then just walk.</em></h1>
+        </div>
+
+        <article id="bestCard" class="best-card skeleton">
+          <div class="media"><div class="photo-fallback">🌅</div><img id="bestPhoto" alt="" referrerpolicy="no-referrer"></div>
+          <div class="best-copy">
+            <div class="best-row"><span class="badge dark">BEST NOW</span><span id="bestReason" class="reason">Checking the sky…</span></div>
+            <h2 id="bestTitle">Finding your best world</h2>
+            <p id="bestMeta">—</p>
+            <button id="bestGo" class="go-btn" disabled>GO <span>→</span></button>
+          </div>
+        </article>
+
+        <section class="compact-section">
+          <div class="section-head"><h2>Choose a feeling</h2><button id="locateBtn" class="text-btn">near me ◎</button></div>
+          <div id="moodRow" class="mood-row" role="list">
+            <button class="mood active" data-mood="all">✨ Anything</button>
+            <button class="mood" data-mood="mindblown">🤯 Mindblown</button>
+            <button class="mood" data-mood="peaceful">🌿 Peaceful</button>
+            <button class="mood" data-mood="cool">🌊 Breeze</button>
+            <button class="mood" data-mood="night">🌙 Night</button>
+            <button class="mood" data-mood="long">🦵 Long</button>
+            <button class="mood" data-mood="trip">🚆 Day trip</button>
+          </div>
+        </section>
+
+        <section class="compact-section">
+          <div class="section-head"><div><h2>Your next five days</h2><p id="planSub">Weather-matched, no food stops.</p></div><button id="refreshPlanBtn" class="round-mini" aria-label="Refresh plan">↻</button></div>
+          <div id="fiveDayRow" class="card-row"><div class="loading-card"></div><div class="loading-card"></div><div class="loading-card"></div></div>
+        </section>
+
+        <section class="compact-section">
+          <div class="section-head"><h2>All worlds</h2><span id="routeCount" class="tiny-label"></span></div>
+          <div id="routeGrid" class="route-grid"></div>
+        </section>
+
+        <section class="micro-panel">
+          <span>Navigation by Google Maps voice.</span>
+          <span>Photos: Wikimedia Commons.</span>
+          <span>Weather: Open-Meteo.</span>
+        </section>
+      </section>
+
+      <section id="routeView" class="view hidden" aria-live="polite">
+        <div class="route-top">
+          <button id="backBtn" class="round-btn solid" aria-label="Back">←</button>
+          <div class="route-heading"><span id="routeCity" class="kicker"></span><h1 id="routeTitle"></h1></div>
+          <button id="routeInfoBtn" class="round-btn solid" aria-label="Route information">i</button>
+        </div>
+
+        <article class="focus-card">
+          <div class="focus-media">
+            <div id="stopFallback" class="photo-fallback big">📍</div>
+            <img id="stopPhoto" alt="" referrerpolicy="no-referrer">
+            <div class="shade"></div>
+            <div class="focus-topline"><span id="stopProgress" class="badge glass">1 / 8</span><span id="gpsStatus" class="badge glass">GPS off</span></div>
+            <button id="altPhotoBtn" class="photo-button" aria-label="Another photo">▧</button>
+            <div class="focus-caption">
+              <span id="stopType" class="badge colour">VIEW</span>
+              <h2 id="stopName">Next stop</h2>
+              <p id="stopClue">Look for the landmark in the photograph.</p>
+            </div>
+          </div>
+
+          <div class="focus-actions">
+            <div class="distance-block"><strong id="distanceText">Tap GO</strong><span id="walkTimeText">Google Maps will handle every turn</span></div>
+            <button id="navigateBtn" class="nav-button"><span class="nav-symbol">➤</span><span><b id="navigateLabel">GO WITH VOICE</b><small>then put the phone down</small></span></button>
+            <div class="three-actions">
+              <button id="prevStopBtn">←</button>
+              <button id="arrivedBtn" class="arrived">I'M HERE ✓</button>
+              <button id="skipStopBtn">→</button>
+            </div>
+          </div>
+        </article>
+
+        <section class="route-tools">
+          <button id="mapToggle" class="tool-card"><span>🗺️</span><b>MAP</b><small>north-up</small></button>
+          <button id="nearestStopBtn" class="tool-card"><span>◎</span><b>NEAREST</b><small>join here</small></button>
+          <button id="offlineBtn" class="tool-card"><span>↓</span><b>OFFLINE</b><small>save photos</small></button>
+          <button id="voiceBtn" class="tool-card active"><span>🔊</span><b>VOICE</b><small>arrival cue</small></button>
+        </section>
+
+        <section id="mapPanel" class="map-panel hidden">
+          <div id="routeMap"></div>
+          <div class="map-fallback hidden" id="mapFallback">Map unavailable. Use the GO button for full navigation.</div>
+          <button id="centreMapBtn" class="map-centre">◎</button>
+        </section>
+
+        <section class="compact-section route-section">
+          <div class="section-head"><h2>Trail</h2><span id="routeMeta" class="tiny-label"></span></div>
+          <div id="stopStrip" class="stop-strip"></div>
+        </section>
+
+        <section class="compact-section route-section">
+          <div class="section-head"><h2>Getting there & home</h2></div>
+          <div class="transport-panel">
+            <button id="getThereBtn" class="transport-btn"><span>🚆</span><b>GET TO START</b><small id="startHint"></small></button>
+            <button id="goHomeBtn" class="transport-btn"><span>🏠</span><b>GO HOME</b><small>live route to 2660-213</small></button>
+            <a id="officialBtn" class="transport-btn hidden" target="_blank" rel="noopener"><span>🎟️</span><b>CHECK / BOOK</b><small>official site</small></a>
+          </div>
+          <p id="transportNote" class="small-note"></p>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div id="infoSheet" class="sheet-backdrop hidden" role="dialog" aria-modal="true">
+    <article class="sheet">
+      <button id="closeSheet" class="sheet-close">×</button>
+      <div class="sheet-photo"><div id="sheetFallback" class="photo-fallback big">✨</div><img id="sheetPhoto" alt="" referrerpolicy="no-referrer"></div>
+      <div class="sheet-copy"><span id="sheetVibe" class="badge colour"></span><h2 id="sheetTitle"></h2><p id="sheetText"></p><div id="sheetTags" class="tag-row"></div><p id="sheetCredit" class="credit"></p></div>
+    </article>
+  </div>
+
+  <div id="weatherSheet" class="sheet-backdrop hidden" role="dialog" aria-modal="true">
+    <article class="sheet short-sheet">
+      <button id="closeWeather" class="sheet-close">×</button>
+      <div class="weather-detail"><span id="weatherBigIcon">☀️</span><div><h2 id="weatherTitle">Lisbon</h2><p id="weatherSummary"></p></div></div>
+      <div id="forecastRow" class="forecast-row"></div>
+      <p class="small-note">Recommendations update with time, apparent temperature, rain, wind and sunset. Always follow official warnings and on-site closures.</p>
+    </article>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="updateBar" class="update-bar hidden">New version ready <button id="reloadBtn">RELOAD</button></div>
+
+  <script src="./routes-lisbon.js?v=1"></script>
+  <script src="./routes-trips.js?v=1"></script>
+  <script src="./photos.js?v=1"></script>
+  <script src="./app.js?v=1"></script>
+</body>
+</html>
