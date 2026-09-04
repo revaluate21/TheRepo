@@ -1,5 +1,5 @@
 {
-  "real_photo_bundle": false,
+  "real_photo_bundle": true,
   "photos": {
     "belem.jpg": {
       "title": "Belém Tower (Torre de Belém) 1.jpg",
@@ -297,7 +297,19 @@
       ],
       "stddev": 45.78,
       "entropy": 7.363
+    },
+    "tomar.jpg": {
+      "title": "Convent of Christ - Tomar.jpg",
+      "bytes": 322327,
+      "sha256": "eec4d2984974531776b02bbe4776b28d7daae6720e1632612f45bb329bcc9922",
+      "original": [
+        1600,
+        1067
+      ],
+      "stddev": 75.48,
+      "entropy": 7.825
     }
   },
-  "generated_at": "2026-09-04T21:20:57Z"
+  "generated_at": "2026-09-04T21:21:16Z",
+  "validated_at": "2026-09-04T21:21:17Z"
 }
