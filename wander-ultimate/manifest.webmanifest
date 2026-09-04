@@ -1,0 +1,21 @@
+{
+  "id":"./",
+  "name":"Wander Portugal",
+  "short_name":"Wander",
+  "description":"Photo-first walking worlds across Lisbon, Sintra, Coimbra and nearby Portugal, with Google Maps phone-down navigation.",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "orientation":"portrait-primary",
+  "background_color":"#fffdf7",
+  "theme_color":"#ff5b73",
+  "categories":["travel","navigation","fitness"],
+  "icons":[
+    {"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ],
+  "shortcuts":[
+    {"name":"Best now","short_name":"Best now","url":"./"},
+    {"name":"Lisbon night","short_name":"Night","url":"./?route=lisbon-after-dark"},
+    {"name":"Sintra","short_name":"Sintra","url":"./?route=sintra-palaces-peaks"}
+  ]
+}
