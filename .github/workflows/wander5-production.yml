@@ -26,6 +26,9 @@ jobs:
           from pathlib import Path
           p=Path('scripts/wander5-production-check.py')
           s=p.read_text().replace("check('old release actually installed',page.evaluate('Wander.version').startswith('4.'))", "check('old release actually installed',page.evaluate('Wander.version').startswith('4.'));page.evaluate(\"document.querySelector('.update-bar')?.remove()\")")
+          # Artifact extraction gives the old fixture a newer mtime than checkout.
+          # Touch new files so the local test server does not incorrectly issue 304.
+          s=s.replace("shutil.rmtree(dest);shutil.copytree('wander4',dest)", "shutil.rmtree(dest);shutil.copytree('wander4',dest);time.sleep(1.1)\n  for f in dest.rglob('*'):\n   if f.is_file():f.touch()")
           p.write_text(s)
           PY
           python scripts/wander5-production-check.py
