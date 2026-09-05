@@ -1,0 +1,36 @@
+name: Wander 4 Estoril photograph
+on:
+  push:
+    branches: [gh-pages]
+    paths: ['.github/workflows/wander4-final-photo.yml']
+permissions:
+  contents: read
+jobs:
+  photo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - run: python -m pip install Pillow
+      - name: Fetch and credit the correct Estoril landmark
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import urllib.request, urllib.parse, json, io, re, html
+          from PIL import Image, ImageOps
+          title='Estoril Praia do Tamariz (53888188891).jpg'
+          q={'action':'query','format':'json','formatversion':2,'titles':'File:'+title,'prop':'imageinfo','iiprop':'url|extmetadata','iiurlwidth':1200}
+          def get(u):
+            with urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'WanderPortugal/4 personal travel guide'}),timeout=40) as r:return r.read()
+          j=json.loads(get('https://commons.wikimedia.org/w/api.php?'+urllib.parse.urlencode(q)))
+          inf=j['query']['pages'][0]['imageinfo'][0];m=inf['extmetadata']
+          im=ImageOps.exif_transpose(Image.open(io.BytesIO(get(inf.get('thumburl') or inf['url'])))).convert('RGB');im.thumbnail((1200,1100))
+          O=Path('photo');O.mkdir();im.save(O/'tamariz.webp','WEBP',quality=82);ImageOps.fit(im,(440,300)).save(O/'tamariz-thumb.webp','WEBP',quality=76)
+          clean=lambda s:re.sub('<[^>]+>','',html.unescape(s)).strip()
+          meta={'title':title,'author':clean(m['Artist']['value']),'license':clean(m['LicenseShortName']['value']),'source':'https://commons.wikimedia.org/wiki/File:'+urllib.parse.quote(title.replace(' ','_'))}
+          (O/'metadata.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wander4-estoril-photo
+          path: photo/
+          retention-days: 3
