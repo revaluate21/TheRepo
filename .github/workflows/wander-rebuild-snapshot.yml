@@ -1,0 +1,20 @@
+name: Wander rebuild source snapshot
+on:
+  push:
+    branches: [gh-pages]
+    paths: ['.github/workflows/wander-rebuild-snapshot.yml']
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Archive current application for local testing
+        run: git archive --format=tar.gz HEAD > /tmp/wander-source.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wander-rebuild-source
+          path: /tmp/wander-source.tar.gz
+          retention-days: 3
