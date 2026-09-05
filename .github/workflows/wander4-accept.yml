@@ -1,0 +1,58 @@
+name: Wander 4 final acceptance
+on:
+  push:
+    branches: [gh-pages]
+    paths: ['.github/workflows/wander4-accept.yml']
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: wander4-release
+  cancel-in-progress: false
+jobs:
+  accept:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - uses: actions/download-artifact@v4
+        with:
+          name: wander4-built-app
+          run-id: 33936615236
+          github-token: ${{ github.token }}
+          path: wander4
+      - name: Prepare acceptance script with explicit mock callback installation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64,lzma,json,hashlib
+          b=base64.b64decode(''.join(p.read_text().strip() for p in sorted(Path('scripts/wander4-release').glob('part-*.b64'))))
+          assert hashlib.sha256(b).hexdigest()=='0913f838538f19411ceca3ed65e70d38f8344bf21a8e9db547b629730273d965'
+          q=json.loads(lzma.decompress(b))['scripts/wander4-qa.py']
+          q=q.replace('page.evaluate("navigator.geolocation.getCurrentPosition=(good,bad)=>bad({code:1})")','page.evaluate("()=>{navigator.geolocation.getCurrentPosition=(good,bad)=>bad({code:1});}")')
+          q=q.replace('page.evaluate("navigator.geolocation.getCurrentPosition=(good)=>good({coords:{latitude:39.6046,longitude:-8.4192,accuracy:10},timestamp:Date.now()})")','page.evaluate("()=>{navigator.geolocation.getCurrentPosition=(good)=>good({coords:{latitude:39.6046,longitude:-8.4192,accuracy:10},timestamp:Date.now()});}")')
+          Path('scripts/wander4-qa.py').write_text(q)
+          PY
+      - run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Test every walk, permissions, screen sizes, saving and real offline reload
+        run: |
+          python -m http.server 8765 > /tmp/wander-server.log 2>&1 &
+          sleep 2
+          python scripts/wander4-qa.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wander4-acceptance
+          path: wander4-qa/
+          retention-days: 7
+      - name: Publish tested application
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add wander4 scripts/wander4-qa.py
+          git commit -m 'Publish tested Wander 4 rebuild: 14 walks, real photo previews, full route maps'
+          git push origin HEAD:gh-pages
