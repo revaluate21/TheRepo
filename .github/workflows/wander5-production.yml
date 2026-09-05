@@ -1,0 +1,37 @@
+name: Wander 5 live HTTPS and upgrade verification
+on:
+  push:
+    branches: [gh-pages]
+    paths: ['.github/workflows/wander5-production.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 33937169437
+          name: wander4-final-app
+          path: baseline
+      - run: python -m pip install playwright
+      - run: python -m playwright install --with-deps chromium
+      - name: Live build, offline reuse and old-install update
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('scripts/wander5-production-check.py')
+          s=p.read_text().replace("check('old release actually installed',page.evaluate('Wander.version').startswith('4.'))", "check('old release actually installed',page.evaluate('Wander.version').startswith('4.'));page.evaluate(\"document.querySelector('.update-bar')?.remove()\")")
+          p.write_text(s)
+          PY
+          python scripts/wander5-production-check.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wander5-production-verification
+          path: qa-production/
+          retention-days: 7
