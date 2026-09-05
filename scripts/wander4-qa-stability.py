@@ -6,6 +6,11 @@ q=q[:a]+'''def images(page):
  check(page.locator('.error-photo').count()==0,'No missing landmark photos')
 '''+q[b:]
 q=q.replace('page.wait_for_function("window.Wander?.version===\'4.0.0\'",timeout=45000);images(page);overflow(page,\'home390\')', 'page.wait_for_function("window.Wander?.version===\'4.0.0\'",timeout=45000);ok("Application initialized");images(page);overflow(page,\'home390\')')
+q=q.replace("check('Offline' in page.locator('#connection').inner_text(),'Offline status is explicit')",'''page.wait_for_timeout(500)
+  report['offline_probe']=page.evaluate("({online:navigator.onLine,badge:document.querySelector('#connection').textContent,warning:document.querySelector('#mapWarning')?.textContent,ready:!!window.Wander})")
+  print('OFFLINE',report['offline_probe'],flush=True)
+  page.screenshot(path=str(OUT/'offline-mobile.png'))
+  check('Offline' in page.locator('#connection').inner_text(),'Offline status is explicit',report['offline_probe'])''')
 old="report['success']=False;report['failure']=str(e);print('FAIL',e,flush=True)"
 new="""report['success']=False;report['failure']=str(e);print('FAIL',e,flush=True)
  try:
