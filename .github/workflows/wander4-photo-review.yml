@@ -1,0 +1,21 @@
+name: Wander 4 photograph review
+on:
+  push:
+    branches: [gh-pages]
+    paths: ['.github/workflows/wander4-photo-review.yml']
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m pip install Pillow
+      - run: python scripts/wander4-photo-review.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wander4-photo-review
+          path: wander4-review/
+          retention-days: 3
