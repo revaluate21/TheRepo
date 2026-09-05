@@ -26,13 +26,26 @@ jobs:
           from pathlib import Path
           p=Path('scripts/wander5-production-check.py')
           s=p.read_text()
-          # Preserve realistic cache timestamps when replacing the local fixture.
           s=s.replace("shutil.rmtree(dest);shutil.copytree('wander4',dest)", "shutil.rmtree(dest);shutil.copytree('wander4',dest);time.sleep(1.1)\n  for f in dest.rglob('*'):\n   if f.is_file():f.touch()")
-          # Legacy v4.0.2 has no update banner. Its supported action is a reload
-          # after the new service worker has activated, without clearing storage.
-          s=s.replace("page.wait_for_function('document.querySelector(\".update-bar\")!==null',timeout=60000)", "page.wait_for_function(\"async()=>{const k=await caches.keys();return k.includes('wander4-shell-5.0.0')&&!k.includes('wander4-shell-4.0.2')}\",timeout=60000)")
-          s=s.replace("page.locator('[data-action=reloadUpdate]').click()", "page.reload(wait_until='domcontentloaded')")
+          start=s.index("  page.wait_for_function('document.querySelector")
+          end=s.index("  check('v4 to v5 updates successfully'",start)
+          replacement='''  page.wait_for_timeout(2000)
+            print('UPGRADE_STATE',page.evaluate('async()=>({caches:await caches.keys(),registration:(await navigator.serviceWorker.getRegistration())?.active?.state})'),flush=True)
+            for attempt in range(3):
+             page.reload(wait_until='domcontentloaded')
+             try:
+              page.wait_for_function('window.Wander?.version===\"5.0.0\"',timeout=6000)
+              break
+             except Exception:
+              print('REFRESH_RETRY',attempt,page.evaluate('window.Wander?.version'),flush=True)
+              page.wait_for_timeout(2000)
+          '''
+          # Match the script's two-space try-block indentation.
+          lines=replacement.splitlines()
+          replacement=lines[0]+'\n'+'\n'.join(line[10:] if line.startswith('          ') else line for line in lines[1:])+'\n'
+          s=s[:start]+replacement+s[end:]
           p.write_text(s)
+          compile(s,str(p),'exec')
           PY
           python scripts/wander5-production-check.py
       - uses: actions/upload-artifact@v4
