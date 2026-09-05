@@ -31,7 +31,9 @@ jobs:
           q=q.replace('page.evaluate("navigator.geolocation.getCurrentPosition=(good,bad)=>bad({code:1})")','page.evaluate("()=>{navigator.geolocation.getCurrentPosition=(good,bad)=>bad({code:1});}")')
           q=q.replace('page.evaluate("navigator.geolocation.getCurrentPosition=(good)=>good({coords:{latitude:39.6046,longitude:-8.4192,accuracy:10},timestamp:Date.now()})")','page.evaluate("()=>{navigator.geolocation.getCurrentPosition=(good)=>good({coords:{latitude:39.6046,longitude:-8.4192,accuracy:10},timestamp:Date.now()});}")')
           q=q.replace('p.chromium.launch(headless=True)','p.chromium.launch(headless=True,executable_path=os.environ.get("CHROME_PATH") or None)')
+          q=q.replace("document.querySelectorAll('img')","document.querySelectorAll('img[data-thumb]')")
           Path('scripts/wander4-qa.py').write_text(q)
+          p=Path('wander4/app.js');p.write_text(p.read_text().replace('e.target instanceof HTMLImageElement&&!e.target.dataset.failed',"e.target instanceof HTMLImageElement&&e.target.hasAttribute('data-thumb')&&!e.target.dataset.failed"))
           p=Path('wander4/app.css')
           p.write_text(p.read_text()+'''\n/* Final mobile focus: controls stay above the navigation dock. */
           .map-card{isolation:isolate;z-index:0}
@@ -43,7 +45,7 @@ jobs:
           .focus-page .focus-note{margin:12px 0;padding:12px}
           .focus-page .focus-controls{margin-top:12px}
           }\n''')
-          p=Path('wander4/sw.js');p.write_text(p.read_text().replace("const BUILD='4.0.0'","const BUILD='4.0.1'"))
+          p=Path('wander4/sw.js');p.write_text(p.read_text().replace("const BUILD='4.0.0'","const BUILD='4.0.2'"))
           PY
       - name: Use installed Chrome without changing operating-system packages
         run: |
