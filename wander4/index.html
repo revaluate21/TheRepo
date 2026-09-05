@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fffaf6"><meta name="description" content="Photo-first walks across Portugal. See the whole journey, then let Google Maps guide each walking leg.">
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="stylesheet" href="./vendor/leaflet.css"><link rel="stylesheet" href="./app.css">
+<title>Wander · Portugal, on foot</title>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar"><a class="brand" href="#explore" aria-label="Wander home"><span class="brand-mark">W</span><span>WANDER<small>PORTUGAL, ON FOOT</small></span></a><div class="head-actions"><span id="connection" class="connection"></span><button class="icon-button" id="menuButton" aria-label="App settings and installation"></button></div></header>
+<main id="main"><div class="loading"><span class="brand-mark">W</span><p>Finding your next world…</p></div></main>
+<nav class="bottom-tabs" id="bottomTabs" aria-label="Main navigation"><a href="#explore" data-tab="explore">Explore</a><a href="#saved" data-tab="saved">Saved</a><a href="#plan" data-tab="plan">Five days</a></nav>
+<div id="actionDock" class="action-dock hidden"></div>
+<dialog id="sheet" aria-labelledby="sheetTitle"><button class="sheet-close icon-button" aria-label="Close details" id="closeSheet">×</button><div id="sheetContent"></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="./vendor/leaflet.js"></script><script type="module" src="./app.js"></script>
+<noscript><p class="noscript">Enable JavaScript for the interactive route map. Walking directions and live transport can also be opened directly in Google Maps.</p></noscript>
+</body></html>

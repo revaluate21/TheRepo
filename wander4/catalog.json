@@ -1,0 +1,1448 @@
+{
+  "version": "4.0.0",
+  "built": "2026-09-05",
+  "home": {
+    "label": "Santo António dos Cavaleiros · 2660-213",
+    "lat": 38.81087,
+    "lon": -9.16087
+  },
+  "cities": {
+    "lisbon": {
+      "id": "lisbon",
+      "name": "Lisbon",
+      "tag": "Tiles, hills & a whole other skyline",
+      "hero": "santa-luzia",
+      "lat": 38.716,
+      "lon": -9.14,
+      "travel": 65,
+      "there": [
+        "From Santo António dos Cavaleiros: local bus toward Campo Grande.",
+        "Metro to the start shown for your chosen walk."
+      ],
+      "back": [
+        "Check live transit to 2660-213 before leaving the centre.",
+        "After the Metro closes, compare CARRIS night buses and a direct taxi / Bolt. Night buses alone may not get you home."
+      ],
+      "links": [
+        [
+          "Local bus",
+          "https://www.carrismetropolitana.pt/"
+        ],
+        [
+          "Metro",
+          "https://www.metrolisboa.pt/en/"
+        ],
+        [
+          "Night buses",
+          "https://www.carris.pt/en/travel/"
+        ]
+      ]
+    },
+    "sintra": {
+      "id": "sintra",
+      "name": "Sintra",
+      "tag": "A forest with palaces hidden inside",
+      "hero": "pena",
+      "lat": 38.797,
+      "lon": -9.39,
+      "travel": 110,
+      "there": [
+        "Reach Rossio or Oriente and take a CP train to Sintra.",
+        "For the hilltops, use the local tourist bus or a booked ride. Do not follow the narrow road on foot just to save time."
+      ],
+      "back": [
+        "Return to Sintra railway station.",
+        "Check the CP return and the final connection from Lisbon to Loures before departing."
+      ],
+      "links": [
+        [
+          "Train",
+          "https://www.cp.pt/"
+        ],
+        [
+          "Access & tickets",
+          "https://www.parquesdesintra.pt/en/plan-your-visit/"
+        ],
+        [
+          "Park notices",
+          "https://www.parquesdesintra.pt/en/notices/"
+        ]
+      ]
+    },
+    "cascais": {
+      "id": "cascais",
+      "name": "Cascais",
+      "tag": "Salt air, turquoise coves & open sky",
+      "hero": "boca",
+      "lat": 38.697,
+      "lon": -9.421,
+      "travel": 110,
+      "there": [
+        "Reach Cais do Sodré in Lisbon.",
+        "Take the Cascais-line train to Cascais, or Estoril for the promenade walk."
+      ],
+      "back": [
+        "Both walks finish at Cascais railway station.",
+        "Check the train to Cais do Sodré, then your onward journey to Loures."
+      ],
+      "links": [
+        [
+          "Train",
+          "https://www.cp.pt/"
+        ],
+        [
+          "Local transport",
+          "https://mobi.cascais.pt/"
+        ],
+        [
+          "Visit",
+          "https://www.visitcascais.com/"
+        ]
+      ]
+    },
+    "almada": {
+      "id": "almada",
+      "name": "Almada",
+      "tag": "Look back at Lisbon from across the water",
+      "hero": "cristo",
+      "lat": 38.683,
+      "lon": -9.16,
+      "travel": 85,
+      "there": [
+        "Metro to Cais do Sodré, then ferry to Cacilhas.",
+        "Follow upper-town streets to the viewpoints, not the old Ginjal waterfront."
+      ],
+      "back": [
+        "Return to Cacilhas by local transport or upper-town streets.",
+        "Check the ferry to Cais do Sodré and the onward connection to Loures."
+      ],
+      "links": [
+        [
+          "Ferry",
+          "https://ttsl.pt/"
+        ],
+        [
+          "Local bus",
+          "https://www.carrismetropolitana.pt/"
+        ],
+        [
+          "Ginjal notice",
+          "https://www.cm-almada.pt/node/44296"
+        ]
+      ]
+    },
+    "tomar": {
+      "id": "tomar",
+      "name": "Tomar",
+      "tag": "Templar stone, deep green & slow river water",
+      "hero": "tomar",
+      "lat": 39.604,
+      "lon": -8.414,
+      "travel": 165,
+      "there": [
+        "Use CP to plan Lisbon → Tomar; confirm whether your train is direct or changes at Entroncamento.",
+        "Tomar station is a straightforward walk from the historic centre."
+      ],
+      "back": [
+        "Walk back to Tomar station.",
+        "Check and save a return train before starting. This is a day trip, not a spontaneous late-night excursion."
+      ],
+      "links": [
+        [
+          "Train",
+          "https://www.cp.pt/"
+        ],
+        [
+          "Woodland",
+          "https://www.centerofportugal.com/poi/mata-dos-sete-montes"
+        ],
+        [
+          "Convent",
+          "https://www.conventocristo.gov.pt/"
+        ]
+      ]
+    },
+    "coimbra": {
+      "id": "coimbra",
+      "name": "Coimbra",
+      "tag": "Golden university courtyards & the Mondego",
+      "hero": "coimbra",
+      "lat": 40.208,
+      "lon": -8.426,
+      "travel": 175,
+      "there": [
+        "Book a train to Coimbra-B from Lisbon Oriente / Santa Apolónia.",
+        "From Coimbra-B, check the current city connection toward Portagem. Do not assume the old Coimbra-A rail shuttle still runs."
+      ],
+      "back": [
+        "Allow time to reach Coimbra-B before your booked return.",
+        "Use the current Metro Mondego / city-bus planner for the station link."
+      ],
+      "links": [
+        [
+          "Train",
+          "https://www.cp.pt/"
+        ],
+        [
+          "City connection",
+          "https://www.metromondego.pt/"
+        ],
+        [
+          "University visits",
+          "https://visit.uc.pt/"
+        ]
+      ]
+    },
+    "obidos": {
+      "id": "obidos",
+      "name": "Óbidos",
+      "tag": "White lanes inside a medieval storybook",
+      "hero": "obidos",
+      "lat": 39.361,
+      "lon": -9.157,
+      "travel": 130,
+      "there": [
+        "Plan the regional coach from Lisbon Campo Grande to Óbidos.",
+        "Use the coach stop outside the historic town; the railway station is less convenient."
+      ],
+      "back": [
+        "Return to the same regional-coach area outside the gate.",
+        "Check that day’s last departure before entering town. Do not rely on a late-night coach."
+      ],
+      "links": [
+        [
+          "Coach",
+          "https://rodoviariadooeste.pt/"
+        ],
+        [
+          "Visit",
+          "https://www.visitportugal.com/en"
+        ]
+      ]
+    },
+    "evora": {
+      "id": "evora",
+      "name": "Évora",
+      "tag": "Roman columns, whitewashed lanes & big Alentejo skies",
+      "hero": "evora",
+      "lat": 38.571,
+      "lon": -7.909,
+      "travel": 170,
+      "there": [
+        "Plan CP from Lisbon Oriente / Entrecampos to Évora.",
+        "Walk from Évora station toward the walled centre."
+      ],
+      "back": [
+        "Allow the walk back to Évora railway station.",
+        "Book or confirm the return in advance; services are less frequent than Lisbon commuter trains."
+      ],
+      "links": [
+        [
+          "Train",
+          "https://www.cp.pt/"
+        ],
+        [
+          "Visit",
+          "https://www.visitportugal.com/en"
+        ]
+      ]
+    }
+  },
+  "places": {
+    "parque": {
+      "id": "parque",
+      "name": "Parque Eduardo VII",
+      "lat": 38.730377,
+      "lon": -9.153298,
+      "photo": "parque",
+      "cue": "A long green slope framing the city.",
+      "about": "Start at the upper viewpoint, then head downhill.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 15
+    },
+    "saopedro": {
+      "id": "saopedro",
+      "name": "São Pedro de Alcântara",
+      "lat": 38.715422,
+      "lon": -9.144139,
+      "photo": "sao-pedro",
+      "cue": "A tiled city map beside a broad terrace.",
+      "about": "The opposite hillside spreads out like a model city.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 15
+    },
+    "carmo": {
+      "id": "carmo",
+      "name": "Carmo Convent",
+      "lat": 38.712153,
+      "lon": -9.140282,
+      "photo": "carmo",
+      "cue": "Gothic arches open to the sky.",
+      "about": "The square and exterior work as a free stop. The roofless interior needs a ticket.",
+      "ticket": true,
+      "source": "https://www.museuarqueologicodocarmo.pt/",
+      "dwell": 15
+    },
+    "rossio": {
+      "id": "rossio",
+      "name": "Rossio",
+      "lat": 38.71338,
+      "lon": -9.1392,
+      "photo": "rossio",
+      "cue": "Black-and-white waves underfoot.",
+      "about": "Fountains, paving and the theatre make this a useful centre-of-town reset.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 15
+    },
+    "senhora": {
+      "id": "senhora",
+      "name": "Senhora do Monte",
+      "lat": 38.718937,
+      "lon": -9.132766,
+      "photo": "senhora",
+      "cue": "Castle, rooftops and river in one panorama.",
+      "about": "The climb is the point: stop here long enough to take in the whole city.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 20
+    },
+    "graca": {
+      "id": "graca",
+      "name": "Graça viewpoint",
+      "lat": 38.716523,
+      "lon": -9.131543,
+      "photo": "graca",
+      "cue": "The terrace beside the church.",
+      "about": "A second angle across the hills before descending into Alfama.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 15
+    },
+    "luzia": {
+      "id": "luzia",
+      "name": "Santa Luzia",
+      "lat": 38.711659,
+      "lon": -9.130336,
+      "photo": "santa-luzia",
+      "cue": "Blue tiles, a pergola and red rooftops.",
+      "about": "One of the most recognisable Alfama viewpoints.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 15
+    },
+    "se": {
+      "id": "se",
+      "name": "Lisbon Cathedral",
+      "lat": 38.709801,
+      "lon": -9.133064,
+      "photo": "se",
+      "cue": "Two square towers like a fortress.",
+      "about": "A strong visual landmark on the descent toward the river.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 15
+    },
+    "praca": {
+      "id": "praca",
+      "name": "Praça do Comércio",
+      "lat": 38.707519,
+      "lon": -9.13635,
+      "photo": "praca",
+      "cue": "A yellow square opening directly onto the Tagus.",
+      "about": "Walk through the arch and across to the river edge.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 15
+    },
+    "ribeira": {
+      "id": "ribeira",
+      "name": "Ribeira das Naus",
+      "lat": 38.7066,
+      "lon": -9.142,
+      "photo": "ribeira",
+      "cue": "Broad steps beside the river.",
+      "about": "A flat riverside pause after the hills.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 15
+    },
+    "bica": {
+      "id": "bica",
+      "name": "Bica street",
+      "lat": 38.71007,
+      "lon": -9.14653,
+      "photo": "bica",
+      "cue": "Rails descending between colourful façades.",
+      "about": "Exterior walking stop only; this route does not depend on the funicular operating.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 15
+    },
+    "pink": {
+      "id": "pink",
+      "name": "Pink Street",
+      "lat": 38.70752,
+      "lon": -9.14372,
+      "photo": "pink",
+      "cue": "The coloured street beneath the bridge.",
+      "about": "A short, livelier detour, not a peaceful park. Skip it for a quieter night.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 10
+    },
+    "maat": {
+      "id": "maat",
+      "name": "MAAT riverfront",
+      "lat": 38.69606,
+      "lon": -9.192513,
+      "photo": "maat",
+      "cue": "White tiles flowing like a wave.",
+      "about": "Enjoy the exterior and riverfront; check access before assuming the rooftop is open.",
+      "ticket": false,
+      "source": "https://www.maat.pt/",
+      "dwell": 15
+    },
+    "padrao": {
+      "id": "padrao",
+      "name": "Padrão dos Descobrimentos",
+      "lat": 38.6936,
+      "lon": -9.2057,
+      "photo": "padrao",
+      "cue": "A stone prow full of figures facing the water.",
+      "about": "The exterior monument and riverside square are the main stop here.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 15
+    },
+    "belem": {
+      "id": "belem",
+      "name": "Belém Tower",
+      "lat": 38.6916,
+      "lon": -9.216,
+      "photo": "belem",
+      "cue": "An ornate tower at the waterline.",
+      "about": "This route promises the exterior view, not interior access.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 15
+    },
+    "jeronimos": {
+      "id": "jeronimos",
+      "name": "Jerónimos Monastery",
+      "lat": 38.6979,
+      "lon": -9.2065,
+      "photo": "jeronimos",
+      "cue": "A long carved-stone façade.",
+      "about": "An exterior stop; allow additional time and a ticket for the cloister.",
+      "ticket": true,
+      "source": "https://www.visitportugal.com/en",
+      "dwell": 20
+    },
+    "oriente": {
+      "id": "oriente",
+      "name": "Gare do Oriente",
+      "lat": 38.767849,
+      "lon": -9.099364,
+      "photo": "oriente",
+      "cue": "Steel branches forming a huge canopy.",
+      "about": "The transport hub is part of the architecture experience, especially after dark.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 15
+    },
+    "pavilion": {
+      "id": "pavilion",
+      "name": "Pavilhão de Portugal",
+      "lat": 38.76656,
+      "lon": -9.0951,
+      "photo": "pavilion",
+      "cue": "An impossibly thin suspended concrete canopy.",
+      "about": "Look at the curve from the open square rather than expecting an indoor visit.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 15
+    },
+    "oceanario": {
+      "id": "oceanario",
+      "name": "Oceanário promenade",
+      "lat": 38.7636,
+      "lon": -9.0937,
+      "photo": "oceanario",
+      "cue": "A building appearing to float on water.",
+      "about": "The waterfront is the stop; aquarium admission is a separate daytime visit.",
+      "ticket": false,
+      "source": "https://www.oceanario.pt/",
+      "dwell": 15
+    },
+    "tower-vg": {
+      "id": "tower-vg",
+      "name": "Vasco da Gama Tower",
+      "lat": 38.7754,
+      "lon": -9.0921,
+      "photo": "tower-vg",
+      "cue": "A sail-like tower above the waterfront.",
+      "about": "Follow the public promenade and turn back if the path becomes uncomfortably quiet.",
+      "ticket": false,
+      "source": "https://www.visitlisboa.com/en",
+      "dwell": 15
+    },
+    "cerca": {
+      "id": "cerca",
+      "name": "Casa da Cerca",
+      "lat": 38.6844,
+      "lon": -9.1587,
+      "photo": "cerca",
+      "cue": "A hilltop house and terraces facing Lisbon.",
+      "about": "The garden is a daytime stop with opening hours; use upper-town streets to approach.",
+      "ticket": false,
+      "source": "https://www.cm-almada.pt/casa-da-cerca",
+      "dwell": 25
+    },
+    "bocavento": {
+      "id": "bocavento",
+      "name": "Boca do Vento upper viewpoint",
+      "lat": 38.684823,
+      "lon": -9.158885,
+      "photo": "boca-vento",
+      "cue": "The cliff-top outlook over the river.",
+      "about": "Stay at the upper viewpoint. The itinerary does not need the lift or the Ginjal path.",
+      "ticket": false,
+      "source": "https://www.cm-almada.pt/",
+      "dwell": 15
+    },
+    "cristo": {
+      "id": "cristo",
+      "name": "Cristo Rei",
+      "lat": 38.679525,
+      "lon": -9.171328,
+      "photo": "cristo",
+      "cue": "The giant monument above the bridge.",
+      "about": "Allow time for the grounds. The viewing platform requires separate access.",
+      "ticket": false,
+      "source": "https://cristorei.pt/",
+      "dwell": 35
+    },
+    "sintra-palace": {
+      "id": "sintra-palace",
+      "name": "Sintra National Palace",
+      "lat": 38.7977,
+      "lon": -9.3908,
+      "photo": "sintra-palace",
+      "cue": "Two enormous white conical chimneys.",
+      "about": "Start in the old town. The exterior is a useful landmark even without a palace ticket.",
+      "ticket": true,
+      "source": "https://www.parquesdesintra.pt/en/plan-your-visit/",
+      "dwell": 15
+    },
+    "mouros": {
+      "id": "mouros",
+      "name": "Moorish Castle",
+      "lat": 38.7926,
+      "lon": -9.3895,
+      "photo": "mouros",
+      "cue": "Stone battlements snaking along the ridge.",
+      "about": "Steep steps and exposed walls. Skip the ramparts in strong wind or poor conditions.",
+      "ticket": true,
+      "source": "https://www.parquesdesintra.pt/en/plan-your-visit/",
+      "dwell": 60
+    },
+    "pena": {
+      "id": "pena",
+      "name": "Pena Palace",
+      "lat": 38.7877,
+      "lon": -9.3906,
+      "photo": "pena",
+      "cue": "Red and yellow towers above the forest.",
+      "about": "Reserve the appropriate ticket and time slot. Leave time between the park entrance and the palace.",
+      "ticket": true,
+      "source": "https://www.parquesdesintra.pt/en/plan-your-visit/",
+      "dwell": 100
+    },
+    "regaleira": {
+      "id": "regaleira",
+      "name": "Quinta da Regaleira",
+      "lat": 38.796,
+      "lon": -9.3957,
+      "photo": "regaleira",
+      "cue": "Gothic stonework and mysterious garden paths.",
+      "about": "A separate ticketed garden visit; check entry availability before going.",
+      "ticket": true,
+      "source": "https://www.regaleira.pt/",
+      "dwell": 100
+    },
+    "monserrate": {
+      "id": "monserrate",
+      "name": "Monserrate Palace & park",
+      "lat": 38.7943,
+      "lon": -9.4156,
+      "photo": "monserrate",
+      "cue": "An ornate palace set in botanical greenery.",
+      "about": "A quieter garden-led alternative to stacking every Sintra monument into one day.",
+      "ticket": true,
+      "source": "https://www.parquesdesintra.pt/en/plan-your-visit/",
+      "dwell": 120
+    },
+    "cascais-bay": {
+      "id": "cascais-bay",
+      "name": "Cascais bay",
+      "lat": 38.6965,
+      "lon": -9.4202,
+      "photo": "cascais-bay",
+      "cue": "Boats and a small bay below the old town.",
+      "about": "Wander the seafront streets without committing to a beach day.",
+      "ticket": false,
+      "source": "https://www.visitcascais.com/",
+      "dwell": 15
+    },
+    "marechal": {
+      "id": "marechal",
+      "name": "Parque Marechal Carmona",
+      "lat": 38.6932,
+      "lon": -9.4226,
+      "photo": "marechal",
+      "cue": "Leafy paths behind the museum quarter.",
+      "about": "A shaded daytime pause; park gates may close before sunset.",
+      "ticket": false,
+      "source": "https://www.cascais.pt/",
+      "dwell": 15
+    },
+    "santamarta": {
+      "id": "santamarta",
+      "name": "Santa Marta lighthouse",
+      "lat": 38.6909,
+      "lon": -9.4212,
+      "photo": "santamarta",
+      "cue": "Blue-and-white lighthouse beside a small inlet.",
+      "about": "The exterior and surrounding water make the photo stop.",
+      "ticket": false,
+      "source": "https://www.cascais.pt/",
+      "dwell": 15
+    },
+    "boca": {
+      "id": "boca",
+      "name": "Boca do Inferno",
+      "lat": 38.6917,
+      "lon": -9.431,
+      "photo": "boca",
+      "cue": "A rock arch with the Atlantic rushing below.",
+      "about": "Use the designated viewing areas; stay well back from unguarded edges.",
+      "ticket": false,
+      "source": "https://www.visitcascais.com/",
+      "dwell": 25
+    },
+    "tamariz": {
+      "id": "tamariz",
+      "name": "Tamariz promenade",
+      "lat": 38.7036,
+      "lon": -9.3998,
+      "photo": "tamariz",
+      "cue": "A castle-like building beside the sandy bay.",
+      "about": "Start the flat seafront walk from Estoril toward Cascais.",
+      "ticket": false,
+      "source": "https://www.visitcascais.com/",
+      "dwell": 15
+    },
+    "guincho": {
+      "id": "guincho",
+      "name": "Guincho outlook",
+      "lat": 38.7328,
+      "lon": -9.4721,
+      "photo": "guincho",
+      "cue": "Dunes, a huge Atlantic horizon and frequent wind.",
+      "about": "A daylight extension for strong walkers. Check a bus back instead of assuming you will want to retrace it.",
+      "ticket": false,
+      "source": "https://www.visitcascais.com/",
+      "dwell": 30
+    },
+    "coimbra-university": {
+      "id": "coimbra-university",
+      "name": "University of Coimbra",
+      "lat": 40.2079,
+      "lon": -8.4265,
+      "photo": "coimbra",
+      "cue": "The palace courtyard above the river.",
+      "about": "Views and monumental architecture; book the spaces you want to enter.",
+      "ticket": true,
+      "source": "https://visit.uc.pt/",
+      "dwell": 45
+    },
+    "joanina": {
+      "id": "joanina",
+      "name": "Joanina Library",
+      "lat": 40.2074,
+      "lon": -8.4266,
+      "photo": "joanina",
+      "cue": "A richly decorated historic library.",
+      "about": "Timed ticketed visit. Treat this as optional: the exterior route still works without a booking.",
+      "ticket": true,
+      "source": "https://visit.uc.pt/",
+      "dwell": 35
+    },
+    "sevelha": {
+      "id": "sevelha",
+      "name": "Old Cathedral of Coimbra",
+      "lat": 40.2089,
+      "lon": -8.4272,
+      "photo": "sevelha",
+      "cue": "Romanesque stonework in a tight old-town square.",
+      "about": "Look for the fortress-like façade before climbing to the university.",
+      "ticket": false,
+      "source": "https://www.centerofportugal.com/",
+      "dwell": 15
+    },
+    "botanic": {
+      "id": "botanic",
+      "name": "Coimbra Botanical Garden",
+      "lat": 40.2057,
+      "lon": -8.4218,
+      "photo": "botanic",
+      "cue": "Formal terraces giving way to dense greenery.",
+      "about": "A daytime garden visit; check gate hours and use the open signed paths.",
+      "ticket": false,
+      "source": "https://www.uc.pt/jardimbotanico/",
+      "dwell": 40
+    },
+    "mondego": {
+      "id": "mondego",
+      "name": "Parque Verde do Mondego",
+      "lat": 40.2006,
+      "lon": -8.4266,
+      "photo": "mondego",
+      "cue": "Open riverbanks beneath the old city.",
+      "about": "A broad, lower-effort finish after the university hill.",
+      "ticket": false,
+      "source": "https://www.centerofportugal.com/",
+      "dwell": 25
+    },
+    "santaclara": {
+      "id": "santaclara",
+      "name": "Santa Clara-a-Velha",
+      "lat": 40.2024,
+      "lon": -8.4338,
+      "photo": "santaclara",
+      "cue": "Gothic ruins on the other side of the river.",
+      "about": "Exterior viewpoint or a separate museum visit, depending on time.",
+      "ticket": true,
+      "source": "https://www.centerofportugal.com/",
+      "dwell": 15
+    },
+    "tomar-praca": {
+      "id": "tomar-praca",
+      "name": "Praça da República",
+      "lat": 39.6035,
+      "lon": -8.4153,
+      "photo": "tomar-praca",
+      "cue": "Geometric paving below the castle hill.",
+      "about": "The church square is a good orientation point before the climb.",
+      "ticket": false,
+      "source": "https://www.centerofportugal.com/",
+      "dwell": 15
+    },
+    "tomar-mata": {
+      "id": "tomar-mata",
+      "name": "Mata dos Sete Montes",
+      "lat": 39.6011,
+      "lon": -8.4167,
+      "photo": "tomar-mata",
+      "cue": "Shaded woodland paths and formal garden edges.",
+      "about": "The former convent woodland is a place to slow down. Only follow open signed paths.",
+      "ticket": false,
+      "source": "https://www.centerofportugal.com/poi/mata-dos-sete-montes",
+      "dwell": 45
+    },
+    "tomar-convent": {
+      "id": "tomar-convent",
+      "name": "Convent of Christ",
+      "lat": 39.6046,
+      "lon": -8.4192,
+      "photo": "tomar",
+      "cue": "Templar walls, carved stone and cloisters.",
+      "about": "Make this the main ticketed visit of the day, not just a pin to clear.",
+      "ticket": true,
+      "source": "https://www.conventocristo.gov.pt/",
+      "dwell": 100
+    },
+    "mouchao": {
+      "id": "mouchao",
+      "name": "Jardim do Mouchão",
+      "lat": 39.6064,
+      "lon": -8.4123,
+      "photo": "mouchao",
+      "cue": "Green river-island paths and a wooden waterwheel.",
+      "about": "A gentle riverside contrast to the castle hill.",
+      "ticket": false,
+      "source": "https://www.centerofportugal.com/",
+      "dwell": 25
+    },
+    "pontevelha": {
+      "id": "pontevelha",
+      "name": "Ponte Velha",
+      "lat": 39.6037,
+      "lon": -8.4098,
+      "photo": "pontevelha",
+      "cue": "The old bridge over the Nabão.",
+      "about": "Finish with river reflections and a look back at the town.",
+      "ticket": false,
+      "source": "https://www.centerofportugal.com/",
+      "dwell": 15
+    },
+    "obidos-gate": {
+      "id": "obidos-gate",
+      "name": "Porta da Vila",
+      "lat": 39.3582,
+      "lon": -9.1577,
+      "photo": "obidos-gate",
+      "cue": "A tiled gateway inside the town entrance.",
+      "about": "Go through the main gate into the historic streets.",
+      "ticket": false,
+      "source": "https://www.visitportugal.com/en",
+      "dwell": 15
+    },
+    "ruadireita": {
+      "id": "ruadireita",
+      "name": "Rua Direita",
+      "lat": 39.36,
+      "lon": -9.1572,
+      "photo": "ruadireita",
+      "cue": "White walls, colourful trim and narrow paving.",
+      "about": "Leave the busiest spine briefly for the quieter adjoining lanes.",
+      "ticket": false,
+      "source": "https://www.visitportugal.com/en",
+      "dwell": 25
+    },
+    "obidos-church": {
+      "id": "obidos-church",
+      "name": "Santa Maria square",
+      "lat": 39.3612,
+      "lon": -9.1572,
+      "photo": "obidos-church",
+      "cue": "A small church square inside the walls.",
+      "about": "A pause between the lanes and the castle end of town.",
+      "ticket": false,
+      "source": "https://www.visitportugal.com/en",
+      "dwell": 15
+    },
+    "obidos-castle": {
+      "id": "obidos-castle",
+      "name": "Óbidos Castle exterior",
+      "lat": 39.3633,
+      "lon": -9.1579,
+      "photo": "obidos",
+      "cue": "Stone towers enclosing the medieval town.",
+      "about": "Enjoy it from ground level. The exposed wall-top walk is optional, not required.",
+      "ticket": false,
+      "source": "https://www.visitportugal.com/en",
+      "dwell": 25
+    },
+    "giraldo": {
+      "id": "giraldo",
+      "name": "Praça do Giraldo",
+      "lat": 38.5709,
+      "lon": -7.9095,
+      "photo": "giraldo",
+      "cue": "Arcades and a fountain in a broad square.",
+      "about": "The main square anchors an easy old-town loop.",
+      "ticket": false,
+      "source": "https://www.visitportugal.com/en",
+      "dwell": 15
+    },
+    "evora-se": {
+      "id": "evora-se",
+      "name": "Évora Cathedral",
+      "lat": 38.5719,
+      "lon": -7.9073,
+      "photo": "evora-se",
+      "cue": "A massive stone cathedral over whitewashed streets.",
+      "about": "Exterior stop; buy the appropriate ticket for the interior or rooftop.",
+      "ticket": true,
+      "source": "https://www.visitportugal.com/en",
+      "dwell": 25
+    },
+    "evora-temple": {
+      "id": "evora-temple",
+      "name": "Roman Temple",
+      "lat": 38.5726,
+      "lon": -7.9073,
+      "photo": "evora",
+      "cue": "A row of Roman columns against the sky.",
+      "about": "One of the strongest visual contrasts in the old town.",
+      "ticket": false,
+      "source": "https://www.visitportugal.com/en",
+      "dwell": 20
+    },
+    "evora-garden": {
+      "id": "evora-garden",
+      "name": "Jardim Público",
+      "lat": 38.5676,
+      "lon": -7.9098,
+      "photo": "evora-garden",
+      "cue": "Green shade beside historic stonework.",
+      "about": "A daytime breather before the walk back to the station.",
+      "ticket": false,
+      "source": "https://www.visitportugal.com/en",
+      "dwell": 25
+    }
+  },
+  "routes": [
+    {
+      "id": "lisbon-classic",
+      "city": "lisbon",
+      "title": "Rooftops & tiled terraces",
+      "subtitle": "The old city, seen from above",
+      "stops": [
+        "rossio",
+        "senhora",
+        "graca",
+        "luzia",
+        "se",
+        "praca",
+        "ribeira"
+      ],
+      "start": {
+        "name": "Rossio",
+        "lat": 38.71338,
+        "lon": -9.1392
+      },
+      "end": {
+        "name": "Cais do Sodré station",
+        "lat": 38.70586,
+        "lon": -9.14581
+      },
+      "moods": [
+        "views",
+        "oldworld"
+      ],
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "terrain": "Some hills",
+      "visitHours": 4,
+      "extra": "",
+      "caution": "Steep cobbled climbs. Start early in hot weather; the hilltop views are worth taking slowly.",
+      "source": "https://www.visitlisboa.com/en",
+      "hero": "santa-luzia",
+      "transfers": []
+    },
+    {
+      "id": "lisbon-grand",
+      "city": "lisbon",
+      "title": "The big Lisbon day",
+      "subtitle": "All the hills, all the way to the river",
+      "stops": [
+        "parque",
+        "saopedro",
+        "carmo",
+        "rossio",
+        "senhora",
+        "graca",
+        "luzia",
+        "se",
+        "praca",
+        "ribeira"
+      ],
+      "start": {
+        "name": "Parque / São Sebastião Metro",
+        "lat": 38.734,
+        "lon": -9.153
+      },
+      "end": {
+        "name": "Cais do Sodré station",
+        "lat": 38.70586,
+        "lon": -9.14581
+      },
+      "moods": [
+        "views",
+        "oldworld",
+        "long"
+      ],
+      "when": [
+        "day"
+      ],
+      "terrain": "Some hills",
+      "visitHours": 6,
+      "extra": "Add the Bica street detour before Cais if you still have energy.",
+      "caution": "A full outing, not a fitness test. Use the shorter old-city route when it is very hot.",
+      "source": "https://www.visitlisboa.com/en",
+      "hero": "senhora",
+      "transfers": []
+    },
+    {
+      "id": "lisbon-night",
+      "city": "lisbon",
+      "title": "City lights & river air",
+      "subtitle": "A central night wander, not empty garden paths",
+      "stops": [
+        "rossio",
+        "carmo",
+        "saopedro",
+        "bica",
+        "pink",
+        "ribeira",
+        "praca"
+      ],
+      "start": {
+        "name": "Rossio",
+        "lat": 38.71338,
+        "lon": -9.1392
+      },
+      "end": {
+        "name": "Cais do Sodré station",
+        "lat": 38.70586,
+        "lon": -9.14581
+      },
+      "moods": [
+        "night",
+        "city"
+      ],
+      "when": [
+        "night",
+        "sunset"
+      ],
+      "terrain": "Some hills",
+      "visitHours": 3,
+      "extra": "",
+      "caution": "Stay on lit streets and keep headphones low enough to hear your surroundings. No route is a safety guarantee.",
+      "source": "https://www.visitlisboa.com/en",
+      "hero": "bica",
+      "transfers": []
+    },
+    {
+      "id": "lisbon-belem",
+      "city": "lisbon",
+      "title": "White waves & great explorers",
+      "subtitle": "Architecture with the Tagus beside you",
+      "stops": [
+        "maat",
+        "padrao",
+        "belem",
+        "jeronimos"
+      ],
+      "start": {
+        "name": "Belém station",
+        "lat": 38.6965,
+        "lon": -9.1988
+      },
+      "end": {
+        "name": "Belém station",
+        "lat": 38.6965,
+        "lon": -9.1988
+      },
+      "moods": [
+        "water",
+        "views",
+        "city"
+      ],
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "terrain": "Flat",
+      "visitHours": 3.5,
+      "extra": "",
+      "caution": "Exposed riverside. Interior tickets and rooftop access are separate from this walking route.",
+      "source": "https://www.visitlisboa.com/en",
+      "hero": "maat",
+      "transfers": []
+    },
+    {
+      "id": "lisbon-future",
+      "city": "lisbon",
+      "title": "Lisbon from the future",
+      "subtitle": "Steel trees, a floating building, endless water",
+      "stops": [
+        "oriente",
+        "pavilion",
+        "oceanario",
+        "tower-vg"
+      ],
+      "start": {
+        "name": "Oriente station",
+        "lat": 38.767849,
+        "lon": -9.099364
+      },
+      "end": {
+        "name": "Oriente station",
+        "lat": 38.767849,
+        "lon": -9.099364
+      },
+      "moods": [
+        "water",
+        "quiet",
+        "city",
+        "night"
+      ],
+      "when": [
+        "day",
+        "sunset",
+        "night"
+      ],
+      "terrain": "Flat",
+      "visitHours": 3.5,
+      "extra": "For a longer daytime walk, continue on the public waterfront toward Parque Tejo, then retrace to Oriente.",
+      "caution": "Use the central promenade after dark; skip remote garden extensions late at night.",
+      "source": "https://www.visitlisboa.com/en/places/jardim-parque-das-nacoes",
+      "hero": "oriente",
+      "transfers": []
+    },
+    {
+      "id": "almada",
+      "city": "almada",
+      "title": "Across the water",
+      "subtitle": "A new perspective on the entire city",
+      "stops": [
+        "cerca",
+        "bocavento",
+        "cristo"
+      ],
+      "start": {
+        "name": "Cacilhas ferry terminal",
+        "lat": 38.6864,
+        "lon": -9.1488
+      },
+      "end": {
+        "name": "Cacilhas ferry terminal",
+        "lat": 38.6864,
+        "lon": -9.1488
+      },
+      "moods": [
+        "views",
+        "quiet"
+      ],
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "terrain": "Some hills",
+      "visitHours": 4,
+      "extra": "",
+      "caution": "Uses upper-town streets. Ginjal has had access restrictions; do not use it as a shortcut. Check Casa da Cerca and Cristo Rei hours.",
+      "source": "https://www.cm-almada.pt/node/44296",
+      "hero": "cristo",
+      "transfers": []
+    },
+    {
+      "id": "sintra-peaks",
+      "city": "sintra",
+      "title": "Palaces above the clouds",
+      "subtitle": "A proper fantasy-world day",
+      "stops": [
+        "sintra-palace",
+        "mouros",
+        "pena"
+      ],
+      "start": {
+        "name": "Sintra station",
+        "lat": 38.7992,
+        "lon": -9.3857
+      },
+      "end": {
+        "name": "Sintra station",
+        "lat": 38.7992,
+        "lon": -9.3857
+      },
+      "moods": [
+        "fantasy",
+        "views",
+        "long"
+      ],
+      "when": [
+        "day"
+      ],
+      "terrain": "Steep / transfer",
+      "visitHours": 6.5,
+      "extra": "",
+      "caution": "Book Pena’s timed entry. Use a local bus / booked ride for the hill transfer. Check official fire-risk closures before leaving.",
+      "source": "https://www.parquesdesintra.pt/en/plan-your-visit/",
+      "hero": "pena",
+      "transfers": [
+        [
+          "sintra-palace",
+          "mouros"
+        ],
+        [
+          "pena",
+          "finish"
+        ]
+      ]
+    },
+    {
+      "id": "sintra-gardens",
+      "city": "sintra",
+      "title": "Secret gardens & palaces",
+      "subtitle": "Less rushing, more getting lost in the greenery",
+      "stops": [
+        "sintra-palace",
+        "regaleira",
+        "monserrate"
+      ],
+      "start": {
+        "name": "Sintra station",
+        "lat": 38.7992,
+        "lon": -9.3857
+      },
+      "end": {
+        "name": "Sintra station",
+        "lat": 38.7992,
+        "lon": -9.3857
+      },
+      "moods": [
+        "fantasy",
+        "quiet"
+      ],
+      "when": [
+        "day"
+      ],
+      "terrain": "Gardens / transfer",
+      "visitHours": 6,
+      "extra": "",
+      "caution": "Both gardens need tickets. Use public transport / a booked ride between Regaleira and Monserrate; this is not a roadside hiking route.",
+      "source": "https://www.parquesdesintra.pt/en/plan-your-visit/",
+      "hero": "monserrate",
+      "transfers": [
+        [
+          "regaleira",
+          "monserrate"
+        ],
+        [
+          "monserrate",
+          "finish"
+        ]
+      ]
+    },
+    {
+      "id": "cascais-cliffs",
+      "city": "cascais",
+      "title": "The Atlantic, up close",
+      "subtitle": "A bay, a garden, a lighthouse, a wild edge",
+      "stops": [
+        "cascais-bay",
+        "marechal",
+        "santamarta",
+        "boca"
+      ],
+      "start": {
+        "name": "Cascais station",
+        "lat": 38.7006,
+        "lon": -9.4187
+      },
+      "end": {
+        "name": "Cascais station",
+        "lat": 38.7006,
+        "lon": -9.4187
+      },
+      "moods": [
+        "water",
+        "quiet",
+        "views"
+      ],
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "terrain": "Mostly flat",
+      "visitHours": 3.5,
+      "extra": "",
+      "caution": "Stay within marked cliff viewpoints. Park gates close; avoid the exposed cliff section after dark or in rough weather.",
+      "source": "https://www.visitcascais.com/",
+      "hero": "boca",
+      "transfers": []
+    },
+    {
+      "id": "cascais-promenade",
+      "city": "cascais",
+      "title": "Follow the blue",
+      "subtitle": "A low-effort coastal wander",
+      "stops": [
+        "tamariz",
+        "cascais-bay",
+        "santamarta"
+      ],
+      "start": {
+        "name": "Estoril station",
+        "lat": 38.7035,
+        "lon": -9.3988
+      },
+      "end": {
+        "name": "Cascais station",
+        "lat": 38.7006,
+        "lon": -9.4187
+      },
+      "moods": [
+        "water",
+        "quiet"
+      ],
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "terrain": "Flat",
+      "visitHours": 2.5,
+      "extra": "",
+      "caution": "You do not need to go onto the beach. Check the train home before lingering after sunset.",
+      "source": "https://www.visitcascais.com/",
+      "hero": "tamariz",
+      "transfers": []
+    },
+    {
+      "id": "coimbra",
+      "city": "coimbra",
+      "title": "Courtyards above the Mondego",
+      "subtitle": "Academic stone, garden shade & riverside calm",
+      "stops": [
+        "sevelha",
+        "coimbra-university",
+        "joanina",
+        "botanic",
+        "mondego",
+        "santaclara"
+      ],
+      "start": {
+        "name": "Largo da Portagem, Coimbra",
+        "lat": 40.2071,
+        "lon": -8.4296
+      },
+      "end": {
+        "name": "Largo da Portagem, Coimbra",
+        "lat": 40.2071,
+        "lon": -8.4296
+      },
+      "moods": [
+        "oldworld",
+        "quiet",
+        "views"
+      ],
+      "when": [
+        "day"
+      ],
+      "terrain": "Hilly",
+      "visitHours": 5.5,
+      "extra": "",
+      "caution": "Book library visits separately. Use Coimbra-B for intercity trains; confirm the current city connection, and save the return train.",
+      "source": "https://visit.uc.pt/",
+      "hero": "coimbra",
+      "transfers": []
+    },
+    {
+      "id": "tomar",
+      "city": "tomar",
+      "title": "Templars & river light",
+      "subtitle": "Ancient stone, deep woodland, a gentle finish",
+      "stops": [
+        "tomar-praca",
+        "tomar-mata",
+        "tomar-convent",
+        "mouchao",
+        "pontevelha"
+      ],
+      "start": {
+        "name": "Tomar station",
+        "lat": 39.5968,
+        "lon": -8.4141
+      },
+      "end": {
+        "name": "Tomar station",
+        "lat": 39.5968,
+        "lon": -8.4141
+      },
+      "moods": [
+        "oldworld",
+        "quiet",
+        "fantasy"
+      ],
+      "when": [
+        "day"
+      ],
+      "terrain": "One main hill",
+      "visitHours": 5.5,
+      "extra": "",
+      "caution": "Allow time for the convent; check woodland gates and closures. Pre-plan the return train.",
+      "source": "https://www.centerofportugal.com/poi/mata-dos-sete-montes",
+      "hero": "tomar",
+      "transfers": []
+    },
+    {
+      "id": "obidos",
+      "city": "obidos",
+      "title": "Inside the storybook",
+      "subtitle": "White lanes and castle walls",
+      "stops": [
+        "obidos-gate",
+        "ruadireita",
+        "obidos-church",
+        "obidos-castle"
+      ],
+      "start": {
+        "name": "Óbidos coach stop",
+        "lat": 39.3573,
+        "lon": -9.1578
+      },
+      "end": {
+        "name": "Óbidos coach stop",
+        "lat": 39.3573,
+        "lon": -9.1578
+      },
+      "moods": [
+        "oldworld",
+        "fantasy"
+      ],
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "terrain": "Cobbles",
+      "visitHours": 3,
+      "extra": "",
+      "caution": "The unguarded wall-top circuit is not part of the required walk. Check the return coach before going in.",
+      "source": "https://www.visitportugal.com/en",
+      "hero": "obidos",
+      "transfers": []
+    },
+    {
+      "id": "evora",
+      "city": "evora",
+      "title": "Stone, silence & big skies",
+      "subtitle": "Roman columns in a whitewashed world",
+      "stops": [
+        "giraldo",
+        "evora-se",
+        "evora-temple",
+        "evora-garden"
+      ],
+      "start": {
+        "name": "Évora station",
+        "lat": 38.5607,
+        "lon": -7.9074
+      },
+      "end": {
+        "name": "Évora station",
+        "lat": 38.5607,
+        "lon": -7.9074
+      },
+      "moods": [
+        "oldworld",
+        "quiet"
+      ],
+      "when": [
+        "day"
+      ],
+      "terrain": "Mostly flat",
+      "visitHours": 4,
+      "extra": "",
+      "caution": "Évora can be much hotter than the coast. Choose a cooler day and avoid midday heat; confirm the return train.",
+      "source": "https://www.visitportugal.com/en",
+      "hero": "evora",
+      "transfers": []
+    }
+  ],
+  "plan": [
+    "lisbon-classic",
+    "sintra-peaks",
+    "cascais-cliffs",
+    "coimbra",
+    "tomar"
+  ]
+}

@@ -1,0 +1,532 @@
+{
+  "obidos": {
+    "title": "The Óbidos' Castle (4017081137).jpg",
+    "author": "Pedro Ribeiro Simões from Lisboa, Portugal",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:The_%C3%93bidos'_Castle_(4017081137).jpg",
+    "src": "photos/obidos.webp",
+    "thumb": "photos/obidos-thumb.webp",
+    "bytes": 204812,
+    "sha256": "a3326d8370d5ffb771330573c9e1b3d9cd745f72098112983670451cf6a133ca"
+  },
+  "cerca": {
+    "title": "Casa da Cerca, Almada, 2013.jpg",
+    "author": "Manuelvbotelho",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Casa_da_Cerca%2C_Almada%2C_2013.jpg",
+    "src": "photos/cerca.webp",
+    "thumb": "photos/cerca-thumb.webp",
+    "bytes": 153468,
+    "sha256": "4a3978eda18f30c45decd049563a442cad132c76d11793f4ecfa02f5bb97d792"
+  },
+  "cascais-bay": {
+    "title": "Praia da Ribeira, Cascais. 05-18.jpg",
+    "author": "Rúdisicyon",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Praia_da_Ribeira%2C_Cascais._05-18.jpg",
+    "src": "photos/cascais-bay.webp",
+    "thumb": "photos/cascais-bay-thumb.webp",
+    "bytes": 170490,
+    "sha256": "e29ef9a44fe3efaf6124212d92f1ca4a4e8233873a2cb195654742e2fb00b6c8"
+  },
+  "guincho": {
+    "title": "Praia do Guincho (cropped).JPG",
+    "author": "Husond",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Praia_do_Guincho_(cropped).JPG",
+    "src": "photos/guincho.webp",
+    "thumb": "photos/guincho-thumb.webp",
+    "bytes": 150826,
+    "sha256": "a3da9c9614b68977f75ee998847c6e02d9889809ac195056b153394d199a8110"
+  },
+  "ribeira": {
+    "title": "Lisbon (33547759745).jpg",
+    "author": "Patrick Nouhailler from Genève, Suisse",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lisbon_%2833547759745%29.jpg",
+    "src": "photos/ribeira.webp",
+    "thumb": "photos/ribeira-thumb.webp",
+    "bytes": 117240,
+    "sha256": "2666a94e0872facff9f85afc4ebcf6c12cdac6fc658dc7d4602c30282bb5feac"
+  },
+  "oriente": {
+    "title": "Gare do Oriente.jpg",
+    "author": "Jonas.tesch",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gare_do_Oriente.jpg",
+    "src": "photos/oriente.webp",
+    "thumb": "photos/oriente-thumb.webp",
+    "bytes": 176290,
+    "sha256": "7049eb5d46d3829597a368dcf7bc012369f6400984397bbbf6e2778bae0b5849"
+  },
+  "senhora": {
+    "title": "Panoramic View from Miradouro da Senhora do Monte in Lisbon (54742879994).jpg",
+    "author": "Dale Cruse - 10M views from San Francisco, CA, USA",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Panoramic_View_from_Miradouro_da_Senhora_do_Monte_in_Lisbon_(54742879994).jpg",
+    "src": "photos/senhora.webp",
+    "thumb": "photos/senhora-thumb.webp",
+    "bytes": 174408,
+    "sha256": "0fe507147d755b009856a8e88e48a07bd3c308f87b9f421c1c8e34701cc83e8f"
+  },
+  "pontevelha": {
+    "title": "Levada de Tomar and Ponte Velha, Tomar, Portugal julesvernex2-2.jpg",
+    "author": "Jules Verne Times Two",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Levada_de_Tomar_and_Ponte_Velha%2C_Tomar%2C_Portugal_julesvernex2-2.jpg",
+    "src": "photos/pontevelha.webp",
+    "thumb": "photos/pontevelha-thumb.webp",
+    "bytes": 134252,
+    "sha256": "2430030c106e41d6551e3d73f915aade50f516e76fbc8bade50b452c85539b7c"
+  },
+  "carmo": {
+    "title": "Lisbon, the Convento do Carmo.JPG",
+    "author": "Dguendel",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lisbon,_the_Convento_do_Carmo.JPG",
+    "src": "photos/carmo.webp",
+    "thumb": "photos/carmo-thumb.webp",
+    "bytes": 157772,
+    "sha256": "73a77236f00a2127bd4df9cd0902e711399cf4079bdf97767bea644c0619405e"
+  },
+  "boca-vento": {
+    "title": "Elevador da Boca do Vento, Almada - panoramio.jpg",
+    "author": "singra13",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Elevador_da_Boca_do_Vento,_Almada_-_panoramio.jpg",
+    "src": "photos/boca-vento.webp",
+    "thumb": "photos/boca-vento-thumb.webp",
+    "bytes": 64918,
+    "sha256": "a27401614cddde1ff2fd750a164b54b1631d46d58493475933b97e6f18baf0e5"
+  },
+  "evora-se": {
+    "title": "Evora - Cathedral - Front.jpg",
+    "author": "Ingo Mehling",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Evora_-_Cathedral_-_Front.jpg",
+    "src": "photos/evora-se.webp",
+    "thumb": "photos/evora-se-thumb.webp",
+    "bytes": 326990,
+    "sha256": "38052af080065c315597600685082ad91d95eac66c625dea75984b6fc4327f71"
+  },
+  "coimbra": {
+    "title": "Portugal 120716 Coimbra University 07.jpg",
+    "author": "Oren Rozen",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Portugal_120716_Coimbra_University_07.jpg",
+    "src": "photos/coimbra.webp",
+    "thumb": "photos/coimbra-thumb.webp",
+    "bytes": 126100,
+    "sha256": "c14e4b830777d6be2c1d5eae12e704d0ccf746e932ec673793546d5b246b24ee"
+  },
+  "sao-pedro": {
+    "title": "Miradouro de São Pedro de Alcântara (13943471369).jpg",
+    "author": "Jorge Franganillo from Barcelona, Spain",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Miradouro_de_S%C3%A3o_Pedro_de_Alc%C3%A2ntara_(13943471369).jpg",
+    "src": "photos/sao-pedro.webp",
+    "thumb": "photos/sao-pedro-thumb.webp",
+    "bytes": 126540,
+    "sha256": "aee632018f6ef68abe870cf642486614680de4dda607f6138294de605ab48301"
+  },
+  "santamarta": {
+    "title": "Farol de Santa Marta, Cascais. 02-20.jpg",
+    "author": "Rúdisicyon",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Farol_de_Santa_Marta%2C_Cascais._02-20.jpg",
+    "src": "photos/santamarta.webp",
+    "thumb": "photos/santamarta-thumb.webp",
+    "bytes": 101254,
+    "sha256": "a1cb1352b87af574b4dcebb69eda401dc1aebe4ec8037c6772b9bcc0b344ccd1"
+  },
+  "giraldo": {
+    "title": "Praça do Giraldo - Évora - Portugal (52258127529).jpg",
+    "author": "Vitor Oliveira from Torres Vedras, PORTUGAL",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pra%C3%A7a_do_Giraldo_-_%C3%89vora_-_Portugal_%2852258127529%29.jpg",
+    "src": "photos/giraldo.webp",
+    "thumb": "photos/giraldo-thumb.webp",
+    "bytes": 197726,
+    "sha256": "7504e4fc86bc0f28f2d5233a1d02f660ff652857992a8668bd785a54df13f53b"
+  },
+  "obidos-church": {
+    "title": "2025-09-21 Óbidos, Igreja de Santa Maria.jpg",
+    "author": "Alexkom000",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2025-09-21_%C3%93bidos%2C_Igreja_de_Santa_Maria.jpg",
+    "src": "photos/obidos-church.webp",
+    "thumb": "photos/obidos-church-thumb.webp",
+    "bytes": 208358,
+    "sha256": "790d43b2a86b1dd07cd16c5be8e6a89d43cd5a05c62330234d32932c019f515d"
+  },
+  "se": {
+    "title": "Sé-de-Lisboa facade.jpg",
+    "author": "Lusitana",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:S%C3%A9-de-Lisboa_facade.jpg",
+    "src": "photos/se.webp",
+    "thumb": "photos/se-thumb.webp",
+    "bytes": 63212,
+    "sha256": "8c3164504aeae439fbe957f702e390424bc1da73cbb5ef313400d89065bb4b94"
+  },
+  "tomar-praca": {
+    "title": "Tomar Praça da República 868.jpg",
+    "author": "GFreihalter",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tomar_Pra%C3%A7a_da_Rep%C3%BAblica_868.jpg",
+    "src": "photos/tomar-praca.webp",
+    "thumb": "photos/tomar-praca-thumb.webp",
+    "bytes": 186206,
+    "sha256": "f9a6c31145f89bdd36415c5841211d2e9fab5427e4c101c38e01fdf36ef8a035"
+  },
+  "tamariz": {
+    "title": "Estoril Praia do Tamariz (53888188891).jpg",
+    "author": "Jorge Franganillo",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Estoril_Praia_do_Tamariz_%2853888188891%29.jpg",
+    "src": "photos/tamariz.webp",
+    "thumb": "photos/tamariz-thumb.webp",
+    "bytes": 176800,
+    "sha256": "5f0377bf90d287942822ab057f90c648aaa86fc9490728635a3d59d9fe62d2c2"
+  },
+  "oceanario": {
+    "title": "Exterior of Oceanário de Lisboa.jpg",
+    "author": "Eugenio Hansen, OFS",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Exterior_of_Ocean%C3%A1rio_de_Lisboa.jpg",
+    "src": "photos/oceanario.webp",
+    "thumb": "photos/oceanario-thumb.webp",
+    "bytes": 109184,
+    "sha256": "b4f8e82da0047855982531b80dcd9d248b59194609bee4523f1b364e3a59dada"
+  },
+  "mouchao": {
+    "title": "98593-Tomar (48913874068).jpg",
+    "author": "xiquinhosilva from Cacau",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:98593-Tomar_%2848913874068%29.jpg",
+    "src": "photos/mouchao.webp",
+    "thumb": "photos/mouchao-thumb.webp",
+    "bytes": 418644,
+    "sha256": "71e1c7e90fad1b87bc5286ddbf675c7687fb482cb1b445460ef25fb1a39b163e"
+  },
+  "mondego": {
+    "title": "Parque Verde do Mondego - Coimbra - Portugal (8261478687).jpg",
+    "author": "Vitor Oliveira from Torres Vedras, PORTUGAL",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Parque_Verde_do_Mondego_-_Coimbra_-_Portugal_%288261478687%29.jpg",
+    "src": "photos/mondego.webp",
+    "thumb": "photos/mondego-thumb.webp",
+    "bytes": 207130,
+    "sha256": "fb29a72de7fb4e16f1073603bc19fba963fdc94ef837e0f1c0d2218afd5b7958"
+  },
+  "sintra-palace": {
+    "title": "Exterior of Palácio Nacional de Sintra-2.jpg",
+    "author": "Yair Haklai",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Exterior_of_Pal%C3%A1cio_Nacional_de_Sintra-2.jpg",
+    "src": "photos/sintra-palace.webp",
+    "thumb": "photos/sintra-palace-thumb.webp",
+    "bytes": 128492,
+    "sha256": "88414ce7d0b549d1aff3bef53f47322f57f1edc2ddd789e56c458acfbff68d12"
+  },
+  "sevelha": {
+    "title": "Exterior of Sé Velha of Coimbra.jpg",
+    "author": "Joseolgon",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Exterior_of_S%C3%A9_Velha_of_Coimbra.jpg",
+    "src": "photos/sevelha.webp",
+    "thumb": "photos/sevelha-thumb.webp",
+    "bytes": 313552,
+    "sha256": "7bf9d790ddf43af1a90745b8fc966bed7e4883d2dd041123b4c731898c111b35"
+  },
+  "evora": {
+    "title": "Roman-Temple-Evora.jpg",
+    "author": "Acediscovery",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Roman-Temple-Evora.jpg",
+    "src": "photos/evora.webp",
+    "thumb": "photos/evora-thumb.webp",
+    "bytes": 178784,
+    "sha256": "b1a243b441948cdad8ac36ff1f95a2276bd94f0d0bdedeebeff0928428779b48"
+  },
+  "joanina": {
+    "title": "Biblioteca Joanina (53560470042).jpg",
+    "author": "xiquinhosilva",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Biblioteca_Joanina_(53560470042).jpg",
+    "src": "photos/joanina.webp",
+    "thumb": "photos/joanina-thumb.webp",
+    "bytes": 132200,
+    "sha256": "c8fd2d30b07189a0bd7536649d361e50f48222e9fd3419cc5e43ed361a155dcb"
+  },
+  "regaleira": {
+    "title": "Quinta da Regaleira 01.jpg",
+    "author": "Meerkator",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Quinta_da_Regaleira_01.jpg",
+    "src": "photos/regaleira.webp",
+    "thumb": "photos/regaleira-thumb.webp",
+    "bytes": 268772,
+    "sha256": "a17a30024d62ce8476292c6e9ee8c0f5bf058f442c3489676da20225679254ab"
+  },
+  "cristo": {
+    "title": "Cristo Rei, Almada 39.jpg",
+    "author": "Simon Burchell",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cristo_Rei,_Almada_39.jpg",
+    "src": "photos/cristo.webp",
+    "thumb": "photos/cristo-thumb.webp",
+    "bytes": 105636,
+    "sha256": "bdaeebd54f754c7f387c5a37fc33e8b490db99b381cad5580e37f10831b1c843"
+  },
+  "boca": {
+    "title": "Boca do Inferno, Cascais.jpg",
+    "author": "Carlos SGP",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Boca_do_Inferno,_Cascais.jpg",
+    "src": "photos/boca.webp",
+    "thumb": "photos/boca-thumb.webp",
+    "bytes": 352082,
+    "sha256": "1690a82a6eaba80cea8dedacecea7eaa9df545049f0c2f2f139d00ffa2b6a108"
+  },
+  "jeronimos": {
+    "title": "Mosteiro dos Jeronimos - Court.jpg",
+    "author": "Ingo Mehling",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mosteiro_dos_Jeronimos_-_Court.jpg",
+    "src": "photos/jeronimos.webp",
+    "thumb": "photos/jeronimos-thumb.webp",
+    "bytes": 132022,
+    "sha256": "06d455f66fa61a851f227510c69fbf8ea6cbe5bf33027bb109d8f4701936fc09"
+  },
+  "obidos-gate": {
+    "title": "Óbidos Entrada.JPG",
+    "author": "Paulo Juntas",
+    "license": "CC BY-SA 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:%C3%93bidos_Entrada.JPG",
+    "src": "photos/obidos-gate.webp",
+    "thumb": "photos/obidos-gate-thumb.webp",
+    "bytes": 283232,
+    "sha256": "5c37f2f02925b8d0b0644650e4adf895f62419a7a07f5337ef0e15c33095f9f6"
+  },
+  "evora-garden": {
+    "title": "Jardim Público de Évora - Portugal (2714379087).jpg",
+    "author": "Vitor Oliveira from Torres Vedras, PORTUGAL",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jardim_P%C3%BAblico_de_%C3%89vora_-_Portugal_%282714379087%29.jpg",
+    "src": "photos/evora-garden.webp",
+    "thumb": "photos/evora-garden-thumb.webp",
+    "bytes": 278476,
+    "sha256": "d6f21500e917c785408907b62ccca1eb52c90af496660ed343350788aa497678"
+  },
+  "tower-vg": {
+    "title": "Portugal no mês de Julho de Dois Mil e Catorze P7140655 (14742875085).jpg",
+    "author": "Luca Boldrini",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Portugal_no_m%C3%AAs_de_Julho_de_Dois_Mil_e_Catorze_P7140655_%2814742875085%29.jpg",
+    "src": "photos/tower-vg.webp",
+    "thumb": "photos/tower-vg-thumb.webp",
+    "bytes": 164342,
+    "sha256": "bb47a591e7c7a9da2d512b903ce73ed8b97d6f76cc3625b593d286da0cb99101"
+  },
+  "padrao": {
+    "title": "Lisbon 09973 Lisboa Padrão dos Descobrimentos 2006 Luca Galuzzi.jpg",
+    "author": "Luca Galuzzi (Lucag)",
+    "license": "CC BY-SA 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Lisbon_09973_Lisboa_Padr%C3%A3o_dos_Descobrimentos_2006_Luca_Galuzzi.jpg",
+    "src": "photos/padrao.webp",
+    "thumb": "photos/padrao-thumb.webp",
+    "bytes": 157498,
+    "sha256": "6462bbcddaf7c72d1ba602aa2f041966db51d171c2f2ac967d6847e75a075d6e"
+  },
+  "santa-luzia": {
+    "title": "Miradouro de Santa Luzia View over Alfama, Lisbon (54733651122).jpg",
+    "author": "Dale Cruse - 10M views from San Francisco, CA, USA",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Miradouro_de_Santa_Luzia_View_over_Alfama,_Lisbon_(54733651122).jpg",
+    "src": "photos/santa-luzia.webp",
+    "thumb": "photos/santa-luzia-thumb.webp",
+    "bytes": 163550,
+    "sha256": "95e8391416a830a959741b572b019be115c6c6eaa84a87703df8587afa9205df"
+  },
+  "monserrate": {
+    "title": "The Palace of Monserrate in Sintra National Park (27954800241).jpg",
+    "author": "travelmag.com",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Palace_of_Monserrate_in_Sintra_National_Park_(27954800241).jpg",
+    "src": "photos/monserrate.webp",
+    "thumb": "photos/monserrate-thumb.webp",
+    "bytes": 326574,
+    "sha256": "933771324748a6af922605d720943231ad9666f7b9d91f916be0f6475970dec3"
+  },
+  "parque": {
+    "title": "Parque Eduardo VII (Lisbon).jpg",
+    "author": "Monart",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Parque_Eduardo_VII_(Lisbon).jpg",
+    "src": "photos/parque.webp",
+    "thumb": "photos/parque-thumb.webp",
+    "bytes": 185950,
+    "sha256": "99d57dc00efa442bab8af1c4797198b175d7a779d9a6476e1dca8cd23d045cf9"
+  },
+  "belem": {
+    "title": "Belém Tower (Torre de Belém) 1.jpg",
+    "author": "Dudva",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bel%C3%A9m_Tower_(Torre_de_Bel%C3%A9m)_1.jpg",
+    "src": "photos/belem.webp",
+    "thumb": "photos/belem-thumb.webp",
+    "bytes": 118656,
+    "sha256": "edb4dc0ff41b79b0fc01fdd13869d40c3557bf14d752f0e9b01363d83a7a9651"
+  },
+  "marechal": {
+    "title": "Lagoa no Parque Marechal Carmona, Cascais. 05-19.jpg",
+    "author": "Rúdisicyon",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lagoa_no_Parque_Marechal_Carmona%2C_Cascais._05-19.jpg",
+    "src": "photos/marechal.webp",
+    "thumb": "photos/marechal-thumb.webp",
+    "bytes": 342120,
+    "sha256": "9a3f532961dd3f1420130c36daae58ee36cdfb70008afedc0703c3fc7e7aa188"
+  },
+  "mouros": {
+    "title": "The Moorish Castle, Sintra, Portugal (27954846141).jpg",
+    "author": "travelmag.com",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Moorish_Castle,_Sintra,_Portugal_(27954846141).jpg",
+    "src": "photos/mouros.webp",
+    "thumb": "photos/mouros-thumb.webp",
+    "bytes": 249926,
+    "sha256": "83b4e454441fef11b5d3936160c2b54d8e0397b201b290f2d71f2fd4db752983"
+  },
+  "botanic": {
+    "title": "Jardim Botânico da Universidade de Coimbra (1).jpg",
+    "author": "Hugo Ferreira",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jardim_Bot%C3%A2nico_da_Universidade_de_Coimbra_%281%29.jpg",
+    "src": "photos/botanic.webp",
+    "thumb": "photos/botanic-thumb.webp",
+    "bytes": 481880,
+    "sha256": "da3282b2f26300f1b7849ef2144e574c6310e1f9e8f2ca0fd1a1a18ca1d18d7d"
+  },
+  "maat": {
+    "title": "MAAT - The Museum of Art, Architecture and Technology (33806654791).jpg",
+    "author": "Maria Eklind",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:MAAT_-_The_Museum_of_Art,_Architecture_and_Technology_(33806654791).jpg",
+    "src": "photos/maat.webp",
+    "thumb": "photos/maat-thumb.webp",
+    "bytes": 91112,
+    "sha256": "fb8aa0bab2db8bc0bca699d302ebd08f86e26cb20aae4a2fe264a382fbcfe70e"
+  },
+  "pavilion": {
+    "title": "Lisboa, Pavilhão de Portugal - Expo 98 (52668018357).jpg",
+    "author": "Šarūnas Burdulis",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lisboa%2C_Pavilh%C3%A3o_de_Portugal_-_Expo_98_%2852668018357%29.jpg",
+    "src": "photos/pavilion.webp",
+    "thumb": "photos/pavilion-thumb.webp",
+    "bytes": 181234,
+    "sha256": "d45daf5a6be0344cffbfceb21d4dba83047559df1e05918d440fc2a596bbfd68"
+  },
+  "santaclara": {
+    "title": "Coimbra-Mosteiro de Santa Clara-a-Velha-04-2011-gje.jpg",
+    "author": "Gerd Eichmann",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Coimbra-Mosteiro_de_Santa_Clara-a-Velha-04-2011-gje.jpg",
+    "src": "photos/santaclara.webp",
+    "thumb": "photos/santaclara-thumb.webp",
+    "bytes": 191496,
+    "sha256": "c9d7f797664bbbe846b86e9add2bf858211609e92dd916f2ba3656861ecade9b"
+  },
+  "pena": {
+    "title": "Palacio Nacional da Pena, Sintra, Portugal, 2019-05-25, DD 84.jpg",
+    "author": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Palacio_Nacional_da_Pena%2C_Sintra%2C_Portugal%2C_2019-05-25%2C_DD_84.jpg",
+    "src": "photos/pena.webp",
+    "thumb": "photos/pena-thumb.webp",
+    "bytes": 128304,
+    "sha256": "15ab270de6c866e248b3c9d9cd1a88fb17b67352244b12450cf8f49e22ec1944"
+  },
+  "tomar-mata": {
+    "title": "Mata Nacional dos Sete Montes - Tomar - Portugal (52993204870).jpg",
+    "author": "Vitor Oliveira from Torres Vedras, PORTUGAL",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mata_Nacional_dos_Sete_Montes_-_Tomar_-_Portugal_%2852993204870%29.jpg",
+    "src": "photos/tomar-mata.webp",
+    "thumb": "photos/tomar-mata-thumb.webp",
+    "bytes": 383764,
+    "sha256": "d04ae80dfeeb6492f5ee232ab6b84128bc0fc36e00863993d04a1af00823623e"
+  },
+  "praca": {
+    "title": "Praça do Comércio (Commerce Square) - Lisbon (52742691555).jpg",
+    "author": "Haydn Blackey from Cardiff, Wales",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pra%C3%A7a_do_Com%C3%A9rcio_(Commerce_Square)_-_Lisbon_(52742691555).jpg",
+    "src": "photos/praca.webp",
+    "thumb": "photos/praca-thumb.webp",
+    "bytes": 123530,
+    "sha256": "757a01601ce0ba7db87d2ac4731218ffefb9f0f11fc73980ef4b022af2f7329e"
+  },
+  "tomar": {
+    "title": "Convent of Christ - Tomar.jpg",
+    "author": "Ptahh",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Convent_of_Christ_-_Tomar.jpg",
+    "src": "photos/tomar.webp",
+    "thumb": "photos/tomar-thumb.webp",
+    "bytes": 179150,
+    "sha256": "e7d07d78e7104fe82d446b6ca1e5c1893cb9e982e98df1effdf66472a4c165df"
+  },
+  "rossio": {
+    "title": "Lisboa, Rossio 3.jpg",
+    "author": "LBM1948",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lisboa,_Rossio_3.jpg",
+    "src": "photos/rossio.webp",
+    "thumb": "photos/rossio-thumb.webp",
+    "bytes": 133284,
+    "sha256": "61dd95ce428542ceff8fc98ac69e6b545295a5f2d333b1f73358a4bfa258f7ea"
+  },
+  "ruadireita": {
+    "title": "Rua Direita Óbidos 04.jpg",
+    "author": "GualdimG",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rua_Direita_%C3%93bidos_04.jpg",
+    "src": "photos/ruadireita.webp",
+    "thumb": "photos/ruadireita-thumb.webp",
+    "bytes": 133598,
+    "sha256": "ab1a52afca4dddce7feb82f768377ea06767da31cf43bee54b445f73e20181a7"
+  },
+  "bica": {
+    "title": "Yellow Elevador da Bica Funicular in Lisbon, Portugal (54715452370).jpg",
+    "author": "Dale Cruse - 10M views from San Francisco, CA, USA",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yellow_Elevador_da_Bica_Funicular_in_Lisbon,_Portugal_(54715452370).jpg",
+    "src": "photos/bica.webp",
+    "thumb": "photos/bica-thumb.webp",
+    "bytes": 111704,
+    "sha256": "364e5ec6d9779dcd8d28817c94baf5f68033e6ebb90458bd13a6eaca3972bb3d"
+  },
+  "graca": {
+    "title": "Miradouro da Graça.jpg",
+    "author": "Filipe Rocha,user:sacavem (pt) http://pt.wikipedia.org/wiki/Usu%C3%A1rio:Sacavem",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Miradouro_da_Gra%C3%A7a.jpg",
+    "src": "photos/graca.webp",
+    "thumb": "photos/graca-thumb.webp",
+    "bytes": 359270,
+    "sha256": "f11d5402007ce88fe53211e1d447a0b4fe2ad6a6240deab7d60358850051db6f"
+  },
+  "pink": {
+    "title": "Lisbon Pink Street.jpg",
+    "author": "FuriousYogi",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lisbon_Pink_Street.jpg",
+    "src": "photos/pink.webp",
+    "thumb": "photos/pink-thumb.webp",
+    "bytes": 209500,
+    "sha256": "66daeb00fba3f00f415046411ef306105f2f60a7a84903b047ffd7b83473fbd3"
+  }
+}
