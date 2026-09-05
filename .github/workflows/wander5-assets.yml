@@ -1,0 +1,30 @@
+name: Wander 5 researched assets
+on:
+  push:
+    branches: [gh-pages]
+    paths: ['.github/workflows/wander5-assets.yml']
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m pip install Pillow
+      - name: Expand destinations without touching the live app
+        run: python scripts/wander5-expand.py
+      - name: Download credited photographs and route data
+        run: python scripts/wander5-assets.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wander5-assets
+          path: staging/
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wander5-assets-review
+          path: qa-assets/
+          retention-days: 7
