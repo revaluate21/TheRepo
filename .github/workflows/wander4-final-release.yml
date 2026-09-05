@@ -1,0 +1,83 @@
+name: Wander 4 final mobile release
+on:
+  push:
+    branches: [gh-pages]
+    paths: ['.github/workflows/wander4-final-release.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  final:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - uses: actions/download-artifact@v4
+        with:
+          name: wander4-built-app
+          run-id: 33936615236
+          github-token: ${{ github.token }}
+          path: wander4
+      - name: Finish mobile controls and prepare browser tests
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64,lzma,json,hashlib
+          b=base64.b64decode(''.join(p.read_text().strip() for p in sorted(Path('scripts/wander4-release').glob('part-*.b64'))))
+          assert hashlib.sha256(b).hexdigest()=='0913f838538f19411ceca3ed65e70d38f8344bf21a8e9db547b629730273d965'
+          q=json.loads(lzma.decompress(b))['scripts/wander4-qa.py']
+          q=q.replace('page.evaluate("navigator.geolocation.getCurrentPosition=(good,bad)=>bad({code:1})")','page.evaluate("()=>{navigator.geolocation.getCurrentPosition=(good,bad)=>bad({code:1});}")')
+          q=q.replace('page.evaluate("navigator.geolocation.getCurrentPosition=(good)=>good({coords:{latitude:39.6046,longitude:-8.4192,accuracy:10},timestamp:Date.now()})")','page.evaluate("()=>{navigator.geolocation.getCurrentPosition=(good)=>good({coords:{latitude:39.6046,longitude:-8.4192,accuracy:10},timestamp:Date.now()});}")')
+          q=q.replace('p.chromium.launch(headless=True)','p.chromium.launch(headless=True,executable_path=os.environ.get("CHROME_PATH") or None)')
+          Path('scripts/wander4-qa.py').write_text(q)
+          p=Path('wander4/app.css')
+          p.write_text(p.read_text()+'''\n/* Final mobile focus: controls stay above the navigation dock. */
+          .map-card{isolation:isolate;z-index:0}
+          @media(max-width:750px){
+          .focus-page .focus-card{height:clamp(150px,25svh,250px)}
+          .focus-page .focus-heading{margin-bottom:10px}
+          .focus-page .progress{margin:10px 0 14px}
+          .focus-page .focus-title{margin:16px 0 9px}
+          .focus-page .focus-note{margin:12px 0;padding:12px}
+          .focus-page .focus-controls{margin-top:12px}
+          }\n''')
+          p=Path('wander4/sw.js');p.write_text(p.read_text().replace("const BUILD='4.0.0'","const BUILD='4.0.1'"))
+          PY
+      - name: Use installed Chrome without changing operating-system packages
+        run: |
+          python -m pip install --timeout 30 --retries 2 playwright
+          CHROME_PATH=$(command -v google-chrome || command -v google-chrome-stable || true)
+          echo "CHROME_PATH=$CHROME_PATH" >> "$GITHUB_ENV"
+          if [ -z "$CHROME_PATH" ]; then python -m playwright install chromium; fi
+      - name: Complete mobile, GPS-permission, map and offline tests
+        run: |
+          python -m http.server 8765 > /tmp/wander-server.log 2>&1 &
+          sleep 2
+          python scripts/wander4-qa.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wander4-final-qa
+          path: wander4-qa/
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wander4-final-app
+          path: wander4/
+          retention-days: 7
+      - name: Publish tested app on the latest branch without overwriting other work
+        run: |
+          cp -a wander4 /tmp/wander4-tested
+          cp scripts/wander4-qa.py /tmp/wander4-qa.py
+          git fetch origin gh-pages
+          git reset --hard origin/gh-pages
+          cp -a /tmp/wander4-tested/. wander4/
+          cp /tmp/wander4-qa.py scripts/wander4-qa.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add wander4 scripts/wander4-qa.py
+          git commit -m 'Publish Wander rebuild after complete mobile and offline acceptance'
+          git push origin HEAD:gh-pages
