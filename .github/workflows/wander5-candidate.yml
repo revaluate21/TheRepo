@@ -1,0 +1,49 @@
+name: Wander 5 candidate and acceptance
+on:
+  push:
+    branches: [gh-pages]
+    paths: ['.github/workflows/wander5-candidate.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 33954000588
+          name: wander5-assets
+          path: staging
+      - run: python -m pip install Pillow playwright
+      - name: Repair photo selection and essential-place gaps
+        run: python scripts/wander5-repair.py
+      - name: Apply reviewed interface and test package
+        run: python scripts/wander5-prepare.py
+      - name: Syntax checks
+        run: |
+          for f in staging/*.js; do node --check "$f"; done
+          python -m py_compile scripts/qa-v5.py
+      - name: Install browser
+        run: python -m playwright install --with-deps chromium
+      - name: Mobile, photos, filters and offline acceptance
+        run: |
+          python -m http.server 8765 > /tmp/wander-server.log 2>&1 &
+          python scripts/qa-v5.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wander5-candidate
+          path: staging/
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wander5-candidate-review
+          path: |
+            qa-v5/
+            qa-repair/
+          retention-days: 7
