@@ -1,0 +1,20 @@
+name: Wander 4 walking geometry
+on:
+  push:
+    branches: [gh-pages]
+    paths: ['.github/workflows/wander4-geometry.yml']
+permissions:
+  contents: read
+jobs:
+  route:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: python scripts/wander4-geometry.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wander4-geometry
+          path: wander4-geometry/
+          retention-days: 3
