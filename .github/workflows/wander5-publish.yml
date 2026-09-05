@@ -1,0 +1,70 @@
+name: Wander 5 tested publication
+on:
+  push:
+    branches: [gh-pages]
+    paths: ['.github/workflows/wander5-publish.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 33955793064
+          name: wander5-release-candidate
+          path: staging
+      - run: python -m pip install playwright
+      - run: python scripts/wander5-publish-prep.py
+      - name: Syntax checks
+        run: |
+          for f in staging/*.js; do node --check "$f"; done
+          python -m py_compile scripts/qa-v5.py
+      - run: python -m playwright install --with-deps chromium
+      - name: Complete acceptance gate
+        run: |
+          python -m http.server 8765 > /tmp/wander-server.log 2>&1 &
+          python scripts/qa-v5.py
+          python - <<'PY'
+          import json
+          d=json.load(open('qa-v5/results.json'))
+          assert d['passed'] and not d['pageErrors']
+          PY
+      - name: Publish only reviewed app assets
+        run: |
+          INITIAL=$(git rev-parse HEAD)
+          git fetch origin gh-pages
+          if ! git diff --quiet "$INITIAL" origin/gh-pages -- wander4/; then
+            echo 'App changed during the build; refusing to overwrite concurrent work.'
+            exit 1
+          fi
+          git reset --hard origin/gh-pages
+          rsync -a --delete --exclude=new-photos.json staging/ wander4/
+          cp qa-v5/results.json wander4/release-checks.json
+          python - <<'PY'
+          import json,hashlib,pathlib,datetime
+          p=pathlib.Path('wander4');d=json.loads((p/'catalog.json').read_text());ph=json.loads((p/'photos.json').read_text());q=json.loads((p/'pois.json').read_text());tests=json.loads((p/'release-checks.json').read_text())
+          out={'version':'5.0.0','built':datetime.datetime.now(datetime.timezone.utc).isoformat(),'routes':len(d['routes']),'areas':len(d['cities']),'photos':len(ph),'mappedFacilities':len(q['items']),'testsPassed':len(tests['checks']),'browserErrors':tests['pageErrors'],'assets':{n:hashlib.sha256((p/n).read_bytes()).hexdigest() for n in ['app.js','app.css','catalog.json','photos.json','geometry.json','travel.js','sw.js']}}
+          (p/'release.json').write_text(json.dumps(out,indent=2))
+          PY
+          git add wander4/
+          git -c user.name='Wander release bot' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Publish tested Wander 5: multimodal escapes, real photos and useful map layers'
+          git push origin HEAD:gh-pages
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wander5-publication-review
+          path: qa-v5/
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wander5-release-app
+          path: staging/
+          retention-days: 7
