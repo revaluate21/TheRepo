@@ -1,5 +1,5 @@
 {
-  "version": "4.0.0",
+  "version": "5.0.0",
   "built": "2026-09-05",
   "home": {
     "label": "Santo António dos Cavaleiros · 2660-213",
@@ -14,7 +14,7 @@
       "hero": "santa-luzia",
       "lat": 38.716,
       "lon": -9.14,
-      "travel": 65,
+      "travel": 80,
       "there": [
         "From Santo António dos Cavaleiros: local bus toward Campo Grande.",
         "Metro to the start shown for your chosen walk."
@@ -36,7 +36,22 @@
           "Night buses",
           "https://www.carris.pt/en/travel/"
         ]
-      ]
+      ],
+      "travelOptions": {
+        "km": 17,
+        "driveMinutes": 25,
+        "transit": [
+          45,
+          80
+        ],
+        "publicBudget": [
+          6,
+          12
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": false
+      }
     },
     "sintra": {
       "id": "sintra",
@@ -45,7 +60,7 @@
       "hero": "pena",
       "lat": 38.797,
       "lon": -9.39,
-      "travel": 110,
+      "travel": 125,
       "there": [
         "Reach Rossio or Oriente and take a CP train to Sintra.",
         "For the hilltops, use the local tourist bus or a booked ride. Do not follow the narrow road on foot just to save time."
@@ -67,7 +82,22 @@
           "Park notices",
           "https://www.parquesdesintra.pt/en/notices/"
         ]
-      ]
+      ],
+      "travelOptions": {
+        "km": 34,
+        "driveMinutes": 35,
+        "transit": [
+          85,
+          125
+        ],
+        "publicBudget": [
+          10,
+          22
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": false
+      }
     },
     "cascais": {
       "id": "cascais",
@@ -76,7 +106,7 @@
       "hero": "boca",
       "lat": 38.697,
       "lon": -9.421,
-      "travel": 110,
+      "travel": 140,
       "there": [
         "Reach Cais do Sodré in Lisbon.",
         "Take the Cascais-line train to Cascais, or Estoril for the promenade walk."
@@ -98,7 +128,22 @@
           "Visit",
           "https://www.visitcascais.com/"
         ]
-      ]
+      ],
+      "travelOptions": {
+        "km": 44,
+        "driveMinutes": 40,
+        "transit": [
+          95,
+          140
+        ],
+        "publicBudget": [
+          10,
+          20
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": false
+      }
     },
     "almada": {
       "id": "almada",
@@ -107,7 +152,7 @@
       "hero": "cristo",
       "lat": 38.683,
       "lon": -9.16,
-      "travel": 85,
+      "travel": 110,
       "there": [
         "Metro to Cais do Sodré, then ferry to Cacilhas.",
         "Follow upper-town streets to the viewpoints, not the old Ginjal waterfront."
@@ -129,7 +174,22 @@
           "Ginjal notice",
           "https://www.cm-almada.pt/node/44296"
         ]
-      ]
+      ],
+      "travelOptions": {
+        "km": 34,
+        "driveMinutes": 40,
+        "transit": [
+          75,
+          110
+        ],
+        "publicBudget": [
+          9,
+          18
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": false
+      }
     },
     "tomar": {
       "id": "tomar",
@@ -138,7 +198,7 @@
       "hero": "tomar",
       "lat": 39.604,
       "lon": -8.414,
-      "travel": 165,
+      "travel": 205,
       "there": [
         "Use CP to plan Lisbon → Tomar; confirm whether your train is direct or changes at Entroncamento.",
         "Tomar station is a straightforward walk from the historic centre."
@@ -160,7 +220,22 @@
           "Convent",
           "https://www.conventocristo.gov.pt/"
         ]
-      ]
+      ],
+      "travelOptions": {
+        "km": 122,
+        "driveMinutes": 80,
+        "transit": [
+          150,
+          205
+        ],
+        "publicBudget": [
+          20,
+          36
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": false
+      }
     },
     "coimbra": {
       "id": "coimbra",
@@ -169,7 +244,7 @@
       "hero": "coimbra",
       "lat": 40.208,
       "lon": -8.426,
-      "travel": 175,
+      "travel": 220,
       "there": [
         "Book a train to Coimbra-B from Lisbon Oriente / Santa Apolónia.",
         "From Coimbra-B, check the current city connection toward Portagem. Do not assume the old Coimbra-A rail shuttle still runs."
@@ -191,7 +266,22 @@
           "University visits",
           "https://visit.uc.pt/"
         ]
-      ]
+      ],
+      "travelOptions": {
+        "km": 191,
+        "driveMinutes": 120,
+        "transit": [
+          160,
+          220
+        ],
+        "publicBudget": [
+          35,
+          85
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": false
+      }
     },
     "obidos": {
       "id": "obidos",
@@ -200,7 +290,7 @@
       "hero": "obidos",
       "lat": 39.361,
       "lon": -9.157,
-      "travel": 130,
+      "travel": 120,
       "there": [
         "Plan the regional coach from Lisbon Campo Grande to Óbidos.",
         "Use the coach stop outside the historic town; the railway station is less convenient."
@@ -218,7 +308,22 @@
           "Visit",
           "https://www.visitportugal.com/en"
         ]
-      ]
+      ],
+      "travelOptions": {
+        "km": 74,
+        "driveMinutes": 50,
+        "transit": [
+          80,
+          120
+        ],
+        "publicBudget": [
+          16,
+          28
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": false
+      }
     },
     "evora": {
       "id": "evora",
@@ -227,7 +332,7 @@
       "hero": "evora",
       "lat": 38.571,
       "lon": -7.909,
-      "travel": 170,
+      "travel": 210,
       "there": [
         "Plan CP from Lisbon Oriente / Entrecampos to Évora.",
         "Walk from Évora station toward the walled centre."
@@ -245,7 +350,736 @@
           "Visit",
           "https://www.visitportugal.com/en"
         ]
-      ]
+      ],
+      "travelOptions": {
+        "km": 144,
+        "driveMinutes": 95,
+        "transit": [
+          155,
+          210
+        ],
+        "publicBudget": [
+          25,
+          50
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": false
+      }
+    },
+    "ericeira": {
+      "id": "ericeira",
+      "name": "Ericeira",
+      "lat": 38.964,
+      "lon": -9.416,
+      "hero": "ericeira-town",
+      "tag": "White lanes, surf and Atlantic light",
+      "travel": 120,
+      "there": [
+        "Regional bus via Campo Grande / Mafra to Ericeira terminal.",
+        "Use a current journey planner; this is not a direct Lisbon train trip."
+      ],
+      "back": [
+        "Check the regional return before a late sunset walk."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://www.visitlisboa.com/en/regions/ericeira"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 38,
+        "driveMinutes": 32,
+        "transit": [
+          80,
+          120
+        ],
+        "publicBudget": [
+          12,
+          22
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": true
+      }
+    },
+    "mafra": {
+      "id": "mafra",
+      "name": "Mafra",
+      "lat": 38.937,
+      "lon": -9.328,
+      "hero": "mafra-palace",
+      "tag": "Royal scale and quiet gardens",
+      "travel": 105,
+      "there": [
+        "Regional bus towards Mafra from Campo Grande.",
+        "Check the palace-area stop, not simply the municipality."
+      ],
+      "back": [
+        "Check the next bus before leaving the gardens."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://www.visitlisboa.com/en/regions/mafra"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 27,
+        "driveMinutes": 26,
+        "transit": [
+          70,
+          105
+        ],
+        "publicBudget": [
+          10,
+          18
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": false
+      }
+    },
+    "tapada": {
+      "id": "tapada",
+      "name": "Tapada de Mafra",
+      "lat": 38.9705,
+      "lon": -9.2933,
+      "hero": "tapada",
+      "tag": "Managed woodland and wildlife",
+      "travel": 155,
+      "there": [
+        "Mafra town transport does not necessarily reach the visitor entrance.",
+        "A last-leg ride may be needed."
+      ],
+      "back": [
+        "Book or confirm a pickup before entering the forest."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://tapadademafra.pt/"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 30,
+        "driveMinutes": 31,
+        "transit": [
+          110,
+          155
+        ],
+        "publicBudget": [
+          12,
+          24
+        ],
+        "publicSuitable": false,
+        "parkingMin": 10,
+        "rural": true
+      }
+    },
+    "azenhas": {
+      "id": "azenhas",
+      "name": "Azenhas do Mar",
+      "lat": 38.841,
+      "lon": -9.462,
+      "hero": "azenhas",
+      "tag": "White cliff village and Atlantic horizon",
+      "travel": 160,
+      "there": [
+        "Train to Sintra, then check the current coastal bus.",
+        "The connection and wait are part of the estimate."
+      ],
+      "back": [
+        "Check the last coastal bus back to Sintra."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://visitsintra.travel/"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 45,
+        "driveMinutes": 46,
+        "transit": [
+          110,
+          160
+        ],
+        "publicBudget": [
+          14,
+          26
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": true
+      }
+    },
+    "roca": {
+      "id": "roca",
+      "name": "Cabo da Roca",
+      "lat": 38.7804,
+      "lon": -9.4989,
+      "hero": "roca",
+      "tag": "Huge Atlantic horizon",
+      "travel": 165,
+      "there": [
+        "Train to Sintra or Cascais, then a regional coastal bus."
+      ],
+      "back": [
+        "Check the last bus and do not rely on a remote late-night pickup."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://visitsintra.travel/"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 51,
+        "driveMinutes": 50,
+        "transit": [
+          120,
+          165
+        ],
+        "publicBudget": [
+          14,
+          26
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": true
+      }
+    },
+    "queluz": {
+      "id": "queluz",
+      "name": "Queluz",
+      "lat": 38.75,
+      "lon": -9.257,
+      "hero": "queluz-palace",
+      "tag": "Royal gardens with less travel",
+      "travel": 90,
+      "there": [
+        "Connect to the Sintra railway line and walk from Queluz-Belas / Monte Abraão as the planner directs."
+      ],
+      "back": [
+        "Return via the suburban railway and your connection to Loures."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://www.parquesdesintra.pt/en/parks-monuments/national-palace-and-gardens-of-queluz/"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 20,
+        "driveMinutes": 25,
+        "transit": [
+          55,
+          90
+        ],
+        "publicBudget": [
+          8,
+          16
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": false
+      }
+    },
+    "sesimbra": {
+      "id": "sesimbra",
+      "name": "Sesimbra",
+      "lat": 38.443,
+      "lon": -9.101,
+      "hero": "sesimbra-bay",
+      "tag": "Fishing-bay light and a relaxed promenade",
+      "travel": 155,
+      "there": [
+        "Check regional bus connections from Lisbon / the south bank to Sesimbra terminal."
+      ],
+      "back": [
+        "Save the final bus connection or arrange a return ride."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://www.visitportugal.com/en/node/132946"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 66,
+        "driveMinutes": 56,
+        "transit": [
+          110,
+          155
+        ],
+        "publicBudget": [
+          14,
+          26
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": true
+      }
+    },
+    "espichel": {
+      "id": "espichel",
+      "name": "Cabo Espichel",
+      "lat": 38.418,
+      "lon": -9.215,
+      "hero": "espichel-sanctuary",
+      "tag": "Windswept sanctuary and cinematic headland",
+      "travel": 200,
+      "there": [
+        "Public service to the cape can be sparse.",
+        "This route is not offered as a reliable public-only outing."
+      ],
+      "back": [
+        "Confirm a return vehicle before leaving Sesimbra."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://www.visitportugal.com/en/content/santuario-de-nossa-senhora-do-cabo-espichel"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 76,
+        "driveMinutes": 67,
+        "transit": [
+          145,
+          200
+        ],
+        "publicBudget": [
+          18,
+          30
+        ],
+        "publicSuitable": false,
+        "parkingMin": 10,
+        "rural": true
+      }
+    },
+    "setubal": {
+      "id": "setubal",
+      "name": "Setúbal",
+      "lat": 38.524,
+      "lon": -8.893,
+      "hero": "setubal-filipe",
+      "tag": "Sado estuary, old city and hilltop fort",
+      "travel": 130,
+      "there": [
+        "Connect to Fertagus for Setúbal, then walk into town."
+      ],
+      "back": [
+        "Return from Setúbal station and check your Loures connection."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://visitsetubal.com/"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 60,
+        "driveMinutes": 48,
+        "transit": [
+          85,
+          130
+        ],
+        "publicBudget": [
+          14,
+          26
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": false
+      }
+    },
+    "arrabida": {
+      "id": "arrabida",
+      "name": "Arrábida",
+      "lat": 38.478,
+      "lon": -8.984,
+      "hero": "arrabida-portinho",
+      "tag": "Green mountain and blue coves",
+      "travel": 200,
+      "there": [
+        "Train to Setúbal, then the seasonal coastal bus / shuttle.",
+        "Check which beach accesses are actually operating."
+      ],
+      "back": [
+        "Confirm the final coastal service before entering the park."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://visitsetubal.com/noticias-destaque/arrabida-sem-carros-3/"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 67,
+        "driveMinutes": 60,
+        "transit": [
+          140,
+          200
+        ],
+        "publicBudget": [
+          18,
+          30
+        ],
+        "publicSuitable": true,
+        "parkingMin": 25,
+        "rural": true
+      }
+    },
+    "alcochete": {
+      "id": "alcochete",
+      "name": "Alcochete",
+      "lat": 38.757,
+      "lon": -8.962,
+      "hero": "alcochete-water",
+      "tag": "White lanes and an enormous estuary sky",
+      "travel": 105,
+      "there": [
+        "Check the current regional connection from Oriente across the Vasco da Gama bridge to Alcochete."
+      ],
+      "back": [
+        "Check the bus back to Oriente before a late sunset stop."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://www.visitportugal.com/en/NR/exeres/1586D65E-3A15-4D85-B1A2-FA723B7F0A7C"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 38,
+        "driveMinutes": 32,
+        "transit": [
+          65,
+          105
+        ],
+        "publicBudget": [
+          12,
+          22
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": false
+      }
+    },
+    "buddha": {
+      "id": "buddha",
+      "name": "Buddha Eden",
+      "lat": 39.27,
+      "lon": -9.146,
+      "hero": "buddha",
+      "tag": "Sculptures and an unexpected garden world",
+      "travel": 185,
+      "there": [
+        "Regional transport can get you to Bombarral, not the garden gate.",
+        "The final 4–5 km is not included as a casual roadside walk: use a booked local ride."
+      ],
+      "back": [
+        "Book or confirm the return from the garden; do not assume rides will be waiting."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://www.bacalhoa.pt/pt/bacalhoa-buddha-eden"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 68,
+        "driveMinutes": 46,
+        "transit": [
+          130,
+          185
+        ],
+        "publicBudget": [
+          16,
+          30
+        ],
+        "publicSuitable": false,
+        "parkingMin": 10,
+        "rural": true
+      }
+    },
+    "peniche": {
+      "id": "peniche",
+      "name": "Peniche",
+      "lat": 39.358,
+      "lon": -9.381,
+      "hero": "carvoeiro",
+      "tag": "Limestone cliffs and a working harbour",
+      "travel": 170,
+      "there": [
+        "Regional coach to Peniche bus terminal.",
+        "The cape may need an additional local ride; the town itself is walkable."
+      ],
+      "back": [
+        "Save a confirmed regional-coach return before leaving the town."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://www.visitportugal.com/en/NR/exeres/150D8789-B8A5-4C11-B213-8EAD2945A2B1"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 97,
+        "driveMinutes": 67,
+        "transit": [
+          115,
+          170
+        ],
+        "publicBudget": [
+          18,
+          32
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": true
+      }
+    },
+    "caparica": {
+      "id": "caparica",
+      "name": "Costa da Caparica",
+      "lat": 38.644,
+      "lon": -9.237,
+      "hero": "caparica",
+      "tag": "Atlantic promenade and wide open sky",
+      "travel": 125,
+      "there": [
+        "Check the current bus from Lisbon / the south-bank interchange to Costa da Caparica."
+      ],
+      "back": [
+        "Return from the town bus terminal, not an isolated beach access."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://www.visitlisboa.com/en/regions/caparica"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 39,
+        "driveMinutes": 37,
+        "transit": [
+          85,
+          125
+        ],
+        "publicBudget": [
+          12,
+          24
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": false
+      }
+    },
+    "santarem": {
+      "id": "santarem",
+      "name": "Santarém",
+      "lat": 39.236,
+      "lon": -8.681,
+      "hero": "portassol",
+      "tag": "A hilltop town over the Ribatejo plain",
+      "travel": 120,
+      "there": [
+        "Use CP to Santarém.",
+        "The railway station is below town: allow a steep climb or a local bus."
+      ],
+      "back": [
+        "Leave time for the descent / local bus to the station."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://www.visitportugal.com/en/content/santarem"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 66,
+        "driveMinutes": 46,
+        "transit": [
+          80,
+          120
+        ],
+        "publicBudget": [
+          14,
+          26
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": false
+      }
+    },
+    "foz": {
+      "id": "foz",
+      "name": "Foz do Arelho",
+      "lat": 39.435,
+      "lon": -9.226,
+      "hero": "foz",
+      "tag": "Lagoon light, dunes and wooden viewpoints",
+      "travel": 190,
+      "there": [
+        "Coach to Caldas da Rainha, then a local service to Foz do Arelho.",
+        "Check the local connection; this is not a direct Lisbon train trip."
+      ],
+      "back": [
+        "Protect the last local connection back to Caldas before the coach to Lisbon."
+      ],
+      "links": [
+        [
+          "Visitor information",
+          "https://www.centerofportugal.com/"
+        ],
+        [
+          "Live journey planner",
+          "https://www.google.com/maps/"
+        ],
+        [
+          "Local buses",
+          "https://www.carrismetropolitana.pt/"
+        ]
+      ],
+      "travelOptions": {
+        "km": 93,
+        "driveMinutes": 63,
+        "transit": [
+          135,
+          190
+        ],
+        "publicBudget": [
+          18,
+          32
+        ],
+        "publicSuitable": true,
+        "parkingMin": 10,
+        "rural": true
+      }
     }
   },
   "places": {
@@ -884,6 +1718,367 @@
       "ticket": false,
       "source": "https://www.visitportugal.com/en",
       "dwell": 25
+    },
+    "ericeira-town": {
+      "id": "ericeira-town",
+      "name": "Ericeira old town",
+      "lat": 38.9633,
+      "lon": -9.4171,
+      "photo": "ericeira-town",
+      "cue": "White lanes above a bright Atlantic horizon.",
+      "about": "Wander the old fishing village and public coastal paths, with short stops rather than a beach day.",
+      "source": "https://www.visitlisboa.com/en/regions/ericeira",
+      "ticket": false,
+      "dwell": 20
+    },
+    "ericeira-pescadores": {
+      "id": "ericeira-pescadores",
+      "name": "Praia dos Pescadores viewpoint",
+      "lat": 38.9657,
+      "lon": -9.4176,
+      "photo": "ericeira-pescadores",
+      "cue": "Fishing boats and the beach below the village.",
+      "about": "Look from the public viewpoint. Going onto the sand is optional.",
+      "source": "https://www.visitlisboa.com/en/regions/ericeira",
+      "ticket": false,
+      "dwell": 20
+    },
+    "ericeira-sebastiao": {
+      "id": "ericeira-sebastiao",
+      "name": "São Sebastião coastal viewpoint",
+      "lat": 38.971,
+      "lon": -9.4187,
+      "photo": "ericeira-sebastiao",
+      "cue": "A small chapel above an open sweep of coast.",
+      "about": "Stay on maintained paths and away from unstable cliff edges.",
+      "source": "https://www.visitlisboa.com/en/regions/ericeira",
+      "ticket": false,
+      "dwell": 20
+    },
+    "mafra-palace": {
+      "id": "mafra-palace",
+      "name": "National Palace of Mafra",
+      "lat": 38.9367,
+      "lon": -9.3265,
+      "photo": "mafra-palace",
+      "cue": "A monumental facade with a very different scale.",
+      "about": "The exterior makes a good short stop; the famous library and palace interiors need tickets and opening-hour checks.",
+      "source": "https://www.visitlisboa.com/en/regions/mafra",
+      "ticket": true,
+      "dwell": 20
+    },
+    "mafra-cerco": {
+      "id": "mafra-cerco",
+      "name": "Jardim do Cerco",
+      "lat": 38.9378,
+      "lon": -9.3268,
+      "photo": "mafra-cerco",
+      "cue": "Formal gardens immediately beside the palace.",
+      "about": "A calmer green complement to the stone facade. Check garden gates and hours.",
+      "source": "https://www.visitlisboa.com/en/regions/mafra",
+      "ticket": false,
+      "dwell": 20
+    },
+    "tapada": {
+      "id": "tapada",
+      "name": "Tapada Nacional de Mafra",
+      "lat": 38.9705,
+      "lon": -9.2933,
+      "photo": "tapada",
+      "cue": "Forest tracks and space to breathe.",
+      "about": "Choose a signed visitor trail at the managed entrance. Do not treat this entrance pin as an unrestricted forest trail.",
+      "source": "https://tapadademafra.pt/",
+      "ticket": true,
+      "dwell": 20
+    },
+    "azenhas": {
+      "id": "azenhas",
+      "name": "Azenhas do Mar viewpoint",
+      "lat": 38.8411,
+      "lon": -9.4621,
+      "photo": "azenhas",
+      "cue": "A white village cascading towards the ocean.",
+      "about": "The viewpoint gives the classic postcard angle. The village steps are optional; stay back from exposed edges.",
+      "source": "https://visitsintra.travel/",
+      "ticket": false,
+      "dwell": 20
+    },
+    "macas": {
+      "id": "macas",
+      "name": "Praia das Maçãs promenade",
+      "lat": 38.825,
+      "lon": -9.4696,
+      "photo": "macas",
+      "cue": "An easy seaside promenade and an open horizon.",
+      "about": "A second low-effort coastal stop, reached by a short bus or drive rather than an assumed cliff path.",
+      "source": "https://visitsintra.travel/",
+      "ticket": false,
+      "dwell": 20
+    },
+    "roca": {
+      "id": "roca",
+      "name": "Cabo da Roca",
+      "lat": 38.7804,
+      "lon": -9.4989,
+      "photo": "roca",
+      "cue": "A lighthouse, a headland and a very wide ocean.",
+      "about": "A compact viewpoint visit, not a hike down to isolated beaches. Keep to the marked visitor areas.",
+      "source": "https://visitsintra.travel/",
+      "ticket": false,
+      "dwell": 20
+    },
+    "queluz-palace": {
+      "id": "queluz-palace",
+      "name": "National Palace of Queluz",
+      "lat": 38.7502,
+      "lon": -9.257,
+      "photo": "queluz-palace",
+      "cue": "A royal facade without the mountain journey.",
+      "about": "Visit the palace exterior and choose an interior ticket only after checking current availability.",
+      "source": "https://www.parquesdesintra.pt/en/parks-monuments/national-palace-and-gardens-of-queluz/",
+      "ticket": true,
+      "dwell": 20
+    },
+    "queluz-garden": {
+      "id": "queluz-garden",
+      "name": "Gardens of Queluz",
+      "lat": 38.7488,
+      "lon": -9.2561,
+      "photo": "queluz-garden",
+      "cue": "Formal terraces, fountains and ornate garden geometry.",
+      "about": "The gardens are part of the managed paid site, not a permanently open municipal park.",
+      "source": "https://www.parquesdesintra.pt/en/parks-monuments/national-palace-and-gardens-of-queluz/",
+      "ticket": true,
+      "dwell": 20
+    },
+    "sesimbra-fort": {
+      "id": "sesimbra-fort",
+      "name": "Fortaleza de Santiago, Sesimbra",
+      "lat": 38.4426,
+      "lon": -9.1016,
+      "photo": "sesimbra-fort",
+      "cue": "A fortress in the middle of a bright fishing bay.",
+      "about": "Use the public waterfront; museum or interior access is a separate check.",
+      "source": "https://www.visitportugal.com/en/node/132946",
+      "ticket": false,
+      "dwell": 20
+    },
+    "sesimbra-bay": {
+      "id": "sesimbra-bay",
+      "name": "Sesimbra bay promenade",
+      "lat": 38.442,
+      "lon": -9.0972,
+      "photo": "sesimbra-bay",
+      "cue": "A broad arc of sea and white waterfront buildings.",
+      "about": "An easy out-and-back promenade. You do not need to go onto the beach to enjoy the view.",
+      "source": "https://www.visitportugal.com/en/node/132946",
+      "ticket": false,
+      "dwell": 20
+    },
+    "espichel-sanctuary": {
+      "id": "espichel-sanctuary",
+      "name": "Cabo Espichel sanctuary",
+      "lat": 38.4203,
+      "lon": -9.2144,
+      "photo": "espichel-sanctuary",
+      "cue": "A vast courtyard beside an exposed Atlantic headland.",
+      "about": "A dramatic exterior visit. Remain in marked public areas and respect religious-site access.",
+      "source": "https://www.visitportugal.com/en/content/santuario-de-nossa-senhora-do-cabo-espichel",
+      "ticket": false,
+      "dwell": 20
+    },
+    "espichel-light": {
+      "id": "espichel-light",
+      "name": "Cabo Espichel lighthouse",
+      "lat": 38.4149,
+      "lon": -9.216,
+      "photo": "espichel-light",
+      "cue": "A lighthouse above a huge sweep of ocean.",
+      "about": "The outside viewpoint is the target; entering the tower is not assumed.",
+      "source": "https://www.visitportugal.com/en/content/santuario-de-nossa-senhora-do-cabo-espichel",
+      "ticket": false,
+      "dwell": 20
+    },
+    "setubal-jesus": {
+      "id": "setubal-jesus",
+      "name": "Convent of Jesus, Setúbal",
+      "lat": 38.5258,
+      "lon": -8.8954,
+      "photo": "setubal-jesus",
+      "cue": "An intricate facade in a quieter city centre.",
+      "about": "The exterior is part of the walk; museum entry is optional.",
+      "source": "https://visitsetubal.com/",
+      "ticket": true,
+      "dwell": 20
+    },
+    "setubal-filipe": {
+      "id": "setubal-filipe",
+      "name": "Fort of São Filipe",
+      "lat": 38.517,
+      "lon": -8.9109,
+      "photo": "setubal-filipe",
+      "cue": "A high view over the Sado estuary and Troia.",
+      "about": "Use the permitted public approach, with a steep final climb. Check gate access.",
+      "source": "https://visitsetubal.com/",
+      "ticket": false,
+      "dwell": 20
+    },
+    "arrabida-portinho": {
+      "id": "arrabida-portinho",
+      "name": "Portinho da Arrábida",
+      "lat": 38.4758,
+      "lon": -8.9871,
+      "photo": "arrabida-portinho",
+      "cue": "A small blue bay beneath green hills.",
+      "about": "Stay on public waterfront accesses and maintained paths; this is not a remote cove scramble.",
+      "source": "https://visitsetubal.com/noticias-destaque/arrabida-sem-carros-3/",
+      "ticket": false,
+      "dwell": 20
+    },
+    "arrabida-creiro": {
+      "id": "arrabida-creiro",
+      "name": "Creiro, Arrábida",
+      "lat": 38.478,
+      "lon": -8.9791,
+      "photo": "arrabida-creiro",
+      "cue": "Green hills meeting clear coastal light.",
+      "about": "Use the signed access from authorised parking. Walking and shuttle logistics change seasonally.",
+      "source": "https://visitsetubal.com/noticias-destaque/arrabida-sem-carros-3/",
+      "ticket": false,
+      "dwell": 20
+    },
+    "alcochete-water": {
+      "id": "alcochete-water",
+      "name": "Alcochete waterfront",
+      "lat": 38.7569,
+      "lon": -8.9613,
+      "photo": "alcochete-water",
+      "cue": "A broad estuary horizon and low waterfront streets.",
+      "about": "A gentle river-edge and village loop, not a walk into the protected marshes.",
+      "source": "https://www.visitportugal.com/en/NR/exeres/1586D65E-3A15-4D85-B1A2-FA723B7F0A7C",
+      "ticket": false,
+      "dwell": 20
+    },
+    "alcochete-church": {
+      "id": "alcochete-church",
+      "name": "São João Baptista, Alcochete",
+      "lat": 38.7554,
+      "lon": -8.9624,
+      "photo": "alcochete-church",
+      "cue": "A stone church within quiet white lanes.",
+      "about": "Use the church exterior as a landmark through the older streets.",
+      "source": "https://www.visitportugal.com/en/NR/exeres/1586D65E-3A15-4D85-B1A2-FA723B7F0A7C",
+      "ticket": false,
+      "dwell": 20
+    },
+    "buddha": {
+      "id": "buddha",
+      "name": "Bacalhôa Buddha Eden",
+      "lat": 39.2705,
+      "lon": -9.1457,
+      "photo": "buddha",
+      "cue": "Giant Buddhas in a green sculpture landscape.",
+      "about": "A self-directed garden visit on the estate’s signed paths. Buy/check the current ticket directly with the garden.",
+      "source": "https://www.bacalhoa.pt/pt/bacalhoa-buddha-eden",
+      "ticket": true,
+      "dwell": 20,
+      "closeHour": 19
+    },
+    "peniche-fort": {
+      "id": "peniche-fort",
+      "name": "Fortress of Peniche",
+      "lat": 39.3538,
+      "lon": -9.381,
+      "photo": "peniche-fort",
+      "cue": "A coastal fortress with a serious past.",
+      "about": "Look around the harbour and fortress exterior. The museum is a separate visit with opening and ticket rules.",
+      "source": "https://www.visitportugal.com/en/NR/exeres/150D8789-B8A5-4C11-B213-8EAD2945A2B1",
+      "ticket": true,
+      "dwell": 20
+    },
+    "carvoeiro": {
+      "id": "carvoeiro",
+      "name": "Cabo Carvoeiro",
+      "lat": 39.3602,
+      "lon": -9.4072,
+      "photo": "carvoeiro",
+      "cue": "Layered limestone, crashing sea and the Berlengas beyond.",
+      "about": "Use marked public viewpoints. Coastal roads between viewpoints are not a footpath just because a map joins them.",
+      "source": "https://www.visitportugal.com/en/NR/exeres/150D8789-B8A5-4C11-B213-8EAD2945A2B1",
+      "ticket": false,
+      "dwell": 20
+    },
+    "caparica": {
+      "id": "caparica",
+      "name": "Costa da Caparica promenade",
+      "lat": 38.643,
+      "lon": -9.2384,
+      "photo": "caparica",
+      "cue": "A long Atlantic horizon with almost no hill climbing.",
+      "about": "Choose an out-and-back length along the town promenade, staying on public paths rather than soft sand.",
+      "source": "https://www.visitlisboa.com/en/regions/caparica",
+      "ticket": false,
+      "dwell": 20
+    },
+    "capuchos": {
+      "id": "capuchos",
+      "name": "Convento dos Capuchos viewpoint",
+      "lat": 38.6485,
+      "lon": -9.23,
+      "photo": "capuchos",
+      "cue": "Look over the coast from the escarpment.",
+      "about": "A separate upper viewpoint: check gate hours and use a road transfer if the walking approach is unclear.",
+      "source": "https://www.visitlisboa.com/en/regions/caparica",
+      "ticket": false,
+      "dwell": 20
+    },
+    "portassol": {
+      "id": "portassol",
+      "name": "Jardim das Portas do Sol",
+      "lat": 39.2326,
+      "lon": -8.6752,
+      "photo": "portassol",
+      "cue": "Ribatejo plains stretching far below the walls.",
+      "about": "A town garden viewpoint that feels very different from the Atlantic coast. Check garden opening hours.",
+      "source": "https://www.visitportugal.com/en/content/santarem",
+      "ticket": false,
+      "dwell": 20
+    },
+    "santarem-graca": {
+      "id": "santarem-graca",
+      "name": "Igreja da Graça, Santarém",
+      "lat": 39.2334,
+      "lon": -8.6781,
+      "photo": "santarem-graca",
+      "cue": "A carved rose window in quiet old streets.",
+      "about": "Wander the historic centre between the church and garden. The interior is a separate access check.",
+      "source": "https://www.visitportugal.com/en/content/santarem",
+      "ticket": false,
+      "dwell": 20
+    },
+    "foz": {
+      "id": "foz",
+      "name": "Foz do Arelho lagoon shore",
+      "lat": 39.429,
+      "lon": -9.2235,
+      "photo": "foz",
+      "cue": "Lagoon blue on one side, Atlantic sky on the other.",
+      "about": "A gentle shore-and-promenade outing. Use boardwalks / public paths, without entering dunes or crossing tidal channels.",
+      "source": "https://www.centerofportugal.com/",
+      "ticket": false,
+      "dwell": 20
+    },
+    "foz-boardwalk": {
+      "id": "foz-boardwalk",
+      "name": "Foz do Arelho coastal boardwalks",
+      "lat": 39.4391,
+      "lon": -9.2291,
+      "photo": "foz-boardwalk",
+      "cue": "Timber paths and a huge sweep of coast.",
+      "about": "Follow maintained boardwalks and signed accesses. Turn around if wind or a closure makes the exposed section uninviting.",
+      "source": "https://www.centerofportugal.com/",
+      "ticket": false,
+      "dwell": 20
     }
   },
   "routes": [
@@ -925,7 +2120,18 @@
       "caution": "Steep cobbled climbs. Start early in hot weather; the hilltop views are worth taking slowly.",
       "source": "https://www.visitlisboa.com/en",
       "hero": "santa-luzia",
-      "transfers": []
+      "transfers": [],
+      "verdict": {
+        "worth": "The old city, seen from above",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": true,
+      "travelOptions": {
+        "km": 14.3,
+        "driveMinutes": 17,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
     },
     {
       "id": "lisbon-grand",
@@ -968,7 +2174,18 @@
       "caution": "A full outing, not a fitness test. Use the shorter old-city route when it is very hot.",
       "source": "https://www.visitlisboa.com/en",
       "hero": "senhora",
-      "transfers": []
+      "transfers": [],
+      "verdict": {
+        "worth": "All the hills, all the way to the river",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": true,
+      "travelOptions": {
+        "km": 12.4,
+        "driveMinutes": 15,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
     },
     {
       "id": "lisbon-night",
@@ -1008,7 +2225,18 @@
       "caution": "Stay on lit streets and keep headphones low enough to hear your surroundings. No route is a safety guarantee.",
       "source": "https://www.visitlisboa.com/en",
       "hero": "bica",
-      "transfers": []
+      "transfers": [],
+      "verdict": {
+        "worth": "A central night wander, not empty garden paths",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": true,
+      "travelOptions": {
+        "km": 14.3,
+        "driveMinutes": 17,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
     },
     {
       "id": "lisbon-belem",
@@ -1046,7 +2274,18 @@
       "caution": "Exposed riverside. Interior tickets and rooftop access are separate from this walking route.",
       "source": "https://www.visitlisboa.com/en",
       "hero": "maat",
-      "transfers": []
+      "transfers": [],
+      "verdict": {
+        "worth": "Architecture with the Tagus beside you",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 17.3,
+        "driveMinutes": 19,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
     },
     {
       "id": "lisbon-future",
@@ -1086,7 +2325,18 @@
       "caution": "Use the central promenade after dark; skip remote garden extensions late at night.",
       "source": "https://www.visitlisboa.com/en/places/jardim-parque-das-nacoes",
       "hero": "oriente",
-      "transfers": []
+      "transfers": [],
+      "verdict": {
+        "worth": "Steel trees, a floating building, endless water",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 10.0,
+        "driveMinutes": 13,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
     },
     {
       "id": "almada",
@@ -1122,7 +2372,18 @@
       "caution": "Uses upper-town streets. Ginjal has had access restrictions; do not use it as a shortcut. Check Casa da Cerca and Cristo Rei hours.",
       "source": "https://www.cm-almada.pt/node/44296",
       "hero": "cristo",
-      "transfers": []
+      "transfers": [],
+      "verdict": {
+        "worth": "A new perspective on the entire city",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 23.4,
+        "driveMinutes": 27,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
     },
     {
       "id": "sintra-peaks",
@@ -1167,7 +2428,20 @@
           "pena",
           "finish"
         ]
-      ]
+      ],
+      "verdict": {
+        "worth": "A proper fantasy-world day",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "carAccess": "Park in peripheral / town car parks. Private traffic is not permitted on the Pena approach roads; the final leg is a shuttle or signed hike.",
+      "travelOptions": {
+        "parkingMin": 20,
+        "km": 29.9,
+        "driveMinutes": 27,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      },
+      "returnToCar": false
     },
     {
       "id": "sintra-gardens",
@@ -1211,7 +2485,19 @@
           "monserrate",
           "finish"
         ]
-      ]
+      ],
+      "verdict": {
+        "worth": "Less rushing, more getting lost in the greenery",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "carAccess": "Park in peripheral / town car parks. Private traffic is not permitted on the Pena approach roads; the final leg is a shuttle or signed hike.",
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 29.9,
+        "driveMinutes": 27,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
     },
     {
       "id": "cascais-cliffs",
@@ -1249,7 +2535,18 @@
       "caution": "Stay within marked cliff viewpoints. Park gates close; avoid the exposed cliff section after dark or in rough weather.",
       "source": "https://www.visitcascais.com/",
       "hero": "boca",
-      "transfers": []
+      "transfers": [],
+      "verdict": {
+        "worth": "A bay, a garden, a lighthouse, a wild edge",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 40.0,
+        "driveMinutes": 33,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
     },
     {
       "id": "cascais-promenade",
@@ -1285,7 +2582,18 @@
       "caution": "You do not need to go onto the beach. Check the train home before lingering after sunset.",
       "source": "https://www.visitcascais.com/",
       "hero": "tamariz",
-      "transfers": []
+      "transfers": [],
+      "verdict": {
+        "worth": "A low-effort coastal wander",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": true,
+      "travelOptions": {
+        "km": 35.2,
+        "driveMinutes": 29,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
     },
     {
       "id": "coimbra",
@@ -1324,7 +2632,18 @@
       "caution": "Book library visits separately. Use Coimbra-B for intercity trains; confirm the current city connection, and save the return train.",
       "source": "https://visit.uc.pt/",
       "hero": "coimbra",
-      "transfers": []
+      "transfers": [],
+      "verdict": {
+        "worth": "Academic stone, garden shade & riverside calm",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 203.7,
+        "driveMinutes": 133,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
     },
     {
       "id": "tomar",
@@ -1362,7 +2681,18 @@
       "caution": "Allow time for the convent; check woodland gates and closures. Pre-plan the return train.",
       "source": "https://www.centerofportugal.com/poi/mata-dos-sete-montes",
       "hero": "tomar",
-      "transfers": []
+      "transfers": [],
+      "verdict": {
+        "worth": "Ancient stone, deep woodland, a gentle finish",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 134.2,
+        "driveMinutes": 91,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
     },
     {
       "id": "obidos",
@@ -1399,7 +2729,18 @@
       "caution": "The unguarded wall-top circuit is not part of the required walk. Check the return coach before going in.",
       "source": "https://www.visitportugal.com/en",
       "hero": "obidos",
-      "transfers": []
+      "transfers": [],
+      "verdict": {
+        "worth": "White lanes and castle walls",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 73.3,
+        "driveMinutes": 50,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
     },
     {
       "id": "evora",
@@ -1435,14 +2776,879 @@
       "caution": "Évora can be much hotter than the coast. Choose a cooler day and avoid midday heat; confirm the return train.",
       "source": "https://www.visitportugal.com/en",
       "hero": "evora",
-      "transfers": []
+      "transfers": [],
+      "verdict": {
+        "worth": "Roman columns in a whitewashed world",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 134.5,
+        "driveMinutes": 97,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "ericeira",
+      "city": "ericeira",
+      "title": "Atlantic light, without the beach day",
+      "subtitle": "Fishing-village lanes and coastal viewpoints",
+      "stops": [
+        "ericeira-town",
+        "ericeira-pescadores",
+        "ericeira-sebastiao"
+      ],
+      "hero": "ericeira-town",
+      "start": {
+        "name": "Ericeira old town",
+        "lat": 38.9633,
+        "lon": -9.4171
+      },
+      "end": {
+        "name": "Ericeira old town",
+        "lat": 38.9633,
+        "lon": -9.4171
+      },
+      "visitHours": 3,
+      "moods": [
+        "water",
+        "quiet",
+        "views"
+      ],
+      "terrain": "Town lanes and promenade",
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "caution": "Stay on the signed public paths. Strong winds can make exposed edges unpleasant.",
+      "source": "https://www.visitlisboa.com/en/regions/ericeira",
+      "transfers": [],
+      "extra": "",
+      "new": true,
+      "verdict": {
+        "worth": "Fishing-village lanes and coastal viewpoints",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 39.2,
+        "driveMinutes": 30,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "mafra",
+      "city": "mafra",
+      "title": "Royal scale, garden calm",
+      "subtitle": "A palace-and-garden outing close to the base",
+      "stops": [
+        "mafra-palace",
+        "mafra-cerco"
+      ],
+      "hero": "mafra-palace",
+      "start": {
+        "name": "National Palace of Mafra",
+        "lat": 38.9367,
+        "lon": -9.3265
+      },
+      "end": {
+        "name": "National Palace of Mafra",
+        "lat": 38.9367,
+        "lon": -9.3265
+      },
+      "visitHours": 3,
+      "moods": [
+        "oldworld",
+        "quiet"
+      ],
+      "terrain": "Mostly level town and garden",
+      "when": [
+        "day"
+      ],
+      "caution": "Palace interiors and garden gates have their own hours; buy only the ticket you actually want.",
+      "source": "https://www.visitlisboa.com/en/regions/mafra",
+      "transfers": [],
+      "extra": "",
+      "new": true,
+      "verdict": {
+        "worth": "A palace-and-garden outing close to the base",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 28.4,
+        "driveMinutes": 23,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "tapada",
+      "city": "tapada",
+      "title": "A proper woodland escape",
+      "subtitle": "Choose a signed trail and leave the city behind",
+      "stops": [
+        "tapada"
+      ],
+      "hero": "tapada",
+      "start": {
+        "name": "Tapada Nacional de Mafra",
+        "lat": 38.9705,
+        "lon": -9.2933
+      },
+      "end": {
+        "name": "Tapada Nacional de Mafra",
+        "lat": 38.9705,
+        "lon": -9.2933
+      },
+      "visitHours": 3,
+      "moods": [
+        "quiet",
+        "fantasy"
+      ],
+      "terrain": "Managed woodland paths",
+      "when": [
+        "day"
+      ],
+      "caution": "Opening hours, fire restrictions and visitor access must be checked directly. No after-dark forest routing.",
+      "source": "https://tapadademafra.pt/",
+      "transfers": [],
+      "extra": {
+        "trailNote": "The map shows the visitor entrance; choose the open signed trail on site."
+      },
+      "new": true,
+      "verdict": {
+        "worth": "Choose a signed trail and leave the city behind",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 30.4,
+        "driveMinutes": 33,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "azenhas",
+      "city": "azenhas",
+      "title": "The cliff-village postcard",
+      "subtitle": "Two coastal stops with an easy transfer",
+      "stops": [
+        "azenhas",
+        "macas"
+      ],
+      "hero": "azenhas",
+      "start": {
+        "name": "Azenhas do Mar viewpoint",
+        "lat": 38.8411,
+        "lon": -9.4621
+      },
+      "end": {
+        "name": "Azenhas do Mar viewpoint",
+        "lat": 38.8411,
+        "lon": -9.4621
+      },
+      "visitHours": 3,
+      "moods": [
+        "water",
+        "views",
+        "oldworld"
+      ],
+      "terrain": "Village steps + transfer",
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "caution": "No continuous cliff trail is implied. Use local transport between stops and leave exposed viewpoints before dark.",
+      "source": "https://visitsintra.travel/",
+      "transfers": [
+        {
+          "from": "azenhas",
+          "to": "macas",
+          "note": "Coastal bus or short drive; not a marked walking leg."
+        }
+      ],
+      "extra": "",
+      "new": true,
+      "verdict": {
+        "worth": "Two coastal stops with an easy transfer",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 39.3,
+        "driveMinutes": 38,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "roca",
+      "city": "roca",
+      "title": "At the edge of the continent",
+      "subtitle": "A short, dramatic headland visit",
+      "stops": [
+        "roca"
+      ],
+      "hero": "roca",
+      "start": {
+        "name": "Cabo da Roca",
+        "lat": 38.7804,
+        "lon": -9.4989
+      },
+      "end": {
+        "name": "Cabo da Roca",
+        "lat": 38.7804,
+        "lon": -9.4989
+      },
+      "visitHours": 1.5,
+      "moods": [
+        "views",
+        "water"
+      ],
+      "terrain": "Marked headland paths",
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "caution": "Skip in strong wind or poor visibility. No scramble to Praia da Ursa is included.",
+      "source": "https://visitsintra.travel/",
+      "transfers": [],
+      "extra": {
+        "trailNote": "A viewpoint stop: the map is not a full cliff-hiking route."
+      },
+      "new": true,
+      "verdict": {
+        "worth": "A short, dramatic headland visit",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 49.4,
+        "driveMinutes": 41,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "queluz",
+      "city": "queluz",
+      "title": "A royal garden close to home",
+      "subtitle": "A smaller journey with a very different atmosphere",
+      "stops": [
+        "queluz-palace",
+        "queluz-garden"
+      ],
+      "hero": "queluz-palace",
+      "start": {
+        "name": "National Palace of Queluz",
+        "lat": 38.7502,
+        "lon": -9.257
+      },
+      "end": {
+        "name": "National Palace of Queluz",
+        "lat": 38.7502,
+        "lon": -9.257
+      },
+      "visitHours": 3,
+      "moods": [
+        "fantasy",
+        "quiet",
+        "oldworld"
+      ],
+      "terrain": "Palace and garden paths",
+      "when": [
+        "day"
+      ],
+      "caution": "Check ticket and last-entry times. Fountain operation is not guaranteed.",
+      "source": "https://www.parquesdesintra.pt/en/parks-monuments/national-palace-and-gardens-of-queluz/",
+      "transfers": [],
+      "extra": "",
+      "new": true,
+      "verdict": {
+        "worth": "A smaller journey with a very different atmosphere",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 16.6,
+        "driveMinutes": 18,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "sesimbra",
+      "city": "sesimbra",
+      "title": "A slow lap of a fishing bay",
+      "subtitle": "Stone fort, promenade and sea air",
+      "stops": [
+        "sesimbra-fort",
+        "sesimbra-bay"
+      ],
+      "hero": "sesimbra-fort",
+      "start": {
+        "name": "Fortaleza de Santiago, Sesimbra",
+        "lat": 38.4426,
+        "lon": -9.1016
+      },
+      "end": {
+        "name": "Fortaleza de Santiago, Sesimbra",
+        "lat": 38.4426,
+        "lon": -9.1016
+      },
+      "visitHours": 3,
+      "moods": [
+        "water",
+        "quiet",
+        "oldworld"
+      ],
+      "terrain": "Mostly flat waterfront",
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "caution": "This is the town bay, not the difficult access to Ribeiro do Cavalo. Choose your own out-and-back distance.",
+      "source": "https://www.visitportugal.com/en/node/132946",
+      "transfers": [],
+      "extra": "",
+      "new": true,
+      "verdict": {
+        "worth": "Stone fort, promenade and sea air",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 47.7,
+        "driveMinutes": 48,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "espichel",
+      "city": "espichel",
+      "title": "A sanctuary at the end of the land",
+      "subtitle": "One of the most cinematic short escapes",
+      "stops": [
+        "espichel-sanctuary",
+        "espichel-light"
+      ],
+      "hero": "espichel-sanctuary",
+      "start": {
+        "name": "Cabo Espichel sanctuary",
+        "lat": 38.4203,
+        "lon": -9.2144
+      },
+      "end": {
+        "name": "Cabo Espichel sanctuary",
+        "lat": 38.4203,
+        "lon": -9.2144
+      },
+      "visitHours": 2.5,
+      "moods": [
+        "views",
+        "oldworld",
+        "water"
+      ],
+      "terrain": "Exposed headland",
+      "when": [
+        "day"
+      ],
+      "caution": "No unmarked cliff paths or after-dark exploration. Skip in strong wind. Bring water; services may be limited.",
+      "source": "https://www.visitportugal.com/en/content/santuario-de-nossa-senhora-do-cabo-espichel",
+      "transfers": [],
+      "extra": "",
+      "new": true,
+      "verdict": {
+        "worth": "One of the most cinematic short escapes",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 56.6,
+        "driveMinutes": 62,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "setubal",
+      "city": "setubal",
+      "title": "A city opening onto the estuary",
+      "subtitle": "Old-town stone and a hilltop Sado panorama",
+      "stops": [
+        "setubal-jesus",
+        "setubal-filipe"
+      ],
+      "hero": "setubal-jesus",
+      "start": {
+        "name": "Setúbal station",
+        "lat": 38.531,
+        "lon": -8.8843
+      },
+      "end": {
+        "name": "Setúbal station",
+        "lat": 38.531,
+        "lon": -8.8843
+      },
+      "visitHours": 4,
+      "moods": [
+        "views",
+        "oldworld",
+        "water"
+      ],
+      "terrain": "City lanes + steep fort approach",
+      "when": [
+        "day"
+      ],
+      "caution": "The fort approach is uphill. Check access and keep the exposed climb outside the hottest hours.",
+      "source": "https://visitsetubal.com/",
+      "transfers": [],
+      "extra": "",
+      "new": true,
+      "verdict": {
+        "worth": "Old-town stone and a hilltop Sado panorama",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 49.9,
+        "driveMinutes": 38,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "arrabida",
+      "city": "arrabida",
+      "title": "Green hills, almost unreal blue",
+      "subtitle": "A short bay-and-coast outing with planned access",
+      "stops": [
+        "arrabida-portinho",
+        "arrabida-creiro"
+      ],
+      "hero": "arrabida-portinho",
+      "start": {
+        "name": "Portinho da Arrábida",
+        "lat": 38.4758,
+        "lon": -8.9871
+      },
+      "end": {
+        "name": "Portinho da Arrábida",
+        "lat": 38.4758,
+        "lon": -8.9871
+      },
+      "visitHours": 3,
+      "moods": [
+        "water",
+        "quiet",
+        "views"
+      ],
+      "terrain": "Coastal access paths",
+      "when": [
+        "day"
+      ],
+      "caution": "Seasonal vehicle restrictions apply through 15 September 2026. Use authorised Creiro parking or municipal park-and-ride; do not assume a free drive to every bay.",
+      "source": "https://visitsetubal.com/noticias-destaque/arrabida-sem-carros-3/",
+      "transfers": [],
+      "extra": "",
+      "new": true,
+      "verdict": {
+        "worth": "A short bay-and-coast outing with planned access",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 62.5,
+        "driveMinutes": 61,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "alcochete",
+      "city": "alcochete",
+      "title": "Sky, water and white lanes",
+      "subtitle": "The lower-key alternative to a crowded viewpoint",
+      "stops": [
+        "alcochete-water",
+        "alcochete-church"
+      ],
+      "hero": "alcochete-water",
+      "start": {
+        "name": "Alcochete waterfront",
+        "lat": 38.7569,
+        "lon": -8.9613
+      },
+      "end": {
+        "name": "Alcochete waterfront",
+        "lat": 38.7569,
+        "lon": -8.9613
+      },
+      "visitHours": 2.5,
+      "moods": [
+        "quiet",
+        "water",
+        "oldworld"
+      ],
+      "terrain": "Mostly flat",
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "caution": "Stay on the town waterfront. Saltmarshes and nature reserve paths are not casual after-dark detours.",
+      "source": "https://www.visitportugal.com/en/NR/exeres/1586D65E-3A15-4D85-B1A2-FA723B7F0A7C",
+      "transfers": [],
+      "extra": "",
+      "new": true,
+      "verdict": {
+        "worth": "The lower-key alternative to a crowded viewpoint",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 32.3,
+        "driveMinutes": 29,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "buddha",
+      "city": "buddha",
+      "title": "A different world in a garden",
+      "subtitle": "Sculpture, terraces and space to wander",
+      "stops": [
+        "buddha"
+      ],
+      "hero": "buddha",
+      "start": {
+        "name": "Bacalhôa Buddha Eden",
+        "lat": 39.2705,
+        "lon": -9.1457
+      },
+      "end": {
+        "name": "Bacalhôa Buddha Eden",
+        "lat": 39.2705,
+        "lon": -9.1457
+      },
+      "visitHours": 3,
+      "moods": [
+        "fantasy",
+        "quiet"
+      ],
+      "terrain": "Managed garden paths",
+      "when": [
+        "day"
+      ],
+      "caution": "Paid, gated garden. Check current hours and last entry. Do not interpret the tourist phrase “free visit” as free admission.",
+      "source": "https://www.bacalhoa.pt/pt/bacalhoa-buddha-eden",
+      "transfers": [],
+      "extra": {
+        "trailNote": "Explore the garden’s signed paths; the map pin is the entrance, not a full internal trail."
+      },
+      "new": true,
+      "verdict": {
+        "worth": "Sculpture, terraces and space to wander",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 62.4,
+        "driveMinutes": 50,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "peniche",
+      "city": "peniche",
+      "title": "A coast carved by the ocean",
+      "subtitle": "Harbour history, then a dramatic headland",
+      "stops": [
+        "peniche-fort",
+        "carvoeiro"
+      ],
+      "hero": "peniche-fort",
+      "start": {
+        "name": "Fortress of Peniche",
+        "lat": 39.3538,
+        "lon": -9.381
+      },
+      "end": {
+        "name": "Fortress of Peniche",
+        "lat": 39.3538,
+        "lon": -9.381
+      },
+      "visitHours": 3.5,
+      "moods": [
+        "views",
+        "water"
+      ],
+      "terrain": "Two short walks + transfer",
+      "when": [
+        "day"
+      ],
+      "caution": "Use local transport between the fort and cape if paths are unclear. No exposed scrambling. Rides are less certain outside town.",
+      "source": "https://www.visitportugal.com/en/NR/exeres/150D8789-B8A5-4C11-B213-8EAD2945A2B1",
+      "transfers": [
+        {
+          "from": "peniche-fort",
+          "to": "carvoeiro",
+          "note": "Drive / local ride to the cape; avoid assuming a continuous coastal footpath."
+        }
+      ],
+      "extra": "",
+      "new": true,
+      "travelOptions": {
+        "publicSuitable": false,
+        "km": 90.9,
+        "driveMinutes": 66,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      },
+      "verdict": {
+        "worth": "Harbour history, then a dramatic headland",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false
+    },
+    {
+      "id": "caparica",
+      "city": "caparica",
+      "title": "Let the horizon do the work",
+      "subtitle": "An easy promenade with an optional upper viewpoint",
+      "stops": [
+        "caparica",
+        "capuchos"
+      ],
+      "hero": "caparica",
+      "start": {
+        "name": "Costa da Caparica promenade",
+        "lat": 38.643,
+        "lon": -9.2384
+      },
+      "end": {
+        "name": "Costa da Caparica promenade",
+        "lat": 38.643,
+        "lon": -9.2384
+      },
+      "visitHours": 3,
+      "moods": [
+        "water",
+        "quiet",
+        "views"
+      ],
+      "terrain": "Promenade + optional transfer",
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "caution": "Skip the upper viewpoint and extend the flat promenade if you prefer. Access and gate hours are not guaranteed.",
+      "source": "https://www.visitlisboa.com/en/regions/caparica",
+      "transfers": [
+        {
+          "from": "caparica",
+          "to": "capuchos",
+          "note": "Optional local transport uphill; skip for a flat walk."
+        }
+      ],
+      "extra": "",
+      "new": true,
+      "verdict": {
+        "worth": "An easy promenade with an optional upper viewpoint",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 26.1,
+        "driveMinutes": 28,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "santarem",
+      "city": "santarem",
+      "title": "A balcony over the plain",
+      "subtitle": "Stone lanes and a very big inland view",
+      "stops": [
+        "portassol",
+        "santarem-graca"
+      ],
+      "hero": "portassol",
+      "start": {
+        "name": "Jardim das Portas do Sol",
+        "lat": 39.2326,
+        "lon": -8.6752
+      },
+      "end": {
+        "name": "Jardim das Portas do Sol",
+        "lat": 39.2326,
+        "lon": -8.6752
+      },
+      "visitHours": 3,
+      "moods": [
+        "views",
+        "oldworld",
+        "quiet"
+      ],
+      "terrain": "Hilltop town",
+      "when": [
+        "day"
+      ],
+      "caution": "Inland heat can be much stronger than sea breezes. The station-to-town climb is not included in the short town loop.",
+      "source": "https://www.visitportugal.com/en/content/santarem",
+      "transfers": [],
+      "extra": "",
+      "new": true,
+      "verdict": {
+        "worth": "Stone lanes and a very big inland view",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 81.4,
+        "driveMinutes": 61,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
+    },
+    {
+      "id": "foz",
+      "city": "foz",
+      "title": "Where the lagoon meets the ocean",
+      "subtitle": "A calm, wide-sky escape when inland feels too hot",
+      "stops": [
+        "foz",
+        "foz-boardwalk"
+      ],
+      "hero": "foz",
+      "start": {
+        "name": "Foz do Arelho lagoon shore",
+        "lat": 39.429,
+        "lon": -9.2235
+      },
+      "end": {
+        "name": "Foz do Arelho lagoon shore",
+        "lat": 39.429,
+        "lon": -9.2235
+      },
+      "visitHours": 3,
+      "moods": [
+        "water",
+        "quiet",
+        "views"
+      ],
+      "terrain": "Promenade + boardwalk",
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "caution": "No swimming advice is implied. Stay on maintained paths and leave exposed boardwalks before dark.",
+      "source": "https://www.centerofportugal.com/",
+      "transfers": [],
+      "extra": "",
+      "new": true,
+      "verdict": {
+        "worth": "A calm, wide-sky escape when inland feels too hot",
+        "skip": "Skip the full outing if arrival is too close to closing time or the return is uncertain."
+      },
+      "returnToCar": false,
+      "travelOptions": {
+        "km": 88.9,
+        "driveMinutes": 63,
+        "roadSource": "FOSSGIS OSRM / OpenStreetMap",
+        "roadDate": "2026-09-05"
+      }
     }
   ],
   "plan": [
     "lisbon-classic",
-    "sintra-peaks",
-    "cascais-cliffs",
-    "coimbra",
+    "sintra-gardens",
+    "ericeira",
+    "buddha",
     "tomar"
+  ],
+  "fuel": {
+    "date": "2026-09-02",
+    "source": "https://precoscombustiveis.dgeg.gov.pt/estatistica/preco-medio-diario",
+    "petrol": 2.022,
+    "diesel": 2.019,
+    "units": "EUR/litre",
+    "note": "DGEG national daily averages, not your chosen pump."
+  },
+  "transportNote": "Planning estimates from the approximate 2660-213 base. Not live traffic, quotes or timetables.",
+  "pickedFood": [
+    {
+      "id": "food-prado",
+      "name": "Prado",
+      "lat": 38.71008,
+      "lon": -9.13475,
+      "kind": "restaurant",
+      "badge": "MICHELIN Guide listed",
+      "note": "Farm-to-table. Optional, not part of the walking route. Check current menu and booking.",
+      "price": "€€",
+      "source": "https://guide.michelin.com/gr/en/lisboa-region/lisboa/restaurant/prado"
+    },
+    {
+      "id": "food-bahr",
+      "name": "BAHR",
+      "lat": 38.71074,
+      "lon": -9.14343,
+      "kind": "restaurant",
+      "badge": "MICHELIN Guide listed",
+      "note": "A rooftop setting; a pricier option. Check current menu and booking.",
+      "price": "€€€",
+      "source": "https://guide.michelin.com/en/lisboa-region/lisboa/restaurant/bahr"
+    },
+    {
+      "id": "food-drogaria",
+      "name": "Drogaria",
+      "lat": 38.7053,
+      "lon": -9.1677,
+      "kind": "restaurant",
+      "badge": "MICHELIN Guide listed",
+      "note": "Portuguese cooking near Lapa. Check current menu and hours.",
+      "price": "€€",
+      "source": "https://guide.michelin.com/pt/pt_PT/lisboa-region/lisboa/restaurant/drogaria"
+    },
+    {
+      "id": "food-azenhas",
+      "name": "Azenhas do Mar restaurant",
+      "lat": 38.8402,
+      "lon": -9.4617,
+      "kind": "restaurant",
+      "badge": "Official tourism listing",
+      "note": "Coastal view and seafood. Current prices and nutrition are not assumed.",
+      "price": "Menu varies",
+      "source": "https://www.visitportugal.com/en/NR/exeres/8819E97D-9059-424C-9FB9-49B4F04EA6CF"
+    },
+    {
+      "id": "food-mar-inferno",
+      "name": "Mar do Inferno",
+      "lat": 38.6923,
+      "lon": -9.4301,
+      "kind": "restaurant",
+      "badge": "Official tourism selection",
+      "note": "Sea-view fish and seafood beside Boca do Inferno. Check the current menu, booking and prices.",
+      "price": "Menu varies",
+      "source": "https://www.visitcascais.com/en/partners/mar-do-inferno"
+    },
+    {
+      "id": "food-solar-bacalhau",
+      "name": "Solar do Bacalhau",
+      "lat": 40.2065,
+      "lon": -8.4303,
+      "kind": "restaurant",
+      "badge": "MICHELIN Guide listed",
+      "note": "Portuguese cooking in Coimbra’s lower old town, with an emphasis on salt cod. Check the current menu and hours.",
+      "price": "€",
+      "source": "https://guide.michelin.com/en/coimbra/coimbra/restaurant/solar-do-bacalhau"
+    }
   ]
 }

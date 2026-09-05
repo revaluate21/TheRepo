@@ -1,7 +1,7 @@
-const BUILD='4.0.3';
+const BUILD='5.0.0';
 const SHELL=`wander4-shell-${BUILD}`;
 const PHOTOS='wander4-photos-v1';
-const CORE=['./','./index.html','./app.css','./app.js','./logic.js','./icons.js','./catalog.json','./geometry.json','./photos.json','./vendor/leaflet.js','./vendor/leaflet.css','./manifest.webmanifest','./icon.svg','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable.png'];
+const CORE=['./','./index.html','./app.css','./app.js','./logic.js','./travel.js','./pois.json','./icons.js','./catalog.json','./geometry.json','./photos.json','./vendor/leaflet.js','./vendor/leaflet.css','./manifest.webmanifest','./icon.svg','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable.png'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{
  const cache=await caches.open(SHELL);await cache.addAll(CORE);
  const data=await (await cache.match('./photos.json')).json();

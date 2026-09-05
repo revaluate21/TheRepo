@@ -1,1 +1,35 @@
-{"id":"./","name":"Wander · Portugal on foot","short_name":"Wander","description":"Photo-first walks, complete route maps and Google Maps navigation, one leg at a time.","start_url":"./#explore","scope":"./","display":"standalone","background_color":"#fffaf6","theme_color":"#fffaf6","categories":["travel","navigation"],"icons":[{"src":"icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},{"src":"icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"},{"src":"icons/icon-maskable.png","sizes":"512x512","type":"image/png","purpose":"maskable"}]}
+{
+  "id": "./",
+  "name": "Wander \u00b7 Portugal escapes",
+  "short_name": "Wander",
+  "description": "Photo-first walks, complete route maps and Google Maps navigation, one leg at a time.",
+  "start_url": "./?v=5",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fffaf6",
+  "theme_color": "#fffaf6",
+  "categories": [
+    "travel",
+    "navigation"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

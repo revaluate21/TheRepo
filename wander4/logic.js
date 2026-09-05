@@ -1,5 +1,5 @@
 export const TZ='Europe/Lisbon';
-export const VERSION='4.0.0';
+export const VERSION='5.0.0';
 export const fmtTime=d=>new Intl.DateTimeFormat('en-GB',{timeZone:TZ,hour:'2-digit',minute:'2-digit'}).format(d);
 export const fmtDate=d=>new Intl.DateTimeFormat('en-GB',{timeZone:TZ,weekday:'short',day:'numeric',month:'short'}).format(d);
 export function parts(d=new Date()){return Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(d).filter(p=>p.type!=='literal').map(p=>[p.type,Number(p.value)]));}
@@ -37,9 +37,9 @@ export function departAt(selection,city,bundle,travel=0,now=new Date()){
  }
  return now;
 }
-export function assess(r,city,bundle,selection='now',gps=null,now=new Date()){
+export function assess(r,city,bundle,selection='now',gps=null,now=new Date(),travelOverride=null){
  const near=gps&&distance(gps,{lat:city.lat,lon:city.lon})<16000;
- const travel=near?Math.min(45,Math.max(5,Math.round(distance(gps,r.start)/250))):city.travel;
+ const travel=Number.isFinite(travelOverride)?travelOverride:near?Math.min(45,Math.max(5,Math.round(distance(gps,r.start)/250))):city.travel;
  const departure=departAt(selection,city.id,bundle,travel,now),arrival=new Date(departure.getTime()+travel*60000);
  const w=weatherAt(bundle,city.id,arrival,now),p=parts(arrival);
  const day=w?.sunrise&&w?.sunset?arrival>=w.sunrise&&arrival<w.sunset:p.hour>=7&&p.hour<19;
@@ -54,7 +54,7 @@ export function assess(r,city,bundle,selection='now',gps=null,now=new Date()){
   if(w.feels>=34){score-=r.moods.includes('quiet')?38:48;label='Wait for cooler hours';reason='Hot forecast. Do not force a long exposed walk.';tone='warn';}
   else if(w.feels>=29&&!r.moods.includes('fantasy')){score-=15;if(tone==='good'){label='Take it slowly';reason='Warm forecast. Plan shade, water and shorter exposed sections.';}}
   if(w.rain>=65){score-=30;label='Rain likely';reason='Wet paving and outdoor paths may change the plan.';tone='warn';}
-  if(w.wind>=40&&(r.city==='cascais'||r.id==='sintra-peaks')){score-=60;label='Windy: skip exposed edges';reason='Choose a sheltered town walk instead of cliff or castle-wall sections.';tone='warn';}
+  if(w.wind>=40&&(r.moods.includes('water')||r.id==='sintra-peaks'||r.id==='roca'||r.id==='espichel')){score-=60;label='Windy: skip exposed edges';reason='Choose a sheltered town walk instead of cliff or castle-wall sections.';tone='warn';}
  }
  return {score,label,reason,tone,weather:w,travel,near,departure,arrival,day,daylightHours:left};
 }

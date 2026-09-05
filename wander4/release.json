@@ -1,0 +1,19 @@
+{
+  "version": "5.0.0",
+  "built": "2026-09-05T08:43:39.128235+00:00",
+  "routes": 30,
+  "areas": 24,
+  "photos": 83,
+  "mappedFacilities": 4049,
+  "testsPassed": 477,
+  "browserErrors": [],
+  "assets": {
+    "app.js": "7f0985e546876153184dc0410909ff04fd1e42f407dcf24957a2b3876638444c",
+    "app.css": "ed062618ba5162b15aab13f0621eb05ed32a026b3748c6e10351e56cdcee2b4d",
+    "catalog.json": "8c75cd975052443242c40e60bd065afd314c597e9e6f132d49273b1ae5b9bed5",
+    "photos.json": "fd1eb4f74c8bf2f3b6e707daeccde95cedaa60ba03783864402d6ef028513f4b",
+    "geometry.json": "bd18574de1ca22a4b93d2e8b2a6e5dfd52900a5c76a3f4b9d8cea0c6edc57f71",
+    "travel.js": "2fa5ea812d5d2d8bdb2096ed45cb74552e328916af7203f16b1cf979539fbf99",
+    "sw.js": "fa93d60a11d115e52e832cb31090cb3de29e359f48b8c4533007a67bac778246"
+  }
+}

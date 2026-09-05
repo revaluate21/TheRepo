@@ -1,0 +1,2621 @@
+{
+  "base": "http://127.0.0.1:8765/staging/",
+  "checks": [
+    {
+      "test": "public mode default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "game-style explorer map starts immediately",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "393px home fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "30 curated routes",
+      "pass": true,
+      "detail": 30
+    },
+    {
+      "test": "24 areas",
+      "pass": true,
+      "detail": 24
+    },
+    {
+      "test": "real mapped essential places",
+      "pass": true,
+      "detail": 4049
+    },
+    {
+      "test": "food not imposed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "fuel provenance dated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "transit strict 30m filter",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "test": "transit strict 45m filter",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "test": "transit strict 60m filter",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "test": "transit strict 90m filter",
+      "pass": true,
+      "detail": 6
+    },
+    {
+      "test": "car strict 30m filter",
+      "pass": true,
+      "detail": 7
+    },
+    {
+      "test": "car strict 45m filter",
+      "pass": true,
+      "detail": 16
+    },
+    {
+      "test": "car strict 60m filter",
+      "pass": true,
+      "detail": 22
+    },
+    {
+      "test": "car strict 90m filter",
+      "pass": true,
+      "detail": 27
+    },
+    {
+      "test": "ride strict 30m filter",
+      "pass": true,
+      "detail": 7
+    },
+    {
+      "test": "ride strict 45m filter",
+      "pass": true,
+      "detail": 16
+    },
+    {
+      "test": "ride strict 60m filter",
+      "pass": true,
+      "detail": 22
+    },
+    {
+      "test": "ride strict 90m filter",
+      "pass": true,
+      "detail": 27
+    },
+    {
+      "test": "Coimbra not pretended under 90 min",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "no duplicate route ids",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "valid stops lisbon-classic",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images lisbon-classic",
+      "pass": true,
+      "detail": [
+        "rossio",
+        "senhora",
+        "graca",
+        "santa-luzia",
+        "se",
+        "praca",
+        "ribeira"
+      ]
+    },
+    {
+      "test": "route photo entries lisbon-classic",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws lisbon-classic",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card lisbon-classic",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route lisbon-classic fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops lisbon-grand",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images lisbon-grand",
+      "pass": true,
+      "detail": [
+        "parque",
+        "sao-pedro",
+        "carmo",
+        "rossio",
+        "senhora",
+        "graca",
+        "santa-luzia",
+        "se",
+        "praca",
+        "ribeira"
+      ]
+    },
+    {
+      "test": "route photo entries lisbon-grand",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws lisbon-grand",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card lisbon-grand",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route lisbon-grand fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops lisbon-night",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images lisbon-night",
+      "pass": true,
+      "detail": [
+        "rossio",
+        "carmo",
+        "sao-pedro",
+        "bica",
+        "pink",
+        "ribeira",
+        "praca"
+      ]
+    },
+    {
+      "test": "route photo entries lisbon-night",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws lisbon-night",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card lisbon-night",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route lisbon-night fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops lisbon-belem",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images lisbon-belem",
+      "pass": true,
+      "detail": [
+        "maat",
+        "padrao",
+        "belem",
+        "jeronimos"
+      ]
+    },
+    {
+      "test": "route photo entries lisbon-belem",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws lisbon-belem",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card lisbon-belem",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route lisbon-belem fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops lisbon-future",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images lisbon-future",
+      "pass": true,
+      "detail": [
+        "oriente",
+        "pavilion",
+        "oceanario",
+        "tower-vg"
+      ]
+    },
+    {
+      "test": "route photo entries lisbon-future",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws lisbon-future",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card lisbon-future",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route lisbon-future fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops almada",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images almada",
+      "pass": true,
+      "detail": [
+        "cerca",
+        "boca-vento",
+        "cristo"
+      ]
+    },
+    {
+      "test": "route photo entries almada",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws almada",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card almada",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route almada fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops sintra-peaks",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images sintra-peaks",
+      "pass": true,
+      "detail": [
+        "sintra-palace",
+        "mouros",
+        "pena"
+      ]
+    },
+    {
+      "test": "route photo entries sintra-peaks",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws sintra-peaks",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card sintra-peaks",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route sintra-peaks fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops sintra-gardens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images sintra-gardens",
+      "pass": true,
+      "detail": [
+        "sintra-palace",
+        "regaleira",
+        "monserrate"
+      ]
+    },
+    {
+      "test": "route photo entries sintra-gardens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws sintra-gardens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card sintra-gardens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route sintra-gardens fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops cascais-cliffs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images cascais-cliffs",
+      "pass": true,
+      "detail": [
+        "cascais-bay",
+        "marechal",
+        "santamarta",
+        "boca"
+      ]
+    },
+    {
+      "test": "route photo entries cascais-cliffs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws cascais-cliffs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card cascais-cliffs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route cascais-cliffs fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops cascais-promenade",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images cascais-promenade",
+      "pass": true,
+      "detail": [
+        "tamariz",
+        "cascais-bay",
+        "santamarta"
+      ]
+    },
+    {
+      "test": "route photo entries cascais-promenade",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws cascais-promenade",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card cascais-promenade",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route cascais-promenade fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops coimbra",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images coimbra",
+      "pass": true,
+      "detail": [
+        "sevelha",
+        "coimbra",
+        "joanina",
+        "botanic",
+        "mondego",
+        "santaclara"
+      ]
+    },
+    {
+      "test": "route photo entries coimbra",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws coimbra",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card coimbra",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route coimbra fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops tomar",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images tomar",
+      "pass": true,
+      "detail": [
+        "tomar-praca",
+        "tomar-mata",
+        "tomar",
+        "mouchao",
+        "pontevelha"
+      ]
+    },
+    {
+      "test": "route photo entries tomar",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws tomar",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card tomar",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route tomar fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops obidos",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images obidos",
+      "pass": true,
+      "detail": [
+        "obidos-gate",
+        "ruadireita",
+        "obidos-church",
+        "obidos"
+      ]
+    },
+    {
+      "test": "route photo entries obidos",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws obidos",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card obidos",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route obidos fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops evora",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images evora",
+      "pass": true,
+      "detail": [
+        "giraldo",
+        "evora-se",
+        "evora",
+        "evora-garden"
+      ]
+    },
+    {
+      "test": "route photo entries evora",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws evora",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card evora",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route evora fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops ericeira",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images ericeira",
+      "pass": true,
+      "detail": [
+        "ericeira-town",
+        "ericeira-pescadores",
+        "ericeira-sebastiao"
+      ]
+    },
+    {
+      "test": "route photo entries ericeira",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws ericeira",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card ericeira",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route ericeira fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops mafra",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images mafra",
+      "pass": true,
+      "detail": [
+        "mafra-palace",
+        "mafra-cerco"
+      ]
+    },
+    {
+      "test": "route photo entries mafra",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws mafra",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card mafra",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route mafra fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops tapada",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images tapada",
+      "pass": true,
+      "detail": [
+        "tapada"
+      ]
+    },
+    {
+      "test": "route photo entries tapada",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws tapada",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card tapada",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route tapada fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops azenhas",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images azenhas",
+      "pass": true,
+      "detail": [
+        "azenhas",
+        "macas"
+      ]
+    },
+    {
+      "test": "route photo entries azenhas",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws azenhas",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card azenhas",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route azenhas fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops roca",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images roca",
+      "pass": true,
+      "detail": [
+        "roca"
+      ]
+    },
+    {
+      "test": "route photo entries roca",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws roca",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card roca",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route roca fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops queluz",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images queluz",
+      "pass": true,
+      "detail": [
+        "queluz-palace",
+        "queluz-garden"
+      ]
+    },
+    {
+      "test": "route photo entries queluz",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws queluz",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card queluz",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route queluz fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops sesimbra",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images sesimbra",
+      "pass": true,
+      "detail": [
+        "sesimbra-fort",
+        "sesimbra-bay"
+      ]
+    },
+    {
+      "test": "route photo entries sesimbra",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws sesimbra",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card sesimbra",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route sesimbra fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops espichel",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images espichel",
+      "pass": true,
+      "detail": [
+        "espichel-sanctuary",
+        "espichel-light"
+      ]
+    },
+    {
+      "test": "route photo entries espichel",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws espichel",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card espichel",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route espichel fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops setubal",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images setubal",
+      "pass": true,
+      "detail": [
+        "setubal-jesus",
+        "setubal-filipe"
+      ]
+    },
+    {
+      "test": "route photo entries setubal",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws setubal",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card setubal",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route setubal fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops arrabida",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images arrabida",
+      "pass": true,
+      "detail": [
+        "arrabida-portinho",
+        "arrabida-creiro"
+      ]
+    },
+    {
+      "test": "route photo entries arrabida",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws arrabida",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card arrabida",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route arrabida fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops alcochete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images alcochete",
+      "pass": true,
+      "detail": [
+        "alcochete-water",
+        "alcochete-church"
+      ]
+    },
+    {
+      "test": "route photo entries alcochete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws alcochete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card alcochete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route alcochete fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops buddha",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images buddha",
+      "pass": true,
+      "detail": [
+        "buddha"
+      ]
+    },
+    {
+      "test": "route photo entries buddha",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws buddha",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card buddha",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route buddha fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops peniche",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images peniche",
+      "pass": true,
+      "detail": [
+        "peniche-fort",
+        "carvoeiro"
+      ]
+    },
+    {
+      "test": "route photo entries peniche",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws peniche",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card peniche",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route peniche fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops caparica",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images caparica",
+      "pass": true,
+      "detail": [
+        "caparica",
+        "capuchos"
+      ]
+    },
+    {
+      "test": "route photo entries caparica",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws caparica",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card caparica",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route caparica fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops santarem",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images santarem",
+      "pass": true,
+      "detail": [
+        "portassol",
+        "santarem-graca"
+      ]
+    },
+    {
+      "test": "route photo entries santarem",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws santarem",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card santarem",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route santarem fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "valid stops foz",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "different stop images foz",
+      "pass": true,
+      "detail": [
+        "foz",
+        "foz-boardwalk"
+      ]
+    },
+    {
+      "test": "route photo entries foz",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "map draws foz",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "every attraction card foz",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "route foz fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 393,
+        "inner": 393
+      }
+    },
+    {
+      "test": "photo200 obidos src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 obidos thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution obidos",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 cerca src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 cerca thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution cerca",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 cascais-bay src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 cascais-bay thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution cascais-bay",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 guincho src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 guincho thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution guincho",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 ribeira src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 ribeira thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution ribeira",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 oriente src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 oriente thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution oriente",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 senhora src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 senhora thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution senhora",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 pontevelha src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 pontevelha thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution pontevelha",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 carmo src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 carmo thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution carmo",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 boca-vento src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 boca-vento thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution boca-vento",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 evora-se src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 evora-se thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution evora-se",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 coimbra src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 coimbra thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution coimbra",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 sao-pedro src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 sao-pedro thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution sao-pedro",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 santamarta src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 santamarta thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution santamarta",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 giraldo src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 giraldo thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution giraldo",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 obidos-church src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 obidos-church thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution obidos-church",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 se src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 se thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution se",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 tomar-praca src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 tomar-praca thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution tomar-praca",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 tamariz src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 tamariz thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution tamariz",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 oceanario src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 oceanario thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution oceanario",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 mouchao src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 mouchao thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution mouchao",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 mondego src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 mondego thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution mondego",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 sintra-palace src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 sintra-palace thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution sintra-palace",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 sevelha src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 sevelha thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution sevelha",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 evora src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 evora thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution evora",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 joanina src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 joanina thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution joanina",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 regaleira src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 regaleira thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution regaleira",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 cristo src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 cristo thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution cristo",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 boca src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 boca thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution boca",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 jeronimos src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 jeronimos thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution jeronimos",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 obidos-gate src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 obidos-gate thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution obidos-gate",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 evora-garden src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 evora-garden thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution evora-garden",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 tower-vg src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 tower-vg thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution tower-vg",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 padrao src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 padrao thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution padrao",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 santa-luzia src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 santa-luzia thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution santa-luzia",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 monserrate src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 monserrate thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution monserrate",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 parque src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 parque thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution parque",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 belem src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 belem thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution belem",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 marechal src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 marechal thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution marechal",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 mouros src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 mouros thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution mouros",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 botanic src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 botanic thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution botanic",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 maat src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 maat thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution maat",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 pavilion src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 pavilion thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution pavilion",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 santaclara src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 santaclara thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution santaclara",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 pena src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 pena thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution pena",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 tomar-mata src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 tomar-mata thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution tomar-mata",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 praca src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 praca thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution praca",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 tomar src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 tomar thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution tomar",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 rossio src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 rossio thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution rossio",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 ruadireita src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 ruadireita thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution ruadireita",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 bica src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 bica thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution bica",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 graca src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 graca thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution graca",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 pink src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 pink thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution pink",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 ericeira-pescadores src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 ericeira-pescadores thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution ericeira-pescadores",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 ericeira-sebastiao src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 ericeira-sebastiao thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution ericeira-sebastiao",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 mafra-palace src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 mafra-palace thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution mafra-palace",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 mafra-cerco src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 mafra-cerco thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution mafra-cerco",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 tapada src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 tapada thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution tapada",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 azenhas src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 azenhas thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution azenhas",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 macas src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 macas thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution macas",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 roca src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 roca thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution roca",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 queluz-palace src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 queluz-palace thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution queluz-palace",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 queluz-garden src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 queluz-garden thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution queluz-garden",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 sesimbra-fort src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 sesimbra-fort thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution sesimbra-fort",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 sesimbra-bay src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 sesimbra-bay thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution sesimbra-bay",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 espichel-sanctuary src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 espichel-sanctuary thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution espichel-sanctuary",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 espichel-light src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 espichel-light thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution espichel-light",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 setubal-jesus src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 setubal-jesus thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution setubal-jesus",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 setubal-filipe src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 setubal-filipe thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution setubal-filipe",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 arrabida-portinho src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 arrabida-portinho thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution arrabida-portinho",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 arrabida-creiro src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 arrabida-creiro thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution arrabida-creiro",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 alcochete-church src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 alcochete-church thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution alcochete-church",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 buddha src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 buddha thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution buddha",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 peniche-fort src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 peniche-fort thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution peniche-fort",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 carvoeiro src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 carvoeiro thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution carvoeiro",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 caparica src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 caparica thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution caparica",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 capuchos src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 capuchos thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution capuchos",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 portassol src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 portassol thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution portassol",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 santarem-graca src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 santarem-graca thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution santarem-graca",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 foz src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 foz thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution foz",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 foz-boardwalk src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 foz-boardwalk thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution foz-boardwalk",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 ericeira-town src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 ericeira-town thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution ericeira-town",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 alcochete-water src",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo200 alcochete-water thumb",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "photo attribution alcochete-water",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "no photo reused as different landmarks",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "test": "car return safeguards",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "round trip fuel exact",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "tolls parking and share",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "budget settings open",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "non-live ride disclosure",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "Uber destination deep link",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "direct Bolt option",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "essential pins appear",
+      "pass": true,
+      "detail": 144
+    },
+    {
+      "test": "OSM or curated source record",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "unknown hours do not become open",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "focus links to Google Maps",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "initial navigation respects transit",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "initial navigation respects car",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "initial navigation respects ride",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "arrival advances manually",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "second leg is walking",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "GPS denied gives useful feedback",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "manual navigation remains usable",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "heat caution",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "offline saved walk and photo load",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "offline warning visible",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "320px home fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 343,
+        "inner": 343
+      }
+    },
+    {
+      "test": "768px home fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 768,
+        "inner": 768
+      }
+    },
+    {
+      "test": "1280px home fits screen",
+      "pass": true,
+      "detail": {
+        "doc": 1280,
+        "inner": 1280
+      }
+    },
+    {
+      "test": "no page JS errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "pageErrors": [],
+  "passed": true
+}
